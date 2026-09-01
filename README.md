@@ -89,22 +89,18 @@ Para cada entidade identificada, liste:
 ---
 
 ## 9. Uso de Inteligência Artificial
-*(documentação obrigatória — não é opcional se o grupo usou IA em qualquer etapa: pesquisa, escrita, organização de ideias ou revisão de texto)*
+### Uso 1 — Pesquisa e organização da organização
 
-Se o grupo usou alguma ferramenta de IA (ChatGPT, Claude, Gemini, Perplexity etc.) em qualquer parte do trabalho, registre **para cada uso relevante**:
-
-| Item | O que registrar |
-|------|------------------|
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: pesquisa sobre o setor da organização, redação do README, organização dos requisitos, revisão ortográfica/gramatical). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente, e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
-
-*Se o grupo não usou nenhuma ferramenta de IA, declare isso explicitamente nesta seção.*
+| Item | Registro |
+|---|---|
+| **Ferramenta e etapa** | **ChatGPT** — utilizamos na etapa de organização e análise das informações obtidas na pesquisa de campo realizada com o responsável pelo Mercado Santana. |
+| **Motivação** | Auxiliar na organização das respostas da entrevista e na identificação dos principais problemas relacionados a falta de controle de estoque e de vendas. |
+| **Prompt(s) utilizados** | “Essas foram as respostas do proprietário, agora deixe o documento mais profissional e com base nas respostas responde o que nos iremos fazer, o que o programa vai precisar para funcionar.” |
+| **Resposta recebida** | A IA organizou as respostas de forma mais profissional e objetiva, identificou a falta de um sistema de controle de estoque e vendas como principal problema e sugeriu funcionalidades para o sistema. |
+| **Fontes consultadas e verificadas** | As informações sobre o funcionamento do estabelecimento foram verificadas com base nas respostas fornecidas pelo responsável durante a pesquisa de campo. |
+| **Trechos rejeitados ou corrigidos** | Sugestões que não correspondiam à realidade do estabelecimento foram ajustadas ou desconsideradas pelo grupo. |
+| **Justificativa da escolha final** | Foram mantidas as informações que correspondiam aos dados obtidos diretamente na pesquisa de campo. |
+| **Reflexão crítica** | O ChatGPT foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. |
 
 ---
 
