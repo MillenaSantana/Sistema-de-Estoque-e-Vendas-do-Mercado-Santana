@@ -25,22 +25,42 @@
 ---
 
 ## 3. Requisitos do Sistema
-*(esta seção e a Seção 4 "Regras de Negócio" DIVIDEM 7,5% na dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na organização/documentação)*
+Os requisitos do sistema foram definidos a partir dos problemas identificados no Mercado Santana, principalmente relacionados à ausência de controle informatizado das vendas e do estoque. Atualmente, as vendas não são registradas em um sistema e o estoque é acompanhado visualmente, o que dificulta o controle das entradas e saídas, a identificação dos produtos mais vendidos e a reposição de mercadorias. 
 
 ### 3.1 Requisitos Funcionais
-*O que o sistema precisa FAZER (ex.: "o sistema deve permitir registrar uma venda").*
+- **RF01 — Cadastro de produtos:** o sistema deve permitir cadastrar e consultar os produtos comercializados pelo mercado.
+- **RF02 — Registro de vendas:** o sistema deve permitir registrar as vendas realizadas e os produtos vendidos em cada operação.
+- **RF03 — Controle de estoque:** o sistema deve registrar as entradas e saídas de produtos e manter atualizada a quantidade disponível.
+- **RF04 — Consulta de estoque:** o sistema deve permitir consultar a quantidade disponível de cada produto.
+- **RF05 — Controle de estoque mínimo:** o sistema deve permitir definir uma quantidade mínima para cada produto e identificar quando ela for atingida.
+- **RF06 — Reposição:** o sistema deve permitir identificar os produtos que necessitam de reposição.
+- **RF07 — Histórico de vendas:** o sistema deve armazenar as vendas realizadas para possibilitar consultas posteriores e identificar os produtos mais vendidos.
+- **RF08 — Controle de produtos não comercializáveis:** o sistema deve permitir registrar produtos vencidos ou danificados.
+- **RF09 — Registro de entradas:** o sistema deve permitir registrar a entrada de mercadorias e as respectivas quantidades recebidas.
 
 ### 3.2 Requisitos Não Funcionais
-*Características de qualidade (ex.: desempenho, segurança, usabilidade, disponibilidade).*
+- **RNF01 — Usabilidade:** o sistema deve possuir uma interface simples e intuitiva, facilitando seu uso pelos responsáveis pelo estabelecimento.
+- **RNF02 — Segurança:** o acesso às informações e funcionalidades deve ser restrito a usuários autorizados.
+- **RNF03 — Integridade:** o sistema deve manter os dados consistentes e evitar registros que comprometam o controle de vendas e estoque.
+- **RNF04 — Confiabilidade:** os registros armazenados devem permanecer disponíveis para consultas posteriores.
+
 
 ---
 
 ## 4. Regras de Negócio
-*(esta seção DIVIDE com a Seção 3 "Requisitos do Sistema" os mesmos 7,5% da dimensão conceitual — juntas valem 7,5%, não 7,5% cada — + 4% exclusivos desta seção na documentação. "Regras de negócio" é o termo técnico usado em modelagem de dados para as regras de funcionamento de qualquer organização, com ou sem fins lucrativos)*
-
-- **Regras operacionais:** *condições que a organização impõe (ex.: "um pedido só pode ser fechado se houver estoque disponível", "uma doação só pode ser registrada com identificação do doador", "um ritual só pode ser agendado se o espaço estiver disponível").*
-- **Restrições organizacionais:** *limitações que afetam o modelo (ex.: políticas internas, prazos, exigências legais, normas religiosas ou estatutárias) — e por que elas importam.*
-
+- **Regras operacionais:**
+  - Cada produto deve possuir uma identificação única no sistema.
+  - A quantidade disponível de um produto não pode ser inferior a zero.
+  - Ao registrar uma venda, a quantidade vendida deve ser subtraída do estoque.
+  - Ao registrar uma entrada, a quantidade recebida deve ser adicionada ao estoque.
+  - Cada produto pode possuir uma quantidade mínima definida para orientar a reposição.
+  - Quando o estoque estiver abaixo do mínimo estabelecido, o produto deve ser identificado para reposição.
+  - Não deve ser permitida uma venda em quantidade superior ao estoque disponível.
+  - Produtos registrados como vencidos ou danificados não devem ser considerados disponíveis para venda.
+  - As movimentações de estoque e as vendas realizadas devem permanecer registradas para consultas posteriores.
+- **Restrições organizacionais:**
+  - A decisão sobre quais produtos devem ser comprados é realizada pelo responsável pelo estabelecimento.
+  - As notas fiscais das compras devem ser armazenadas e relacionadas aos respectivos registros de entrada, quando aplicável.
 ---
 
 ## 5. Dicionário de Dados Conceitual (Preliminar)
