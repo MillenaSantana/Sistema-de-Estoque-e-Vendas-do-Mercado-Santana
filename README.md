@@ -26,7 +26,7 @@
 
 **Processo Proposto:** Integra as operações por meio de software. O produto é previamente cadastrado. Assim que a venda é realizada, o produto vendido é registrado automaticamente e o estoque é atualizado em tempo real. O sistema exibe o saldo atual e, caso o item fique abaixo do estoque mínimo, gera um alerta de reposição para disparar uma nova compra. 
 
-- **Fluxogramas:** representados visualmente na pasta [Fluxograma](./Fluxograma).
+- **Fluxogramas** representados visualmente na pasta [Fluxograma](./Fluxograma).
 
 ---
 
