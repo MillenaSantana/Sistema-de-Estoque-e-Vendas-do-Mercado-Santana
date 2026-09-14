@@ -69,13 +69,12 @@ Os requisitos do sistema foram definidos a partir dos problemas identificados no
   - As notas fiscais das compras devem ser armazenadas e relacionadas aos respectivos registros de entrada, quando aplicável.
 ---
 
-## 5. Dicionário de Dados Conceitual (Preliminar)
-## Dicionário de Dados
+## 5. Dicionário de Dados Conceitual 
 
 O Dicionário de Dados foi desenvolvido em formato de site, apresentando as
 entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
-🌐 [Acessar o Dicionário de Dados](https://millenasantana.github.io/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/)
+ [Acessar o Dicionário de Dados](https://millenasantana.github.io/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/)
 
 ---
 
