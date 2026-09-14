@@ -70,17 +70,12 @@ Os requisitos do sistema foram definidos a partir dos problemas identificados no
 ---
 
 ## 5. Dicionário de Dados Conceitual (Preliminar)
-*(vale 10% — Dimensão Procedimental)*
+## Dicionário de Dados
 
-Para cada entidade identificada, liste:
+O Dicionário de Dados foi desenvolvido em formato de site, apresentando as
+entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
-| Atributo | Descrição | Regra de negócio associada |
-|----------|-----------|------------------------------|
-| *nome do atributo* | *o que ele representa* | *se houver alguma regra (obrigatoriedade, valores possíveis, etc.)* |
-
-*Mantenha o dicionário organizado e padronizado (mesmo formato de tabela para todas as entidades).*
-
-**Atenção à privacidade:** se forem usados exemplos de valores para ilustrar os atributos, esses exemplos devem ser **fictícios** — não utilize dados reais de clientes, fiéis, beneficiários, doadores ou funcionários da organização (nomes, CPFs, contatos etc.), mesmo que tenham sido observados durante a pesquisa de campo. Os exemplos devem apenas ser **coerentes com as operações reais** observadas.
+🌐 [Acessar o Dicionário de Dados](https://millenasantana.github.io/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/)
 
 ---
 
