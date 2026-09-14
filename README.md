@@ -123,7 +123,7 @@ Para cada entidade identificada, liste:
 | **Reflexão crítica** | O ChatGPT foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. |
 
 ### Uso 3 — Requisitos e regras de negócio
-
+0
 | Item                                 | Registro                                                                                                                                                                                                                                                                                  |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Ferramenta e etapa**               | **ChatGPT** — utilizado na etapa de definição dos requisitos funcionais, não funcionais e das regras de negócio do sistema.                                                                                                                                                               |
