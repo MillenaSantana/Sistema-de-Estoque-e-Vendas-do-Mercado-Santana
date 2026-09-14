@@ -18,8 +18,6 @@
 
 ## 2. Processos de Negócio
 
-- **Principais processos mapeados:
-
 **Processo de Vendas:** Inicia quando o cliente escolhe o produto e se dirige ao caixa. O valor é calculado e o cliente realiza o pagamento. No modelo atual, a venda não é registrada imediatamente no sistema; esse registro ocorre apenas no fechamento do caixa ao final do dia.  
 
 **Controle de Estoque:** Depende da observação visual das prateleiras por parte do funcionário. Se o produto estiver acabando (Sim), identifica-se a necessidade de reposição para realizar uma nova compra; caso contrário (Não), a rotina segue normalmente.  
