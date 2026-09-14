@@ -19,7 +19,15 @@
 ## 2. Processos de Negócio
 *(vale 10% — Dimensão Procedimental)*
 
-- **Principais processos mapeados:** *ex.: cadastro de clientes/beneficiários/fiéis, controle de estoque ou doações, vendas ou arrecadação, emissão de pedidos ou solicitações, entregas ou distribuição, organização de eventos/rituais/mutirões.*
+- **Principais processos mapeados:**
+
+**Processo de Vendas:** Inicia quando o cliente escolhe o produto e se dirige ao caixa. O valor é calculado e o cliente realiza o pagamento. No modelo atual, a venda não é registrada imediatamente no sistema; esse registro ocorre apenas no fechamento do caixa ao final do dia.  
+
+**Controle de Estoque:** Depende da observação visual das prateleiras por parte do funcionário. Se o produto estiver acabando (Sim), identifica-se a necessidade de reposição para realizar uma nova compra; caso contrário (Não), a rotina segue normalmente.  
+
+**Processo de Compras:** O funcionário observa as prateleiras e identifica a falta do produto. O responsável decide o que comprar e efetua o pedido. Quando a mercadoria chega, a quantidade é conferida, o produto é guardado e a nota fiscal é armazenada. 
+
+**Processo Proposto:** Integra as operações por meio de software. O produto é previamente cadastrado. Assim que a venda é realizada, o produto vendido é registrado automaticamente e o estoque é atualizado em tempo real. O sistema exibe o saldo atual e, caso o item fique abaixo do estoque mínimo, gera um alerta de reposição para disparar uma nova compra. 
 - **Fluxogramas:** *represente visualmente pelo menos os processos-chave (imagens anexadas). Deve ficar claro o fluxo de cada processo e como eles se integram entre si.*
 
 ---
