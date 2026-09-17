@@ -79,12 +79,35 @@ entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
-*(vale 7,5% na dimensão conceitual)*
+Produto: representa os produtos comercializados pelo mercado e suas informações de estoque.
+Categoria: organiza os produtos em grupos, como alimentos, bebidas, limpeza e itens domésticos.
+Venda: representa cada venda realizada pelo mercado.
+Item_Venda: registra os produtos incluídos em cada venda, suas quantidades e valores.
+Movimentacao_Estoque: registra as entradas e saídas de produtos, mantendo o histórico das alterações no estoque.
+Atributos e classificações
 
-- **Entidades reconhecidas:** *liste e justifique brevemente cada uma.*
-- **Atributos e classificações:** *quais atributos pertencem a cada entidade.*
-- **Relacionamentos pertinentes:** *como as entidades se conectam.*
-- **Restrições e políticas organizacionais aplicadas ao modelo.**
+Cada entidade possui atributos responsáveis por armazenar suas informações. As PKs (chaves primárias) identificam cada registro de forma única, enquanto as FKs (chaves estrangeiras) estabelecem os relacionamentos entre as entidades.
+
+Produto: id_produto, nome, preco_venda, quantidade_estoque, estoque_minimo, status e id_categoria.
+Categoria: id_categoria e nome.
+Venda: id_venda, data_hora e forma_pagamento.
+Item_Venda: id_venda, id_produto, quantidade, preco_unitario e subtotal.
+Movimentacao_Estoque: id_movimentacao, id_produto, tipo, quantidade, data_hora e motivo.
+Relacionamentos pertinentes
+Categoria — Produto (1): uma categoria pode possuir vários produtos, enquanto cada produto pertence a uma categoria.
+Venda — Item_Venda (1): uma venda pode possuir vários itens, enquanto cada item pertence a uma venda.
+Produto — Item_Venda (1): um produto pode aparecer em vários itens de venda.
+Produto — Movimentacao_Estoque (1): um produto pode possuir várias movimentações de estoque.
+Restrições e políticas organizacionais
+O estoque não pode possuir valores negativos.
+A quantidade vendida não pode ser maior que a quantidade disponível.
+Todo produto deve estar associado a uma categoria.
+O estoque mínimo serve como referência para reposição.
+Produtos vencidos ou danificados não podem ser comercializados.
+As movimentações de estoque devem registrar o tipo, quantidade, data e motivo da alteração.
+As vendas e movimentações permanecem registradas para manter o histórico das operações.
+
+
 
 ---
 
