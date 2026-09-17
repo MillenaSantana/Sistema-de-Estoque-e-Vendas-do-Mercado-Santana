@@ -95,11 +95,11 @@ Este modelo representa o controle de vendas e estoque do Mercado Santana, organi
 
 Cada entidade possui atributos responsáveis por armazenar suas informações. As **PKs (chaves primárias)** identificam cada registro de forma única, enquanto as **FKs (chaves estrangeiras)** estabelecem os relacionamentos entre as entidades.
 
-* **Produto:** `id_produto`, `nome`, `preco_venda`, `quantidade_estoque`, `estoque_minimo`, `status` e `id_categoria`.
-* **Categoria:** `id_categoria` e `nome`.
-* **Venda:** `id_venda`, `data_hora` e `forma_pagamento`.
-* **Item_Venda:** `id_venda`, `id_produto`, `quantidade`, `preco_unitario` e `subtotal`.
-* **Movimentacao_Estoque:** `id_movimentacao`, `id_produto`, `tipo`, `quantidade`, `data_hora` e `motivo`.
+* **Produto:** id_produto, nome, preco_venda, quantidade_estoque, estoque_minimo, status e id_categoria.
+* **Categoria:** id_categoria e nome.
+* **Venda:** id_venda, data_hora e forma_pagamento.
+* **Item_Venda:** id_venda, id_produto, quantidade, preco_unitario e subtotal.
+* **Movimentacao_Estoque:** id_movimentacao, id_produto, tipo, quantidade, data_hora e motivo.
 
 ### Relacionamentos pertinentes
 
