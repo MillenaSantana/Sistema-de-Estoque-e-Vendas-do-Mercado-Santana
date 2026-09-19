@@ -142,18 +142,18 @@ Cada entidade possui atributos responsáveis por armazenar suas informações. A
 ---
 
 ## 9. Uso de Inteligência Artificial
-### Uso 1 — Pesquisa e organização da organização
+### Uso 1 —  Pesquisa, organização e documentação com Gemini
 
 | Item | Registro |
 |---|---|
-| **Ferramenta e etapa** | **ChatGPT** — utilizamos na etapa de organização e análise das informações obtidas na pesquisa de campo realizada com o responsável pelo Mercado Santana. |
-| **Motivação** | Auxiliar na organização das respostas da entrevista e na identificação dos principais problemas relacionados a falta de controle de estoque e de vendas. |
-| **Prompt(s) utilizados** | “Essas foram as respostas do proprietário, agora deixe o documento mais profissional e com base nas respostas responde o que nos iremos fazer, o que o programa vai precisar para funcionar.” |
-| **Resposta recebida** | A IA organizou as respostas de forma mais profissional e objetiva, identificou a falta de um sistema de controle de estoque e vendas como principal problema e sugeriu funcionalidades para o sistema. |
-| **Fontes consultadas e verificadas** | As informações sobre o funcionamento do estabelecimento foram verificadas com base nas respostas fornecidas pelo responsável durante a pesquisa de campo. |
-| **Trechos rejeitados ou corrigidos** | Sugestões que não correspondiam à realidade do estabelecimento foram ajustadas ou desconsideradas pelo grupo. |
-| **Justificativa da escolha final** | Foram mantidas as informações que correspondiam aos dados obtidos diretamente na pesquisa de campo. |
-| **Reflexão crítica** | O ChatGPT foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. |
+| **Ferramenta e etapa** | **Gemini** — utilizamos na etapa de organização e análise das informações obtidas na pesquisa de campo realizada com o responsável pelo Mercado Santana.  |Gemini (Google), utilizado na etapa de pesquisa conceitual, organização de requisitos e escrita da documentação. A IA auxiliou na compreensão do padrão de mercado para Justificativas Técnicas, na definição de entidades e atributos, e forneceu dicas cruciais sobre como estruturar os requisitos para sistemas rodando em computadores de baixa capacidade de processamento no Mercado Santana.
+| **Motivação** | Auxiliar na organização das respostas da entrevista e na identificação dos principais problemas relacionados a falta de controle de estoque e de vendas. |O objetivo de recorrer à IA foi aprender e aplicar as boas práticas de documentação utilizadas por outras empresas, garantindo um padrão profissional na organização do repositório do GitHub e uma fundamentação sólida para as decisões de arquitetura do projeto.
+| **Prompt(s) utilizados** | “Essas foram as respostas do proprietário, agora deixe o documento mais profissional e com base nas respostas responde o que nos iremos fazer, o que o programa vai precisar para funcionar.” |Foram utilizados prompts baseados em: "Como estruturar um Documento de Justificativa Técnica e um Diagrama Entidade-Relacionamento (DER) para um sistema de gestão de estoque de mercado?", além do envio da imagem do diagrama para análise de ligações e regras de negócio.
+| **Resposta recebida** | A IA organizou as respostas de forma mais profissional e objetiva, identificou a falta de um sistema de controle de estoque e vendas como principal problema e sugeriu funcionalidades para o sistema. |A IA compreendeu a imagem do Diagrama Entidade-Relacionamento (DER) enviada, validou a modelagem conceitual (relação entre entidades como Produto, Categoria e Movimentação) e forneceu a estrutura padrão de mercado para redigir o Documento de Justificativa Técnica.
+| **Fontes consultadas e verificadas** | As informações sobre o funcionamento do estabelecimento foram verificadas com base nas respostas fornecidas pelo responsável durante a pesquisa de campo. |Não houve citação direta de fontes externas ou dados estatísticos por parte da IA. O processo baseou-se estritamente em uma atividade comunicativa e interativa para formatar o texto com base nas regras de modelagem fornecidas.
+| **Trechos rejeitados ou corrigidos** | Sugestões que não correspondiam à realidade do estabelecimento foram ajustadas ou desconsideradas pelo grupo. |Foram descartados os exemplos genéricos de sistemas de estoque inicialmente sugeridos pelo Gemini. As informações foram editadas e corrigidas manualmente para criar um registro real, focado especificamente nas necessidades de baixo processamento do Mercado Santana.
+| **Justificativa da escolha final** | Foram mantidas as informações que correspondiam aos dados obtidos diretamente na pesquisa de campo. |Mantive as descrições textuais e a estrutura sugerida pela IA porque eu usei a ferramenta em português para corrigir falhas gramaticais e organizar as minhas ideias de forma clara, traduzindo fielmente a realidade do projeto e o escopo do nosso documento de trabalho.
+| **Reflexão crítica** | O Gemini foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. | Identificou-se que a IA possui limites operacionais, pois tende a sugerir soluções genéricas e cenários hipotéticos que não se aplicam ao projeto real. Foi necessária uma intervenção crítica ativa para ajustar e filtrar o conteúdo gerado à realidade técnica do nosso produto.
 
 ### Uso 3 — Requisitos e regras de negócio
 
