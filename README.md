@@ -155,18 +155,18 @@ Cada entidade possui atributos responsáveis por armazenar suas informações. A
 | **Justificativa da escolha final** | Foram mantidas as informações que correspondiam aos dados obtidos diretamente na pesquisa de campo. |Mantive as descrições textuais e a estrutura sugerida pela IA porque eu usei a ferramenta em português para corrigir falhas gramaticais e organizar as minhas ideias de forma clara, traduzindo fielmente a realidade do projeto e o escopo do nosso documento de trabalho.
 | **Reflexão crítica** | O Gemini foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. | Identificou-se que a IA possui limites operacionais, pois tende a sugerir soluções genéricas e cenários hipotéticos que não se aplicam ao projeto real. Foi necessária uma intervenção crítica ativa para ajustar e filtrar o conteúdo gerado à realidade técnica do nosso produto.
 
-### Uso 3 — Requisitos e regras de negócio
+### Uso 2 — PROCESSOS DE NEGÓCIOS
 
 | Item | O que registrar |
 |------|------------------|
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: pesquisa sobre o setor da organização, redação do README, organização dos requisitos, revisão ortográfica/gramatical). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente, e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
+| **Ferramenta e etapa** | ChatGPT – Etapa de revisão e validação dos fluxogramas com base no levantamento de dados do Mercado Santana.. |
+| **Motivação** | Verificar a coerência e o alinhamento dos fluxogramas propostos em relação às informações e requisitos coletados no levantamento de dados prévio. |
+| **Prompt(s) utilizados** | "Baseado no arquivo enviado de levantamento de dados do Marcado Santana, e verifique se está correto os fluxogramas enviado abaixo". |
+| **Resposta recebida** |"Sim. Comparei os dois fluxogramas com o Levantamento de Dados do Mercado Santana que você enviou. No geral, o fluxograma do processo proposto está bem alinhado ao levantamento". |
+| **Fontes consultadas e verificadas** | Comparação direta do retorno da IA com o documento de Levantamento de Dados do Mercado Santana e com os diagramas de fluxograma elaborados pelo grupo. |
+| **Trechos rejeitados ou corrigidos** |(Ajustar conforme o caso do grupo, por exemplo: "Nenhum trecho descartado; a validação confirmou a estrutura planejada" ou especificar eventuais ajustes feitos nos fluxogramas após o feedback). |
+| **Justificativa da escolha final** | A resposta da IA confirmou que a proposta mantinha alinhamento com a documentação de campo, permitindo ao grupo dar sequência e manter o fluxograma validado. |
+| **Reflexão crítica** | A IA realizou uma validação geral de alinhamento textual/estrutural, mas coube ao grupo revisar os detalhes operacionais específicos e as particularidades do fluxo do Mercado Santana que não estavam explicitamente mapeadas na análise genérica. |
 
 ### Uso 3 — Requisitos e regras de negócio
 
