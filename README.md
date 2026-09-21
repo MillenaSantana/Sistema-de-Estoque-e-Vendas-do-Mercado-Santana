@@ -1,3 +1,6 @@
+## Metadados
+
+- **Nomes dos alunos e RGM**
 # Sistema-de-Estoque-e-Vendas-do-Mercado-Santana
 
 ## 1. Caracterização da Organização
