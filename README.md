@@ -142,7 +142,7 @@ Cada entidade possui atributos responsáveis por armazenar suas informações. A
 ---
 
 ## 9. Uso de Inteligência Artificial
-### Uso 1 —  Pesquisa, organização e documentação com Gemini
+### Uso 1 —  Caracterização da Organização
 
 | Item | Registro |
 |---|---|
