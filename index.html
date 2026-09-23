@@ -1,11 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Dicionário de Dados - Mercado Santana</title>
 
     <style>
@@ -14,6 +11,7 @@
             margin: 40px;
             line-height: 1.6;
             color: #222;
+            background: #fff;
         }
 
         h1 {
@@ -37,8 +35,7 @@
             margin: 20px 0;
         }
 
-        th,
-        td {
+        th, td {
             border: 1px solid #999;
             padding: 10px;
             text-align: left;
@@ -46,10 +43,11 @@
 
         th {
             font-weight: bold;
+            background: #f2f2f2;
         }
 
         code {
-            background-color: #f2f2f2;
+            background: #f2f2f2;
             padding: 2px 5px;
         }
 
@@ -61,495 +59,256 @@
 
 <body>
 
-    <h1>Dicionário de Dados do Mercado Santana</h1>
-
-    <!-- 1. MODELO CONCEITUAL -->
-
-    <h2>1. Modelo conceitual</h2>
-
-    <p>
-        Este modelo representa o controle de vendas e estoque do Mercado Santana.
-        A proposta é organizar o cadastro dos produtos, registrar as vendas e
-        acompanhar as movimentações do estoque, facilitando a identificação de
-        produtos que precisam ser repostos.
-    </p>
-
-    <table>
-        <tr>
-            <th>Entidade</th>
-            <th>Relaciona-se com</th>
-            <th>Cardinalidade</th>
-        </tr>
-
-        <tr>
-            <td>CATEGORIA</td>
-            <td>PRODUTO</td>
-            <td>1:N — uma categoria pode possuir vários produtos; cada produto pertence a uma categoria.</td>
-        </tr>
-
-        <tr>
-            <td>VENDA</td>
-            <td>ITEM_VENDA</td>
-            <td>1:N — uma venda pode possuir vários itens; cada item pertence a uma venda.</td>
-        </tr>
-
-        <tr>
-            <td>PRODUTO</td>
-            <td>ITEM_VENDA</td>
-            <td>1:N — um produto pode aparecer em vários itens de venda.</td>
-        </tr>
-
-        <tr>
-            <td>PRODUTO</td>
-            <td>MOVIMENTACAO_ESTOQUE</td>
-            <td>1:N — um produto pode possuir várias movimentações de estoque.</td>
-        </tr>
-    </table>
-
-    <p>
-        <strong>CATEGORIA</strong> organiza os produtos comercializados pelo mercado
-        em grupos, como alimentos, bebidas, limpeza e itens domésticos.
-    </p>
-
-    <p>
-        <strong>PRODUTO</strong> representa os produtos comercializados pelo mercado.
-    </p>
-
-    <p>
-        <strong>VENDA</strong> representa uma venda realizada pelo mercado.
-    </p>
-
-    <p>
-        <strong>ITEM_VENDA</strong> registra os produtos, suas quantidades e preços
-        dentro de cada venda.
-    </p>
-
-    <p>
-        <strong>MOVIMENTACAO_ESTOQUE</strong> registra as alterações na quantidade
-        dos produtos em estoque.
-    </p>
-
-
-    <!-- 2. FLUXO DE DADOS -->
-
-    <h2>2. Fluxo de dados</h2>
-
-    <p>
-        Produto cadastrado → venda realizada → itens da venda registrados →
-        estoque atualizado → consulta do estoque atual → verificação do estoque
-        mínimo → identificação da necessidade de reposição.
-    </p>
-
-
-    <!-- 3. DICIONÁRIO DE DADOS -->
-
-    <h2>3. Dicionário de dados</h2>
-
-    <p>
-        O dicionário apresenta os atributos de cada entidade, seu tipo físico,
-        obrigatoriedade e finalidade no sistema.
-    </p>
-
-
-    <!-- 4. DICIONÁRIO POR ENTIDADE -->
-
-    <h2>4. Dicionário de dados por entidade</h2>
-
-    <!-- CATEGORIA -->
-
-    <h3>CATEGORIA</h3>
-
-    <p>
-        <strong>CATEGORIA = @id_categoria + nome</strong>
-    </p>
-
-    <p>
-        <strong>Leitura:</strong>
-        <code>@id_categoria</code> identifica de forma única cada categoria
-        e <code>nome</code> descreve o grupo de produtos.
-    </p>
-
-    <table>
-        <tr>
-            <th>Atributo</th>
-            <th>Tipo físico</th>
-            <th>Obrigatório</th>
-            <th>Significado e relevância</th>
-        </tr>
-
-        <tr>
-            <td>id_categoria</td>
-            <td>integer</td>
-            <td>Sim (PK)</td>
-            <td>Identifica unicamente a categoria.</td>
-        </tr>
-
-        <tr>
-            <td>nome</td>
-            <td>varchar(80)</td>
-            <td>Sim</td>
-            <td>Nome da categoria, como alimentos, bebidas, limpeza ou itens domésticos.</td>
-        </tr>
-    </table>
-
-
-    <!-- PRODUTO -->
-
-    <h3>PRODUTO</h3>
-
-    <p>
-        <strong>
-            PRODUTO = @id_produto + nome + preco_venda +
-            quantidade_estoque + estoque_minimo + status + id_categoria
-        </strong>
-    </p>
-
-    <p>
-        <strong>Leitura:</strong>
-        <code>@id_produto</code> identifica de forma única cada produto.
-        <code>id_categoria</code> relaciona o produto à categoria à qual ele pertence.
-    </p>
-
-    <table>
-        <tr>
-            <th>Atributo</th>
-            <th>Tipo físico</th>
-            <th>Obrigatório</th>
-            <th>Significado e relevância</th>
-        </tr>
-
-        <tr>
-            <td>id_produto</td>
-            <td>integer</td>
-            <td>Sim (PK)</td>
-            <td>Identifica unicamente o produto no sistema.</td>
-        </tr>
-
-        <tr>
-            <td>nome</td>
-            <td>varchar(120)</td>
-            <td>Sim</td>
-            <td>Nome utilizado para identificar o produto.</td>
-        </tr>
-
-        <tr>
-            <td>preco_venda</td>
-            <td>decimal(10,2)</td>
-            <td>Sim</td>
-            <td>Valor pelo qual o produto é comercializado.</td>
-        </tr>
-
-        <tr>
-            <td>quantidade_estoque</td>
-            <td>integer</td>
-            <td>Sim</td>
-            <td>Quantidade disponível do produto. Não pode ser negativa.</td>
-        </tr>
-
-        <tr>
-            <td>estoque_minimo</td>
-            <td>integer</td>
-            <td>Sim</td>
-            <td>Quantidade mínima utilizada para identificar a necessidade de reposição.</td>
-        </tr>
-
-        <tr>
-            <td>status</td>
-            <td>varchar(20)</td>
-            <td>Sim</td>
-            <td>Situação do produto, como disponível, vencido ou danificado.</td>
-        </tr>
-
-        <tr>
-            <td>id_categoria</td>
-            <td>integer</td>
-            <td>Sim (FK)</td>
-            <td>Identifica a categoria à qual o produto pertence.</td>
-        </tr>
-    </table>
-
-
-    <!-- VENDA -->
-
-    <h3>VENDA</h3>
-
-    <p>
-        <strong>
-            VENDA = @id_venda + data_hora + forma_pagamento
-        </strong>
-    </p>
-
-    <table>
-        <tr>
-            <th>Atributo</th>
-            <th>Tipo físico</th>
-            <th>Obrigatório</th>
-            <th>Significado e relevância</th>
-        </tr>
-
-        <tr>
-            <td>id_venda</td>
-            <td>integer</td>
-            <td>Sim (PK)</td>
-            <td>Identifica unicamente cada venda.</td>
-        </tr>
-
-        <tr>
-            <td>data_hora</td>
-            <td>datetime</td>
-            <td>Sim</td>
-            <td>Registra a data e o horário em que a venda ocorreu.</td>
-        </tr>
-
-        <tr>
-            <td>forma_pagamento</td>
-            <td>varchar(30)</td>
-            <td>Sim</td>
-            <td>Forma utilizada para realizar o pagamento, como Pix, débito, crédito ou dinheiro.</td>
-        </tr>
-    </table>
-
-
-    <!-- ITEM VENDA -->
-
-    <h3>ITEM_VENDA</h3>
-
-    <p>
-        <strong>
-            ITEM_VENDA = @id_venda + @id_produto +
-            quantidade + preco_unitario + subtotal
-        </strong>
-    </p>
-
-    <table>
-        <tr>
-            <th>Atributo</th>
-            <th>Tipo físico</th>
-            <th>Obrigatório</th>
-            <th>Significado e relevância</th>
-        </tr>
-
-        <tr>
-            <td>id_venda</td>
-            <td>integer</td>
-            <td>Sim (PK, FK)</td>
-            <td>Identifica a venda à qual o item pertence.</td>
-        </tr>
-
-        <tr>
-            <td>id_produto</td>
-            <td>integer</td>
-            <td>Sim (PK, FK)</td>
-            <td>Identifica o produto vendido.</td>
-        </tr>
-
-        <tr>
-            <td>quantidade</td>
-            <td>integer</td>
-            <td>Sim</td>
-            <td>Quantidade do produto incluída na venda.</td>
-        </tr>
-
-        <tr>
-            <td>preco_unitario</td>
-            <td>decimal(10,2)</td>
-            <td>Sim</td>
-            <td>Preço de uma unidade do produto no momento da venda.</td>
-        </tr>
-
-        <tr>
-            <td>subtotal</td>
-            <td>decimal(10,2)</td>
-            <td>Sim</td>
-            <td>Valor do item, calculado pela quantidade multiplicada pelo preço unitário.</td>
-        </tr>
-    </table>
-
-
-    <!-- MOVIMENTAÇÃO -->
-
-    <h3>MOVIMENTACAO_ESTOQUE</h3>
-
-    <p>
-        <strong>
-            MOVIMENTACAO_ESTOQUE = @id_movimentacao +
-            id_produto + tipo + quantidade + data_hora + motivo
-        </strong>
-    </p>
-
-    <table>
-        <tr>
-            <th>Atributo</th>
-            <th>Tipo físico</th>
-            <th>Obrigatório</th>
-            <th>Significado e relevância</th>
-        </tr>
-
-        <tr>
-            <td>id_movimentacao</td>
-            <td>integer</td>
-            <td>Sim (PK)</td>
-            <td>Identifica unicamente a movimentação de estoque.</td>
-        </tr>
-
-        <tr>
-            <td>id_produto</td>
-            <td>integer</td>
-            <td>Sim (FK)</td>
-            <td>Identifica o produto que sofreu a movimentação.</td>
-        </tr>
-
-        <tr>
-            <td>tipo</td>
-            <td>varchar(10)</td>
-            <td>Sim</td>
-            <td>Indica se a movimentação representa uma entrada ou uma saída.</td>
-        </tr>
-
-        <tr>
-            <td>quantidade</td>
-            <td>integer</td>
-            <td>Sim</td>
-            <td>Quantidade de produtos movimentada.</td>
-        </tr>
-
-        <tr>
-            <td>data_hora</td>
-            <td>datetime</td>
-            <td>Sim</td>
-            <td>Data e horário em que a movimentação ocorreu.</td>
-        </tr>
-
-        <tr>
-            <td>motivo</td>
-            <td>varchar(30)</td>
-            <td>Sim</td>
-            <td>Motivo da movimentação, como venda, vencimento ou dano.</td>
-        </tr>
-    </table>
-
-
-    <!-- 5. REGRAS -->
-
-    <h2>5. Restrições e regras aplicadas ao modelo</h2>
-
-    <ul>
-        <li>Cada produto deve possuir um identificador único.</li>
-        <li>Cada categoria deve possuir um identificador único.</li>
-        <li>Cada venda deve possuir um identificador único.</li>
-        <li>O estoque não pode assumir valores negativos.</li>
-        <li>A quantidade vendida não pode ser maior que a quantidade disponível.</li>
-        <li>Uma venda reduz a quantidade disponível do produto.</li>
-        <li>Cada produto possui um estoque mínimo para auxiliar na reposição.</li>
-        <li>Produtos vencidos ou danificados não podem ser comercializados.</li>
-        <li>Uma venda pode possuir vários itens.</li>
-        <li>Um produto pode aparecer em vários itens de venda.</li>
-        <li>Um produto pode possuir várias movimentações de estoque.</li>
-        <li>As vendas e movimentações de estoque permanecem registradas para consulta e histórico.</li>
-        <li>O subtotal é obtido pela multiplicação da quantidade pelo preço unitário.</li>
-        <li>As formas de pagamento consideradas são Pix, débito, crédito e dinheiro.</li>
-    </ul>
-
-
-    <!-- 6. MODELAGEM CONCEITUAL -->
-
-    <h2>6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)</h2>
-
-    <p>
-        <strong>(vale 7,5% na dimensão conceitual)</strong>
-    </p>
-
-    <ul>
-
-        <li>
-            <strong>Entidades reconhecidas:</strong>
-            CATEGORIA organiza os produtos comercializados pelo mercado em grupos.
-            PRODUTO representa os produtos comercializados.
-            VENDA representa uma venda realizada pelo mercado.
-            ITEM_VENDA registra os produtos, suas quantidades e preços dentro de uma venda.
-            MOVIMENTACAO_ESTOQUE registra as alterações na quantidade dos produtos em estoque.
-        </li>
-
-        <li>
-            <strong>Atributos e classificações:</strong>
-
-            <br><br>
-
-            <strong>CATEGORIA:</strong>
-            id_categoria (PK) e nome.
-
-            <br>
-
-            <strong>PRODUTO:</strong>
-            id_produto (PK), nome, preco_venda, quantidade_estoque,
-            estoque_minimo, status e id_categoria (FK).
-
-            <br>
-
-            <strong>VENDA:</strong>
-            id_venda (PK), data_hora e forma_pagamento.
-
-            <br>
-
-            <strong>ITEM_VENDA:</strong>
-            id_venda (PK/FK), id_produto (PK/FK), quantidade,
-            preco_unitario e subtotal (atributo derivado).
-
-            <br>
-
-            <strong>MOVIMENTACAO_ESTOQUE:</strong>
-            id_movimentacao (PK), id_produto (FK), tipo, quantidade,
-            data_hora e motivo.
-        </li>
-
-        <li>
-            <strong>Relacionamentos pertinentes:</strong>
-
-            <br><br>
-
-            <strong>CATEGORIA → PRODUTO:</strong>
-            1:N — uma categoria pode possuir vários produtos;
-            cada produto pertence a uma categoria.
-
-            <br>
-
-            <strong>VENDA → ITEM_VENDA:</strong>
-            1:N — uma venda pode possuir vários itens;
-            cada item pertence a uma venda.
-
-            <br>
-
-            <strong>PRODUTO → ITEM_VENDA:</strong>
-            1:N — um produto pode aparecer em vários itens de venda.
-
-            <br>
-
-            <strong>PRODUTO → MOVIMENTACAO_ESTOQUE:</strong>
-            1:N — um produto pode possuir várias movimentações de estoque.
-        </li>
-
-        <li>
-            <strong>Restrições e políticas organizacionais aplicadas ao modelo:</strong>
-
-            <ul>
-                <li>Cada produto, categoria e venda deve possuir um identificador único.</li>
-                <li>O estoque não pode assumir valores negativos.</li>
-                <li>A quantidade vendida não pode ser maior que a quantidade disponível.</li>
-                <li>Uma venda reduz a quantidade disponível do produto.</li>
-                <li>Cada produto possui um estoque mínimo para auxiliar na reposição.</li>
-                <li>Produtos vencidos ou danificados não podem ser comercializados.</li>
-                <li>Uma venda pode possuir vários itens.</li>
-                <li>Um produto pode aparecer em vários itens de venda.</li>
-                <li>Um produto pode possuir várias movimentações de estoque.</li>
-                <li>As vendas e movimentações de estoque permanecem registradas para consulta e histórico.</li>
-                <li>O subtotal é obtido pela multiplicação da quantidade pelo preço unitário.</li>
-                <li>As formas de pagamento consideradas são Pix, débito, crédito e dinheiro.</li>
-            </ul>
-        </li>
-
-    </ul>
+<h1>Dicionário de Dados do Mercado Santana</h1>
+
+<h2>1. Modelo conceitual</h2>
+
+<p>
+    Este modelo representa o controle de vendas e estoque do Mercado Santana.
+    A proposta é organizar o cadastro dos produtos, registrar as vendas e
+    acompanhar as movimentações do estoque, facilitando a identificação de
+    produtos que precisam ser repostos.
+</p>
+
+<table>
+    <tr>
+        <th>Entidade</th>
+        <th>Relaciona-se com</th>
+        <th>Cardinalidade</th>
+    </tr>
+    <tr>
+        <td>CATEGORIA</td>
+        <td>PRODUTO</td>
+        <td>1:N — uma categoria pode possuir vários produtos; cada produto pertence a uma categoria.</td>
+    </tr>
+    <tr>
+        <td>VENDA</td>
+        <td>ITEM_VENDA</td>
+        <td>1:N — uma venda pode possuir vários itens; cada item pertence a uma venda.</td>
+    </tr>
+    <tr>
+        <td>PRODUTO</td>
+        <td>ITEM_VENDA</td>
+        <td>1:N — um produto pode aparecer em vários itens de venda.</td>
+    </tr>
+    <tr>
+        <td>PRODUTO</td>
+        <td>MOVIMENTACAO_ESTOQUE</td>
+        <td>1:N — um produto pode possuir várias movimentações de estoque.</td>
+    </tr>
+</table>
+
+<p><strong>CATEGORIA</strong> organiza os produtos comercializados pelo mercado em grupos, como alimentos, bebidas, limpeza e itens domésticos.</p>
+<p><strong>PRODUTO</strong> representa os produtos comercializados pelo mercado.</p>
+<p><strong>VENDA</strong> representa uma venda realizada pelo mercado.</p>
+<p><strong>ITEM_VENDA</strong> registra os produtos, suas quantidades e preços dentro de cada venda.</p>
+<p><strong>MOVIMENTACAO_ESTOQUE</strong> registra as alterações na quantidade dos produtos em estoque.</p>
+
+<h2>2. Fluxo de dados</h2>
+
+<p>
+    Produto cadastrado → venda realizada → itens da venda registrados →
+    estoque atualizado → consulta do estoque atual → verificação do estoque
+    mínimo → identificação da necessidade de reposição.
+</p>
+
+<h2>3. Dicionário de dados por entidade</h2>
+
+<h3>CATEGORIA</h3>
+
+<p><strong>CATEGORIA = @id_categoria + nome</strong></p>
+
+<p>
+    <strong>Leitura:</strong>
+    @id_categoria identifica de forma única cada categoria
+    e nome descreve o grupo de produtos.
+</p>
+
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo físico</th>
+        <th>Obrigatório</th>
+        <th>Significado e relevância</th>
+    </tr>
+    <tr>
+        <td>id_categoria</td>
+        <td>integer</td>
+        <td>Sim (PK)</td>
+        <td>Identifica unicamente a categoria.</td>
+    </tr>
+    <tr>
+        <td>nome</td>
+        <td>varchar(80)</td>
+        <td>Sim</td>
+        <td>Nome da categoria, como alimentos, bebidas, limpeza ou itens domésticos.</td>
+    </tr>
+</table>
+
+<h3>PRODUTO</h3>
+
+<p>
+    <strong>
+        PRODUTO = @id_produto + nome + preco_venda +
+        quantidade_estoque + estoque_minimo + status + id_categoria
+    </strong>
+</p>
+
+<p>
+    <strong>Leitura:</strong>
+    <code>@id_produto</code> identifica de forma única cada produto.
+    <code>id_categoria</code> relaciona o produto à categoria à qual ele pertence.
+</p>
+
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo físico</th>
+        <th>Obrigatório</th>
+        <th>Significado e relevância</th>
+    </tr>
+    <tr><td>id_produto</td><td>integer</td><td>Sim (PK)</td><td>Identifica unicamente o produto no sistema.</td></tr>
+    <tr><td>nome</td><td>varchar(120)</td><td>Sim</td><td>Nome utilizado para identificar o produto.</td></tr>
+    <tr><td>preco_venda</td><td>decimal(10,2)</td><td>Sim</td><td>Valor pelo qual o produto é comercializado.</td></tr>
+    <tr><td>quantidade_estoque</td><td>integer</td><td>Sim</td><td>Quantidade disponível do produto. Não pode ser negativa.</td></tr>
+    <tr><td>estoque_minimo</td><td>integer</td><td>Sim</td><td>Quantidade mínima utilizada para identificar a necessidade de reposição.</td></tr>
+    <tr><td>status</td><td>varchar(20)</td><td>Sim</td><td>Situação do produto, como disponível, vencido ou danificado.</td></tr>
+    <tr><td>id_categoria</td><td>integer</td><td>Sim (FK)</td><td>Identifica a categoria à qual o produto pertence.</td></tr>
+</table>
+
+<h3>VENDA</h3>
+
+<p><strong>VENDA = @id_venda + data_hora + forma_pagamento</strong></p>
+
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo físico</th>
+        <th>Obrigatório</th>
+        <th>Significado e relevância</th>
+    </tr>
+    <tr><td>id_venda</td><td>integer</td><td>Sim (PK)</td><td>Identifica unicamente cada venda.</td></tr>
+    <tr><td>data_hora</td><td>datetime</td><td>Sim</td><td>Registra a data e o horário em que a venda ocorreu.</td></tr>
+    <tr><td>forma_pagamento</td><td>varchar(30)</td><td>Sim</td><td>Forma utilizada para realizar o pagamento, como Pix, débito, crédito ou dinheiro.</td></tr>
+</table>
+
+<h3>ITEM_VENDA</h3>
+
+<p><strong>ITEM_VENDA = @id_venda + @id_produto + quantidade + preco_unitario + subtotal</strong></p>
+
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo físico</th>
+        <th>Obrigatório</th>
+        <th>Significado e relevância</th>
+    </tr>
+    <tr><td>id_venda</td><td>integer</td><td>Sim (PK, FK)</td><td>Identifica a venda à qual o item pertence.</td></tr>
+    <tr><td>id_produto</td><td>integer</td><td>Sim (PK, FK)</td><td>Identifica o produto vendido.</td></tr>
+    <tr><td>quantidade</td><td>integer</td><td>Sim</td><td>Quantidade do produto incluída na venda.</td></tr>
+    <tr><td>preco_unitario</td><td>decimal(10,2)</td><td>Sim</td><td>Preço de uma unidade do produto no momento da venda.</td></tr>
+    <tr><td>subtotal</td><td>decimal(10,2)</td><td>Sim</td><td>Valor do item, calculado pela quantidade multiplicada pelo preço unitário.</td></tr>
+</table>
+
+<h3>MOVIMENTACAO_ESTOQUE</h3>
+
+<p><strong>MOVIMENTACAO_ESTOQUE = @id_movimentacao + id_produto + tipo + quantidade + data_hora + motivo</strong></p>
+
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo físico</th>
+        <th>Obrigatório</th>
+        <th>Significado e relevância</th>
+    </tr>
+    <tr><td>id_movimentacao</td><td>integer</td><td>Sim (PK)</td><td>Identifica unicamente a movimentação de estoque.</td></tr>
+    <tr><td>id_produto</td><td>integer</td><td>Sim (FK)</td><td>Identifica o produto que sofreu a movimentação.</td></tr>
+    <tr><td>tipo</td><td>varchar(10)</td><td>Sim</td><td>Indica se a movimentação representa uma entrada ou uma saída.</td></tr>
+    <tr><td>quantidade</td><td>integer</td><td>Sim</td><td>Quantidade de produtos movimentada.</td></tr>
+    <tr><td>data_hora</td><td>datetime</td><td>Sim</td><td>Data e horário em que a movimentação ocorreu.</td></tr>
+    <tr><td>motivo</td><td>varchar(30)</td><td>Sim</td><td>Motivo da movimentação, como venda, vencimento ou dano.</td></tr>
+</table>
+
+<h2>4. Restrições e regras aplicadas ao modelo</h2>
+
+<ul>
+    <li>Cada produto deve possuir um identificador único.</li>
+    <li>Cada categoria deve possuir um identificador único.</li>
+    <li>Cada venda deve possuir um identificador único.</li>
+    <li>O estoque não pode assumir valores negativos.</li>
+    <li>A quantidade vendida não pode ser maior que a quantidade disponível.</li>
+    <li>Uma venda reduz a quantidade disponível do produto.</li>
+    <li>Cada produto possui um estoque mínimo para auxiliar na reposição.</li>
+    <li>Produtos vencidos ou danificados não podem ser comercializados.</li>
+    <li>Uma venda pode possuir vários itens.</li>
+    <li>Um produto pode aparecer em vários itens de venda.</li>
+    <li>Um produto pode possuir várias movimentações de estoque.</li>
+    <li>As vendas e movimentações de estoque permanecem registradas para consulta e histórico.</li>
+    <li>O subtotal é obtido pela multiplicação da quantidade pelo preço unitário.</li>
+    <li>As formas de pagamento consideradas são Pix, débito, crédito e dinheiro.</li>
+</ul>
+
+<h2>5. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)</h2>
+
+<p><strong>(vale 7,5% na dimensão conceitual)</strong></p>
+
+<ul>
+    <li>
+        <strong>Entidades reconhecidas:</strong>
+        CATEGORIA organiza os produtos comercializados pelo mercado em grupos.
+        PRODUTO representa os produtos comercializados.
+        VENDA representa uma venda realizada pelo mercado.
+        ITEM_VENDA registra os produtos, suas quantidades e preços dentro de uma venda.
+        MOVIMENTACAO_ESTOQUE registra as alterações na quantidade dos produtos em estoque.
+    </li>
+
+    <li>
+        <strong>Atributos e classificações:</strong>
+        <br><br>
+        <strong>CATEGORIA:</strong> id_categoria (PK) e nome.
+        <br>
+        <strong>PRODUTO:</strong> id_produto (PK), nome, preco_venda,
+        quantidade_estoque, estoque_minimo, status e id_categoria (FK).
+        <br>
+        <strong>VENDA:</strong> id_venda (PK), data_hora e forma_pagamento.
+        <br>
+        <strong>ITEM_VENDA:</strong> id_venda (PK/FK), id_produto (PK/FK),
+        quantidade, preco_unitario e subtotal (atributo derivado).
+        <br>
+        <strong>MOVIMENTACAO_ESTOQUE:</strong> id_movimentacao (PK),
+        id_produto (FK), tipo, quantidade, data_hora e motivo.
+    </li>
+
+    <li>
+        <strong>Relacionamentos pertinentes:</strong>
+        <br><br>
+        <strong>CATEGORIA → PRODUTO:</strong> 1:N — uma categoria pode possuir vários produtos; cada produto pertence a uma categoria.
+        <br>
+        <strong>VENDA → ITEM_VENDA:</strong> 1:N — uma venda pode possuir vários itens; cada item pertence a uma venda.
+        <br>
+        <strong>PRODUTO → ITEM_VENDA:</strong> 1:N — um produto pode aparecer em vários itens de venda.
+        <br>
+        <strong>PRODUTO → MOVIMENTACAO_ESTOQUE:</strong> 1:N — um produto pode possuir várias movimentações de estoque.
+    </li>
+
+    <li>
+        <strong>Restrições e políticas organizacionais aplicadas ao modelo:</strong>
+        <ul>
+            <li>Cada produto, categoria e venda deve possuir um identificador único.</li>
+            <li>O estoque não pode assumir valores negativos.</li>
+            <li>A quantidade vendida não pode ser maior que a quantidade disponível.</li>
+            <li>Uma venda reduz a quantidade disponível do produto.</li>
+            <li>Cada produto possui um estoque mínimo para auxiliar na reposição.</li>
+            <li>Produtos vencidos ou danificados não podem ser comercializados.</li>
+            <li>Uma venda pode possuir vários itens.</li>
+            <li>Um produto pode aparecer em vários itens de venda.</li>
+            <li>Um produto pode possuir várias movimentações de estoque.</li>
+            <li>As vendas e movimentações de estoque permanecem registradas para consulta e histórico.</li>
+            <li>O subtotal é obtido pela multiplicação da quantidade pelo preço unitário.</li>
+            <li>As formas de pagamento consideradas são Pix, débito, crédito e dinheiro.</li>
+        </ul>
+    </li>
+</ul>
 
 </body>
-
 </html>
-```
