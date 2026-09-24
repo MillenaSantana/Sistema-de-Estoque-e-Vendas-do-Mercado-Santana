@@ -81,69 +81,76 @@ entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
 ---
 
-## 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
+# 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
+
 ## 1. Modelo conceitual
 
 Este modelo representa o controle de vendas e estoque do Mercado Santana, organizando as principais informações necessárias para o funcionamento do sistema.
 
 ### Entidades reconhecidas
 
-* **Produto:** representa os produtos comercializados pelo mercado e suas informações de estoque.
-* **Categoria:** organiza os produtos em grupos, como alimentos, bebidas, limpeza e itens domésticos.
-* **Venda:** representa cada venda realizada pelo mercado.
-* **Item_Venda:** registra os produtos incluídos em cada venda, suas quantidades e valores.
-* **Movimentacao_Estoque:** registra as entradas e saídas de produtos, mantendo o histórico das alterações no estoque.
+- **Produto:** representa os produtos comercializados pelo mercado e suas informações de estoque.
+- **Categoria:** organiza os produtos em grupos, como alimentos, bebidas, limpeza e itens domésticos.
+- **Venda:** representa cada venda realizada pelo mercado.
+- **Item_Venda:** registra os produtos incluídos em cada venda, suas quantidades e valores.
+- **Movimentacao_Estoque:** registra as entradas e saídas de produtos, mantendo o histórico das alterações no estoque.
 
 ### Atributos e classificações
 
-Cada entidade possui atributos responsáveis por armazenar suas informações. As **PKs (chaves primárias)** identificam cada registro de forma única, enquanto as **FKs (chaves estrangeiras)** estabelecem os relacionamentos entre as entidades.
+Cada entidade possui atributos responsáveis por armazenar suas informações. As PKs (chaves primárias) identificam cada registro de forma única, enquanto as FKs (chaves estrangeiras) estabelecem os relacionamentos entre as entidades.
 
-* **Produto:** id_produto, nome, preco_venda, quantidade_estoque, estoque_minimo, status e id_categoria.
-* **Categoria:** id_categoria e nome.
-* **Venda:** id_venda, data_hora e forma_pagamento.
-* **Item_Venda:** id_venda, id_produto, quantidade, preco_unitario e subtotal.
-* **Movimentacao_Estoque:** id_movimentacao, id_produto, tipo, quantidade, data_hora e motivo.
+- **Produto:** id_produto, nome, preco_venda, quantidade_estoque, estoque_minimo, status e id_categoria.
+- **Categoria:** id_categoria e nome.
+- **Venda:** id_venda, data_hora e forma_pagamento.
+- **Item_Venda:** id_venda, id_produto, quantidade, preco_unitario e subtotal.
+- **Movimentacao_Estoque:** id_movimentacao, id_produto, tipo, quantidade, data_hora e motivo.
 
 ### Relacionamentos pertinentes
 
-* **Categoria — Produto (1:N):** uma categoria pode possuir vários produtos, enquanto cada produto pertence a uma categoria.
-* **Venda — Item_Venda (1:N):** uma venda pode possuir vários itens, enquanto cada item pertence a uma venda.
-* **Produto — Item_Venda (1:N):** um produto pode aparecer em vários itens de venda.
-* **Produto — Movimentacao_Estoque (1:N):** um produto pode possuir várias movimentações de estoque.
+- **Categoria — Produto (1:N):** uma categoria pode possuir vários produtos, enquanto cada produto pertence a uma categoria.
+- **Venda — Item_Venda (1:N):** uma venda pode possuir vários itens, enquanto cada item pertence a uma venda.
+- **Produto — Item_Venda (1:N):** um produto pode aparecer em vários itens de venda.
+- **Produto — Movimentacao_Estoque (1:N):** um produto pode possuir várias movimentações de estoque.
 
 ### Restrições e políticas organizacionais
 
-* O estoque não pode possuir valores negativos.
-* A quantidade vendida não pode ser maior que a quantidade disponível.
-* Todo produto deve estar associado a uma categoria.
-* O estoque mínimo serve como referência para reposição.
-* Produtos vencidos ou danificados não podem ser comercializados.
-* As movimentações de estoque devem registrar o tipo, quantidade, data e motivo da alteração.
-* As vendas e movimentações permanecem registradas para manter o histórico das operações.
-
-
----
-
-## 7. Diagrama Entidade-Relacionamento (DER)
-*(vale 20% — é o item de maior peso da entrega)*
-
-- Anexe o DER (em imagem).
-- O diagrama deve representar corretamente:
-  - Entidades
-  - Atributos
-  - Relacionamentos
-  - **Cardinalidades**
-- O modelo deve ser **consistente** e já demonstrar potencial de **escalabilidade e integração** (pensando nas próximas etapas do projeto).
+- O estoque não pode possuir valores negativos.
+- A quantidade vendida não pode ser maior que a quantidade disponível.
+- Todo produto deve estar associado a uma categoria.
+- O estoque mínimo serve como referência para reposição.
+- Produtos vencidos ou danificados não podem ser comercializados.
+- As movimentações de estoque devem registrar o tipo, quantidade, data e motivo da alteração.
+- As vendas e movimentações permanecem registradas para manter o histórico das operações.
 
 ---
 
-## 8. Justificativa Técnica
-*(vale 7,5% — sozinho, é o subcritério de maior peso dentro da Dimensão Conceitual)*
+# 7. Diagrama Entidade-Relacionamento (DER)
 
-*Explique e defenda as decisões de abstração e modelagem tomadas: por que essas entidades, esses atributos, esses relacionamentos e essas cardinalidades — e não outras alternativas possíveis?*
+O DER representa graficamente as entidades, atributos, relacionamentos e cardinalidades definidos no modelo conceitual.
+
+O diagrama deve apresentar de forma consistente as entidades Produto, Categoria, Venda, Item_Venda e Movimentacao_Estoque, demonstrando seus respectivos relacionamentos e cardinalidades.
+
+### Diagrama
+
+> Insira aqui a imagem do seu Diagrama Entidade-Relacionamento (DER).
 
 ---
 
+# 8. Justificativa Técnica
+
+A modelagem foi definida a partir dos principais processos do Mercado Santana, considerando o controle de produtos, categorias, vendas e movimentações de estoque.
+
+A entidade Produto concentra as informações necessárias para identificar os produtos, controlar seus preços, acompanhar a quantidade disponível, definir o estoque mínimo e registrar sua situação.
+
+A entidade Categoria foi criada para organizar os produtos em grupos, facilitando sua classificação e gerenciamento.
+
+A entidade Venda representa o registro geral de cada venda realizada, enquanto Item_Venda detalha os produtos presentes em cada venda, suas quantidades, preços unitários e subtotais.
+
+A entidade Movimentacao_Estoque permite registrar as alterações realizadas no estoque, mantendo informações sobre tipo, quantidade, data, horário e motivo da movimentação.
+
+Os relacionamentos foram definidos com cardinalidade 1:N para representar que uma categoria pode possuir vários produtos, uma venda pode possuir vários itens, um produto pode aparecer em vários itens de venda e um produto pode possuir várias movimentações de estoque.
+
+Essa estrutura permite organizar os dados de forma separada e relacionada, evitando duplicidade de informações e possibilitando futuras ampliações do sistema.
 ## 9. Uso de Inteligência Artificial
 ### Uso 1 —  Caracterização da Organização
 
