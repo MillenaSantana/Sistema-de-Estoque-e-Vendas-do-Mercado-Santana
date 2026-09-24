@@ -156,8 +156,8 @@
 
 <p>
     <strong>Leitura:</strong>
-    <code>@id_produto</code> identifica de forma única cada produto.
-    <code>id_categoria</code> relaciona o produto à categoria à qual ele pertence.
+    @id_produto identifica de forma única cada produto.
+    id_categoria relaciona o produto à categoria à qual ele pertence.
 </p>
 
 <table>
@@ -228,87 +228,6 @@
     <tr><td>data_hora</td><td>datetime</td><td>Sim</td><td>Data e horário em que a movimentação ocorreu.</td></tr>
     <tr><td>motivo</td><td>varchar(30)</td><td>Sim</td><td>Motivo da movimentação, como venda, vencimento ou dano.</td></tr>
 </table>
-
-<h2>4. Restrições e regras aplicadas ao modelo</h2>
-
-<ul>
-    <li>Cada produto deve possuir um identificador único.</li>
-    <li>Cada categoria deve possuir um identificador único.</li>
-    <li>Cada venda deve possuir um identificador único.</li>
-    <li>O estoque não pode assumir valores negativos.</li>
-    <li>A quantidade vendida não pode ser maior que a quantidade disponível.</li>
-    <li>Uma venda reduz a quantidade disponível do produto.</li>
-    <li>Cada produto possui um estoque mínimo para auxiliar na reposição.</li>
-    <li>Produtos vencidos ou danificados não podem ser comercializados.</li>
-    <li>Uma venda pode possuir vários itens.</li>
-    <li>Um produto pode aparecer em vários itens de venda.</li>
-    <li>Um produto pode possuir várias movimentações de estoque.</li>
-    <li>As vendas e movimentações de estoque permanecem registradas para consulta e histórico.</li>
-    <li>O subtotal é obtido pela multiplicação da quantidade pelo preço unitário.</li>
-    <li>As formas de pagamento consideradas são Pix, débito, crédito e dinheiro.</li>
 </ul>
-
-<h2>5. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)</h2>
-
-<p><strong>(vale 7,5% na dimensão conceitual)</strong></p>
-
-<ul>
-    <li>
-        <strong>Entidades reconhecidas:</strong>
-        CATEGORIA organiza os produtos comercializados pelo mercado em grupos.
-        PRODUTO representa os produtos comercializados.
-        VENDA representa uma venda realizada pelo mercado.
-        ITEM_VENDA registra os produtos, suas quantidades e preços dentro de uma venda.
-        MOVIMENTACAO_ESTOQUE registra as alterações na quantidade dos produtos em estoque.
-    </li>
-
-    <li>
-        <strong>Atributos e classificações:</strong>
-        <br><br>
-        <strong>CATEGORIA:</strong> id_categoria (PK) e nome.
-        <br>
-        <strong>PRODUTO:</strong> id_produto (PK), nome, preco_venda,
-        quantidade_estoque, estoque_minimo, status e id_categoria (FK).
-        <br>
-        <strong>VENDA:</strong> id_venda (PK), data_hora e forma_pagamento.
-        <br>
-        <strong>ITEM_VENDA:</strong> id_venda (PK/FK), id_produto (PK/FK),
-        quantidade, preco_unitario e subtotal (atributo derivado).
-        <br>
-        <strong>MOVIMENTACAO_ESTOQUE:</strong> id_movimentacao (PK),
-        id_produto (FK), tipo, quantidade, data_hora e motivo.
-    </li>
-
-    <li>
-        <strong>Relacionamentos pertinentes:</strong>
-        <br><br>
-        <strong>CATEGORIA → PRODUTO:</strong> 1:N — uma categoria pode possuir vários produtos; cada produto pertence a uma categoria.
-        <br>
-        <strong>VENDA → ITEM_VENDA:</strong> 1:N — uma venda pode possuir vários itens; cada item pertence a uma venda.
-        <br>
-        <strong>PRODUTO → ITEM_VENDA:</strong> 1:N — um produto pode aparecer em vários itens de venda.
-        <br>
-        <strong>PRODUTO → MOVIMENTACAO_ESTOQUE:</strong> 1:N — um produto pode possuir várias movimentações de estoque.
-    </li>
-
-    <li>
-        <strong>Restrições e políticas organizacionais aplicadas ao modelo:</strong>
-        <ul>
-            <li>Cada produto, categoria e venda deve possuir um identificador único.</li>
-            <li>O estoque não pode assumir valores negativos.</li>
-            <li>A quantidade vendida não pode ser maior que a quantidade disponível.</li>
-            <li>Uma venda reduz a quantidade disponível do produto.</li>
-            <li>Cada produto possui um estoque mínimo para auxiliar na reposição.</li>
-            <li>Produtos vencidos ou danificados não podem ser comercializados.</li>
-            <li>Uma venda pode possuir vários itens.</li>
-            <li>Um produto pode aparecer em vários itens de venda.</li>
-            <li>Um produto pode possuir várias movimentações de estoque.</li>
-            <li>As vendas e movimentações de estoque permanecem registradas para consulta e histórico.</li>
-            <li>O subtotal é obtido pela multiplicação da quantidade pelo preço unitário.</li>
-            <li>As formas de pagamento consideradas são Pix, débito, crédito e dinheiro.</li>
-        </ul>
-    </li>
-</ul>
-
 </body>
 </html>
