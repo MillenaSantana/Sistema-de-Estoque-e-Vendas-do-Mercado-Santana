@@ -39,6 +39,7 @@
             border: 1px solid #999;
             padding: 10px;
             text-align: left;
+            vertical-align: top;
         }
 
         th {
@@ -51,8 +52,8 @@
             padding: 2px 5px;
         }
 
-        ul {
-            margin-top: 10px;
+        p {
+            text-align: justify;
         }
     </style>
 </head>
@@ -64,10 +65,9 @@
 <h2>1. Modelo conceitual</h2>
 
 <p>
-    Este modelo representa o controle de vendas e estoque do Mercado Santana.
-    A proposta é organizar o cadastro dos produtos, registrar as vendas e
-    acompanhar as movimentações do estoque, facilitando a identificação de
-    produtos que precisam ser repostos.
+    Este modelo representa o controle de vendas, entradas e estoque do Mercado Santana.
+    A proposta é organizar os produtos, suas categorias, as entradas de mercadorias,
+    as vendas realizadas e as movimentações do estoque.
 </p>
 
 <table>
@@ -76,21 +76,25 @@
         <th>Relaciona-se com</th>
         <th>Cardinalidade</th>
     </tr>
+
+    <tr>
+        <td>ENTRADA</td>
+        <td>PRODUTO</td>
+        <td>1:N — uma entrada pode conter vários produtos.</td>
+    </tr>
+
     <tr>
         <td>CATEGORIA</td>
         <td>PRODUTO</td>
-        <td>1:N — uma categoria pode possuir vários produtos; cada produto pertence a uma categoria.</td>
+        <td>1:N — uma categoria possui vários produtos.</td>
     </tr>
+
     <tr>
         <td>VENDA</td>
-        <td>ITEM_VENDA</td>
-        <td>1:N — uma venda pode possuir vários itens; cada item pertence a uma venda.</td>
-    </tr>
-    <tr>
         <td>PRODUTO</td>
-        <td>ITEM_VENDA</td>
-        <td>1:N — um produto pode aparecer em vários itens de venda.</td>
+        <td>1:N — uma venda pode conter vários produtos.</td>
     </tr>
+
     <tr>
         <td>PRODUTO</td>
         <td>MOVIMENTACAO_ESTOQUE</td>
@@ -98,29 +102,224 @@
     </tr>
 </table>
 
-<p><strong>CATEGORIA</strong> organiza os produtos comercializados pelo mercado em grupos, como alimentos, bebidas, limpeza e itens domésticos.</p>
-<p><strong>PRODUTO</strong> representa os produtos comercializados pelo mercado.</p>
-<p><strong>VENDA</strong> representa uma venda realizada pelo mercado.</p>
-<p><strong>ITEM_VENDA</strong> registra os produtos, suas quantidades e preços dentro de cada venda.</p>
-<p><strong>MOVIMENTACAO_ESTOQUE</strong> registra as alterações na quantidade dos produtos em estoque.</p>
+<p>
+    <strong>ENTRADA</strong> representa a entrada de mercadorias no estoque do mercado.
+</p>
+
+<p>
+    <strong>CATEGORIA</strong> organiza os produtos comercializados pelo mercado em grupos.
+</p>
+
+<p>
+    <strong>PRODUTO</strong> representa os produtos comercializados pelo mercado.
+</p>
+
+<p>
+    <strong>VENDA</strong> representa uma venda realizada pelo mercado.
+</p>
+
+<p>
+    <strong>MOVIMENTACAO_ESTOQUE</strong> registra as alterações realizadas no estoque dos produtos.
+</p>
+
 
 <h2>2. Fluxo de dados</h2>
 
 <p>
-    Produto cadastrado → venda realizada → itens da venda registrados →
-    estoque atualizado → consulta do estoque atual → verificação do estoque
-    mínimo → identificação da necessidade de reposição.
+    Entrada de mercadorias → produtos registrados → estoque atualizado →
+    venda realizada → movimentação do estoque registrada → acompanhamento
+    das informações dos produtos e do estoque.
 </p>
 
-<h2>3. Dicionário de dados por entidade</h2>
+
+<h2>3. Convenções do dicionário</h2>
+
+<p>
+    <strong>SGBD:</strong> MySQL 8, mecanismo de armazenamento InnoDB.
+    O InnoDB é utilizado para a persistência dos dados e para o controle
+    das transações do banco de dados.
+</p>
+
+<p>
+    <strong>Codificação de caracteres:</strong> utf8mb4 com collation
+    utf8mb4_0900_ai_ci. A configuração permite o armazenamento adequado
+    de caracteres acentuados da língua portuguesa e demais caracteres
+    Unicode utilizados nos dados do sistema.
+</p>
+
+<p>
+    <strong>Notação formal (símbolos usados neste dicionário):</strong>
+</p>
+
+<table>
+    <tr>
+        <th>Símbolo</th>
+        <th>Significado</th>
+    </tr>
+
+    <tr>
+        <td>=</td>
+        <td>É composto de.</td>
+    </tr>
+
+    <tr>
+        <td>+</td>
+        <td>Conecta elementos obrigatórios.</td>
+    </tr>
+
+    <tr>
+        <td>( )</td>
+        <td>Indica elemento opcional.</td>
+    </tr>
+
+    <tr>
+        <td>{ }, n{ }m</td>
+        <td>Indica iteração, com limite mínimo n e máximo m.</td>
+    </tr>
+
+    <tr>
+        <td>[ | ]</td>
+        <td>Indica escolha obrigatória entre alternativas.</td>
+    </tr>
+
+    <tr>
+        <td>/ /</td>
+        <td>Indica o rótulo de um grupo repetitivo.</td>
+    </tr>
+
+    <tr>
+        <td>@</td>
+        <td>Identificador ou chave primária.</td>
+    </tr>
+
+    <tr>
+        <td>* *</td>
+        <td>Comentário fora da estrutura formal.</td>
+    </tr>
+</table>
+
+<p>
+    <strong>Prefixos utilizados:</strong>
+</p>
+
+<table>
+    <tr>
+        <th>Prefixo</th>
+        <th>Significado</th>
+    </tr>
+
+    <tr>
+        <td>ID_</td>
+        <td>Identificador.</td>
+    </tr>
+
+    <tr>
+        <td>NM_</td>
+        <td>Nome.</td>
+    </tr>
+
+    <tr>
+        <td>DT_</td>
+        <td>Data.</td>
+    </tr>
+
+    <tr>
+        <td>CD_</td>
+        <td>Código de domínio.</td>
+    </tr>
+
+    <tr>
+        <td>QT_</td>
+        <td>Quantidade.</td>
+    </tr>
+
+    <tr>
+        <td>TP_</td>
+        <td>Tipo ou categorização.</td>
+    </tr>
+
+    <tr>
+        <td>IN_</td>
+        <td>Indicador booleano.</td>
+    </tr>
+
+    <tr>
+        <td>DS_</td>
+        <td>Descrição ou texto livre.</td>
+    </tr>
+</table>
+
+<p>
+    <strong>Versão deste dicionário:</strong> v1.0, 6/setembro/2026.
+    Qualquer alteração na estrutura deve gerar uma nova revisão registrada
+    nesta seção, garantindo a rastreabilidade do projeto.
+</p>
+
+
+<h2>4. Dicionário de dados por entidade</h2>
+
+<h3>ENTRADA</h3>
+
+<p>
+    <strong>
+        ENTRADA = @id_entrada + data_entrada +
+        numero_note_fiscal + valor_total
+    </strong>
+</p>
+
+<p>
+    <strong>Leitura:</strong> @id_entrada identifica de forma única cada entrada.
+    <code>data_entrada</code> registra a data da entrada, enquanto
+    <code>numero_note_fiscal</code> identifica a nota fiscal e
+    <code>valor_total</code> registra o valor total da entrada.
+</p>
+
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo físico</th>
+        <th>Obrigatório</th>
+        <th>Significado e relevância</th>
+    </tr>
+
+    <tr>
+        <td>id_entrada</td>
+        <td>integer</td>
+        <td>Sim (PK)</td>
+        <td>Identifica unicamente a entrada de mercadorias.</td>
+    </tr>
+
+    <tr>
+        <td>data_entrada</td>
+        <td>date</td>
+        <td>Sim</td>
+        <td>Registra a data em que os produtos foram recebidos.</td>
+    </tr>
+
+    <tr>
+        <td>numero_note_fiscal</td>
+        <td>varchar(30)</td>
+        <td>Sim</td>
+        <td>Identifica o número da nota fiscal relacionada à entrada.</td>
+    </tr>
+
+    <tr>
+        <td>valor_total</td>
+        <td>decimal(10,2)</td>
+        <td>Sim</td>
+        <td>Registra o valor total da entrada de mercadorias.</td>
+    </tr>
+</table>
+
 
 <h3>CATEGORIA</h3>
 
-<p><strong>CATEGORIA = @id_categoria + nome</strong></p>
+<p>
+    <strong>CATEGORIA = @id_categoria + nome</strong>
+</p>
 
 <p>
-    <strong>Leitura:</strong>
-   @id_categoria identifica de forma única cada categoria
+    <strong>Leitura:</strong> @id_categoria identifica de forma única cada categoria
     e <code>nome</code> descreve o grupo de produtos.
 </p>
 
@@ -131,33 +330,35 @@
         <th>Obrigatório</th>
         <th>Significado e relevância</th>
     </tr>
+
     <tr>
         <td>id_categoria</td>
         <td>integer</td>
         <td>Sim (PK)</td>
         <td>Identifica unicamente a categoria.</td>
     </tr>
+
     <tr>
         <td>nome</td>
         <td>varchar(80)</td>
         <td>Sim</td>
-        <td>Nome da categoria, como alimentos, bebidas, limpeza ou itens domésticos.</td>
+        <td>Nome da categoria dos produtos.</td>
     </tr>
 </table>
+
 
 <h3>PRODUTO</h3>
 
 <p>
     <strong>
-        PRODUTO = @id_produto + nome + preco_venda +
-        quantidade_estoque + estoque_minimo + status + id_categoria
+        PRODUTO = @id_produto + nome + preco_venda
     </strong>
 </p>
 
 <p>
-    <strong>Leitura:</strong>
-   @id_produto identifica de forma única cada produto.
- id_categoria relaciona o produto à categoria à qual ele pertence.
+    <strong>Leitura:</strong> @id_produto identifica de forma única cada produto.
+    <code>nome</code> identifica o produto e <code>preco_venda</code>
+    representa seu valor de comercialização.
 </p>
 
 <table>
@@ -167,18 +368,38 @@
         <th>Obrigatório</th>
         <th>Significado e relevância</th>
     </tr>
-    <tr><td>id_produto</td><td>integer</td><td>Sim (PK)</td><td>Identifica unicamente o produto no sistema.</td></tr>
-    <tr><td>nome</td><td>varchar(120)</td><td>Sim</td><td>Nome utilizado para identificar o produto.</td></tr>
-    <tr><td>preco_venda</td><td>decimal(10,2)</td><td>Sim</td><td>Valor pelo qual o produto é comercializado.</td></tr>
-    <tr><td>quantidade_estoque</td><td>integer</td><td>Sim</td><td>Quantidade disponível do produto. Não pode ser negativa.</td></tr>
-    <tr><td>estoque_minimo</td><td>integer</td><td>Sim</td><td>Quantidade mínima utilizada para identificar a necessidade de reposição.</td></tr>
-    <tr><td>status</td><td>varchar(20)</td><td>Sim</td><td>Situação do produto, como disponível, vencido ou danificado.</td></tr>
-    <tr><td>id_categoria</td><td>integer</td><td>Sim (FK)</td><td>Identifica a categoria à qual o produto pertence.</td></tr>
+
+    <tr>
+        <td>id_produto</td>
+        <td>integer</td>
+        <td>Sim (PK)</td>
+        <td>Identifica unicamente o produto no sistema.</td>
+    </tr>
+
+    <tr>
+        <td>nome</td>
+        <td>varchar(120)</td>
+        <td>Sim</td>
+        <td>Nome utilizado para identificar o produto.</td>
+    </tr>
+
+    <tr>
+        <td>preco_venda</td>
+        <td>decimal(10,2)</td>
+        <td>Sim</td>
+        <td>Valor pelo qual o produto é comercializado.</td>
+    </tr>
 </table>
+
 
 <h3>VENDA</h3>
 
-<p><strong>VENDA = @id_venda + data_hora + forma_pagamento</strong></p>
+<p>
+    <strong>
+        VENDA = @id_venda + data_hora +
+        valor_total + forma_pagamento
+    </strong>
+</p>
 
 <table>
     <tr>
@@ -187,32 +408,51 @@
         <th>Obrigatório</th>
         <th>Significado e relevância</th>
     </tr>
-    <tr><td>id_venda</td><td>integer</td><td>Sim (PK)</td><td>Identifica unicamente cada venda.</td></tr>
-    <tr><td>data_hora</td><td>datetime</td><td>Sim</td><td>Registra a data e o horário em que a venda ocorreu.</td></tr>
-    <tr><td>forma_pagamento</td><td>varchar(30)</td><td>Sim</td><td>Forma utilizada para realizar o pagamento, como Pix, débito, crédito ou dinheiro.</td></tr>
-</table>
 
-<h3>ITEM_VENDA</h3>
-
-<p><strong>ITEM_VENDA = @id_venda + @id_produto + quantidade + preco_unitario + subtotal</strong></p>
-
-<table>
     <tr>
-        <th>Atributo</th>
-        <th>Tipo físico</th>
-        <th>Obrigatório</th>
-        <th>Significado e relevância</th>
+        <td>id_venda</td>
+        <td>integer</td>
+        <td>Sim (PK)</td>
+        <td>Identifica unicamente cada venda.</td>
     </tr>
-    <tr><td>id_venda</td><td>integer</td><td>Sim (PK, FK)</td><td>Identifica a venda à qual o item pertence.</td></tr>
-    <tr><td>id_produto</td><td>integer</td><td>Sim (PK, FK)</td><td>Identifica o produto vendido.</td></tr>
-    <tr><td>quantidade</td><td>integer</td><td>Sim</td><td>Quantidade do produto incluída na venda.</td></tr>
-    <tr><td>preco_unitario</td><td>decimal(10,2)</td><td>Sim</td><td>Preço de uma unidade do produto no momento da venda.</td></tr>
-    <tr><td>subtotal</td><td>decimal(10,2)</td><td>Sim</td><td>Valor do item, calculado pela quantidade multiplicada pelo preço unitário.</td></tr>
+
+    <tr>
+        <td>data_hora</td>
+        <td>datetime</td>
+        <td>Sim</td>
+        <td>Registra a data e o horário em que a venda ocorreu.</td>
+    </tr>
+
+    <tr>
+        <td>valor_total</td>
+        <td>decimal(10,2)</td>
+        <td>Sim</td>
+        <td>Registra o valor total da venda.</td>
+    </tr>
+
+    <tr>
+        <td>forma_pagamento</td>
+        <td>varchar(30)</td>
+        <td>Sim</td>
+        <td>Forma utilizada para realizar o pagamento.</td>
+    </tr>
 </table>
+
 
 <h3>MOVIMENTACAO_ESTOQUE</h3>
 
-<p><strong>MOVIMENTACAO_ESTOQUE = @id_movimentacao + id_produto + tipo + quantidade + data_hora + motivo</strong></p>
+<p>
+    <strong>
+        MOVIMENTACAO_ESTOQUE = @id_movimentacao +
+        tipo + quantidade + data_hora + motivo
+    </strong>
+</p>
+
+<p>
+    <strong>Leitura:</strong> @id_movimentacao identifica a movimentação.
+    Os demais atributos registram o tipo, a quantidade, a data e o motivo
+    da alteração no estoque.
+</p>
 
 <table>
     <tr>
@@ -221,13 +461,146 @@
         <th>Obrigatório</th>
         <th>Significado e relevância</th>
     </tr>
-    <tr><td>id_movimentacao</td><td>integer</td><td>Sim (PK)</td><td>Identifica unicamente a movimentação de estoque.</td></tr>
-    <tr><td>id_produto</td><td>integer</td><td>Sim (FK)</td><td>Identifica o produto que sofreu a movimentação.</td></tr>
-    <tr><td>tipo</td><td>varchar(10)</td><td>Sim</td><td>Indica se a movimentação representa uma entrada ou uma saída.</td></tr>
-    <tr><td>quantidade</td><td>integer</td><td>Sim</td><td>Quantidade de produtos movimentada.</td></tr>
-    <tr><td>data_hora</td><td>datetime</td><td>Sim</td><td>Data e horário em que a movimentação ocorreu.</td></tr>
-    <tr><td>motivo</td><td>varchar(30)</td><td>Sim</td><td>Motivo da movimentação, como venda, vencimento ou dano.</td></tr>
+
+    <tr>
+        <td>id_movimentacao</td>
+        <td>integer</td>
+        <td>Sim (PK)</td>
+        <td>Identifica unicamente a movimentação de estoque.</td>
+    </tr>
+
+    <tr>
+        <td>tipo</td>
+        <td>varchar(10)</td>
+        <td>Sim</td>
+        <td>Indica se a movimentação representa uma entrada ou uma saída.</td>
+    </tr>
+
+    <tr>
+        <td>quantidade</td>
+        <td>integer</td>
+        <td>Sim</td>
+        <td>Quantidade de produtos movimentada.</td>
+    </tr>
+
+    <tr>
+        <td>data_hora</td>
+        <td>datetime</td>
+        <td>Sim</td>
+        <td>Data e horário em que a movimentação ocorreu.</td>
+    </tr>
+
+    <tr>
+        <td>motivo</td>
+        <td>varchar(30)</td>
+        <td>Sim</td>
+        <td>Motivo da movimentação, como venda, entrada ou perda.</td>
+    </tr>
 </table>
+
+
+<h2>5. Log de acesso (metadado operacional)</h2>
+
+<p>
+    As tabelas do sistema ficam sob um mecanismo de auditoria do SGBD,
+    responsável por registrar as operações realizadas nos dados.
+    O mecanismo deve registrar informações como usuário, operação realizada,
+    data e horário, permitindo acompanhar as alterações e consultas realizadas
+    no sistema.
+</p>
+
+<p>
+    O registro de auditoria deve ser armazenado de forma segura e separado
+    dos dados de negócio. A retenção e a rotação dos logs devem seguir uma
+    política própria, independente da retenção dos registros de produtos,
+    vendas, entradas e movimentações de estoque.
+</p>
+
+
+<h2>6. Acesso por operação e conformidade com a LGPD</h2>
+
+<p>
+    <strong>(metadado administrativo)</strong>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Entidade</th>
+            <th>LER</th>
+            <th>INSERIR</th>
+            <th>ATUALIZAR</th>
+            <th>APAGAR</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td><strong>ENTRADA</strong></td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+        </tr>
+
+        <tr>
+            <td><strong>CATEGORIA</strong></td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+        </tr>
+
+        <tr>
+            <td><strong>PRODUTO</strong></td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+        </tr>
+
+        <tr>
+            <td><strong>VENDA</strong></td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Nenhum papel</td>
+            <td>Nenhum papel</td>
+        </tr>
+
+        <tr>
+            <td><strong>MOVIMENTACAO_ESTOQUE</strong></td>
+            <td>Responsável pelo mercado</td>
+            <td>Responsável pelo mercado</td>
+            <td>Nenhum papel</td>
+            <td>Nenhum papel</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<p>
+    Os dados armazenados pelo sistema do Mercado Santana devem ser protegidos
+    contra acessos não autorizados. O acesso às informações deve ser restrito
+    aos usuários responsáveis pelas operações do estabelecimento, e as
+    consultas e alterações relevantes devem permanecer registradas no log
+    de acesso para fins de auditoria e controle.
+</p>
+
+<p>
+    Os registros de vendas, entradas e movimentações de estoque devem
+    permanecer armazenados para preservar o histórico das operações.
+    As permissões de atualização e exclusão são restritas nessas entidades,
+    evitando alterações ou remoções indevidas do histórico.
+</p>
+
+<p>
+    No contexto deste projeto, as principais informações tratadas são dados
+    relacionados a produtos, categorias, entradas, vendas e estoque.
+    O controle de acesso e o registro das operações devem ser aplicados de
+    acordo com as necessidades do estabelecimento e com as regras de proteção
+    de dados aplicáveis ao sistema.
+</p>
 
 </body>
 </html>
