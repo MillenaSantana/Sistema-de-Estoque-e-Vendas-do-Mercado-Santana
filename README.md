@@ -92,7 +92,6 @@ Este modelo representa o controle de vendas e estoque do Mercado Santana, organi
 - **Produto:** representa os produtos comercializados pelo mercado e suas informações de estoque.
 - **Categoria:** organiza os produtos em grupos, como alimentos, bebidas, limpeza e itens domésticos.
 - **Venda:** representa cada venda realizada pelo mercado.
-- **Item_Venda:** registra os produtos incluídos em cada venda, suas quantidades e valores.
 - **Movimentacao_Estoque:** registra as entradas e saídas de produtos, mantendo o histórico das alterações no estoque.
 
 ### Atributos e classificações
