@@ -127,8 +127,8 @@ Cada entidade possui atributos responsáveis por armazenar suas informações. A
 
 O Diagrama Entidade-Relacionamento apresenta a modelagem conceitual do sistema, incluindo as entidades, atributos, relacionamentos e respectivas cardinalidades.
 
-![Diagrama Entidade-Relacionamento](entrega-1/imagens/der.png)<p align="center">
-  <img src="entrega-1/imagens/der.png" alt="Diagrama Entidade-Relacionamento" width="900">
+<p align="center">
+  <img src="Diagrama Entidade-Relacionamento.png" alt="Diagrama Entidade-Relacionamento" width="900">
 </p>
 ---
 
