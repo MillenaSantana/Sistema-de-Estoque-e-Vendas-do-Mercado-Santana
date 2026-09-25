@@ -1,6 +1,7 @@
 ## Metadados
-
-- **Nomes dos alunos e RGM**
+-
+- Millena Dias Santana - 47555041
+- 
 # Sistema-de-Estoque-e-Vendas-do-Mercado-Santana
 
 ## 1. Caracterização da Organização
