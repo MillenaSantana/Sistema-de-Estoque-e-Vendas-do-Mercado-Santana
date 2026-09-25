@@ -125,13 +125,9 @@ Cada entidade possui atributos responsáveis por armazenar suas informações. A
 
 # 7. Diagrama Entidade-Relacionamento (DER)
 
-O DER representa graficamente as entidades, atributos, relacionamentos e cardinalidades definidos no modelo conceitual.
+O Diagrama Entidade-Relacionamento apresenta a modelagem conceitual do sistema, incluindo as entidades, atributos, relacionamentos e respectivas cardinalidades.
 
-O diagrama deve apresentar de forma consistente as entidades Produto, Categoria, Venda, Item_Venda e Movimentacao_Estoque, demonstrando seus respectivos relacionamentos e cardinalidades.
-
-### Diagrama
-
-> Insira aqui a imagem do seu Diagrama Entidade-Relacionamento (DER).
+![Diagrama Entidade-Relacionamento](entrega-1/imagens/der.png)
 
 ---
 
