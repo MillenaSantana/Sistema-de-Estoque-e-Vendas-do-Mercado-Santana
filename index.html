@@ -135,126 +135,32 @@
 <h2>3. Convenções do dicionário</h2>
 
 <p>
-    <strong>SGBD:</strong> MySQL 8, mecanismo de armazenamento InnoDB.
-    O InnoDB é utilizado para a persistência dos dados e para o controle
-    das transações do banco de dados.
-</p>
-
-<p>
-    <strong>Codificação de caracteres:</strong> utf8mb4 com collation
-    utf8mb4_0900_ai_ci. A configuração permite o armazenamento adequado
-    de caracteres acentuados da língua portuguesa e demais caracteres
-    Unicode utilizados nos dados do sistema.
-</p>
-
-<p>
-    <strong>Notação formal (símbolos usados neste dicionário):</strong>
+    As convenções abaixo foram definidas apenas para os elementos utilizados
+    neste projeto.
 </p>
 
 <table>
     <tr>
-        <th>Símbolo</th>
+        <th>Convenção</th>
         <th>Significado</th>
     </tr>
-
     <tr>
-        <td>=</td>
-        <td>É composto de.</td>
+        <td><code>id_</code></td>
+        <td>Prefixo utilizado nos identificadores das entidades, que representam suas chaves primárias.</td>
     </tr>
-
     <tr>
-        <td>+</td>
-        <td>Conecta elementos obrigatórios.</td>
+        <td>Entidades em MAIÚSCULO</td>
+        <td>As entidades do modelo são representadas em letras maiúsculas, como PRODUTO, VENDA e CATEGORIA.</td>
     </tr>
-
     <tr>
-        <td>( )</td>
-        <td>Indica elemento opcional.</td>
+        <td>Atributos em minúsculo</td>
+        <td>Os atributos das entidades são representados em letras minúsculas, como <code>id_produto</code>, <code>nome</code> e <code>preco_venda</code>.</td>
     </tr>
-
     <tr>
-        <td>{ }, n{ }m</td>
-        <td>Indica iteração, com limite mínimo n e máximo m.</td>
-    </tr>
-
-    <tr>
-        <td>[ | ]</td>
-        <td>Indica escolha obrigatória entre alternativas.</td>
-    </tr>
-
-    <tr>
-        <td>/ /</td>
-        <td>Indica o rótulo de um grupo repetitivo.</td>
-    </tr>
-
-    <tr>
-        <td>@</td>
-        <td>Identificador ou chave primária.</td>
-    </tr>
-
-    <tr>
-        <td>* *</td>
-        <td>Comentário fora da estrutura formal.</td>
+        <td>Cardinalidade</td>
+        <td>A notação 1:N indica uma relação em que um registro de uma entidade pode estar relacionado a vários registros de outra entidade.</td>
     </tr>
 </table>
-
-<p>
-    <strong>Prefixos utilizados:</strong>
-</p>
-
-<table>
-    <tr>
-        <th>Prefixo</th>
-        <th>Significado</th>
-    </tr>
-
-    <tr>
-        <td>ID_</td>
-        <td>Identificador.</td>
-    </tr>
-
-    <tr>
-        <td>NM_</td>
-        <td>Nome.</td>
-    </tr>
-
-    <tr>
-        <td>DT_</td>
-        <td>Data.</td>
-    </tr>
-
-    <tr>
-        <td>CD_</td>
-        <td>Código de domínio.</td>
-    </tr>
-
-    <tr>
-        <td>QT_</td>
-        <td>Quantidade.</td>
-    </tr>
-
-    <tr>
-        <td>TP_</td>
-        <td>Tipo ou categorização.</td>
-    </tr>
-
-    <tr>
-        <td>IN_</td>
-        <td>Indicador booleano.</td>
-    </tr>
-
-    <tr>
-        <td>DS_</td>
-        <td>Descrição ou texto livre.</td>
-    </tr>
-</table>
-
-<p>
-    <strong>Versão deste dicionário:</strong> v1.0, 6/setembro/2026.
-    Qualquer alteração na estrutura deve gerar uma nova revisão registrada
-    nesta seção, garantindo a rastreabilidade do projeto.
-</p>
-
 
 <h2>4. Dicionário de dados por entidade</h2>
 
