@@ -78,7 +78,7 @@ Os requisitos do sistema foram definidos a partir dos problemas identificados no
 O Dicionário de Dados foi desenvolvido em formato de site, apresentando as
 entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
- [Acessar o Dicionário de Dados](http://127.0.0.1:5500/Dicionario_Mercado_Santana.html)
+ [Acessar o Dicionário de Dados](file:///C:/Users/deinh/Downloads/dicionario_mercado_santana(2).html)
 
 ---
 
