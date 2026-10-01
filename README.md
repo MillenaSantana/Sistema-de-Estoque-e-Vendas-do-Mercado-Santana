@@ -86,46 +86,110 @@ entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
 ---
 
-# 6. Modelagem Conceitual (Entidades, Atributos, Relacionamentos)
+6. Modelagem Conceitual (Entidades, Atributos e Relacionamentos)
+6.1 Modelo conceitual
+O modelo conceitual representa o controle de vendas e estoque do Mercado Santana, organizando as principais informações necessárias para o cadastro de produtos, categorias, entradas de mercadorias, vendas e movimentações de estoque.
 
-## 1. Modelo conceitual
+Entidades reconhecidas
+Produto: representa os produtos comercializados pelo mercado, contendo informações relacionadas à identificação, nome e preço de venda.
 
-Este modelo representa o controle de vendas e estoque do Mercado Santana, organizando as principais informações necessárias para o funcionamento do sistema.
+Categoria: representa os grupos aos quais os produtos pertencem, permitindo organizar os produtos em categorias como alimentos, bebidas, produtos de limpeza e itens domésticos.
 
-### Entidades reconhecidas
+Entrada: representa o registro de entrada de mercadorias no estoque, contendo informações como data da entrada, número da nota fiscal e valor total.
 
-- **Produto:** representa os produtos comercializados pelo mercado e suas informações de estoque.
-- **Categoria:** organiza os produtos em grupos, como alimentos, bebidas, limpeza e itens domésticos.
-- **Venda:** representa cada venda realizada pelo mercado.
-- **Movimentacao_Estoque:** registra as entradas e saídas de produtos, mantendo o histórico das alterações no estoque.
+Venda: representa cada venda realizada pelo mercado, registrando a data e hora, o valor total e a forma de pagamento utilizada.
 
-### Atributos e classificações
+Movimentacao_Estoque: registra as alterações realizadas no estoque, permitindo controlar entradas, saídas e outros tipos de movimentação, juntamente com suas respectivas quantidades, datas e motivos.
 
-Cada entidade possui atributos responsáveis por armazenar suas informações. As PKs (chaves primárias) identificam cada registro de forma única, enquanto as FKs (chaves estrangeiras) estabelecem os relacionamentos entre as entidades.
+6.2 Atributos e classificações
+Cada entidade possui atributos responsáveis por armazenar suas informações. As PKs (chaves primárias) identificam cada registro de forma única. Os relacionamentos entre as entidades representam as associações existentes entre os dados do sistema.
 
-- **Produto:** id_produto, nome, preco_venda, quantidade_estoque, estoque_minimo, status e id_categoria.
-- **Categoria:** id_categoria e nome.
-- **Venda:** id_venda, data_hora e forma_pagamento.
-- **Item_Venda:** id_venda, id_produto, quantidade, preco_unitario e subtotal.
-- **Movimentacao_Estoque:** id_movimentacao, id_produto, tipo, quantidade, data_hora e motivo.
+Produto
+id_produto — chave primária;
 
-### Relacionamentos pertinentes
+nome — nome do produto;
 
-- **Categoria — Produto (1:N):** uma categoria pode possuir vários produtos, enquanto cada produto pertence a uma categoria.
-- **Venda — Item_Venda (1:N):** uma venda pode possuir vários itens, enquanto cada item pertence a uma venda.
-- **Produto — Item_Venda (1:N):** um produto pode aparecer em vários itens de venda.
-- **Produto — Movimentacao_Estoque (1:N):** um produto pode possuir várias movimentações de estoque.
+preco_venda — preço de venda do produto.
 
-### Restrições e políticas organizacionais
+Categoria
+id_categoria — chave primária;
 
-- O estoque não pode possuir valores negativos.
-- A quantidade vendida não pode ser maior que a quantidade disponível.
-- Todo produto deve estar associado a uma categoria.
-- O estoque mínimo serve como referência para reposição.
-- Produtos vencidos ou danificados não podem ser comercializados.
-- As movimentações de estoque devem registrar o tipo, quantidade, data e motivo da alteração.
-- As vendas e movimentações permanecem registradas para manter o histórico das operações.
+nome — nome da categoria.
 
+Entrada
+id_entrada — chave primária;
+
+data_entrada — data em que a mercadoria foi recebida;
+
+numero_nota_fiscal — número da nota fiscal relacionada à entrada;
+
+valor_total — valor total da entrada.
+
+Venda
+id_venda — chave primária;
+
+data_hora — data e horário em que a venda foi realizada;
+
+valor_total — valor total da venda;
+
+forma_pagamento — forma de pagamento utilizada.
+
+Movimentacao_Estoque
+id_movimentacao — chave primária;
+
+tipo — identifica o tipo de movimentação realizada;
+
+quantidade — quantidade movimentada;
+
+data_hora — data e horário da movimentação;
+
+motivo — motivo da movimentação.
+
+6.3 Relacionamentos pertinentes
+Categoria — Produto: 1:N
+O relacionamento “possui” estabelece que uma Categoria pode possuir vários Produtos, enquanto cada Produto pertence a uma única Categoria.
+
+Entrada — Produto: N:N
+O relacionamento “contém” estabelece que uma Entrada pode conter vários Produtos, e um Produto pode estar presente em várias Entradas.
+
+Esse relacionamento permite representar que diferentes compras ou recebimentos podem conter os mesmos produtos em momentos diferentes.
+
+Venda — Produto: N:N
+O relacionamento “contém” estabelece que uma Venda pode conter vários Produtos, enquanto um Produto pode participar de várias Vendas.
+
+Esse relacionamento representa a comercialização dos produtos pelo mercado.
+
+Produto — Movimentacao_Estoque: 1:N
+O relacionamento “registra” estabelece que um Produto pode possuir várias Movimentações de Estoque, enquanto cada movimentação está relacionada a um único produto.
+
+Dessa forma, é possível manter o histórico das alterações realizadas no estoque de cada produto.
+
+6.4 Restrições e políticas organizacionais
+Cada produto deve estar associado a uma única categoria.
+
+Uma categoria pode possuir vários produtos.
+
+Uma entrada pode conter vários produtos.
+
+Um produto pode aparecer em várias entradas.
+
+Uma venda pode conter vários produtos.
+
+Um produto pode aparecer em várias vendas.
+
+Cada movimentação de estoque deve estar associada a um produto.
+
+Um produto pode possuir várias movimentações de estoque.
+
+A quantidade movimentada deve ser maior que zero.
+
+As movimentações de estoque devem registrar o tipo, a quantidade, a data e o motivo da alteração.
+
+As entradas devem registrar a data, o número da nota fiscal e o valor total.
+
+As vendas devem registrar a data e hora, o valor total e a forma de pagamento.
+
+As vendas e movimentações de estoque devem permanecer registradas para manter o histórico das operações.
 ---
 
 # 7. Diagrama Entidade-Relacionamento (DER)
