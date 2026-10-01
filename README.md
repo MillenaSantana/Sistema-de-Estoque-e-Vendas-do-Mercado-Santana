@@ -1,6 +1,10 @@
 ## Metadados
 -
+- Isabella Bonfim Reis - 48837423
+- Maria Eduarda Santos Guedes - 48216810
 - Millena Dias Santana - 47555041
+- Raquel Guimarães Pereira - 47813369
+- Yasmin Helena Marinho Pinda - 47740981
 - 
 # Sistema-de-Estoque-e-Vendas-do-Mercado-Santana
 
