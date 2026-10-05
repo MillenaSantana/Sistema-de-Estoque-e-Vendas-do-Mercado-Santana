@@ -258,7 +258,7 @@ Essa estrutura permite organizar os dados de forma separada e relacionada, evita
 | **Reflexão crítica**                 | O ChatGPT foi utilizado como ferramenta de apoio. As sugestões não foram aceitas automaticamente, sendo analisadas e adaptadas pelo grupo de acordo com os dados da pesquisa e com o escopo do projeto.                                                                                   |
 
 
-### Uso 4 — Uso de Inteligência Artificial
+### Uso 4 — Modelagem Conceitual
 
 Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferramenta de apoio**, principalmente para tirar dúvidas e ajudar na organização das ideias relacionadas à modelagem do banco de dados.
 
@@ -273,7 +273,7 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 | **Justificativa da escolha final**   | A estrutura final foi definida pelo grupo com base nas informações coletadas e nas necessidades identificadas no Mercado Santana. A IA foi utilizada apenas como apoio.                                                                             |
 | **Reflexão crítica**                 | O uso da IA facilitou a organização das ideias e ajudou a esclarecer algumas dúvidas, mas foi necessário analisar as sugestões antes de utilizá-las, pois a ferramenta pode apresentar informações que não correspondem à realidade da organização. |
 
-### Uso 05 — Uso de Inteligência Artificial
+### Uso 05 — DER + Justificativa Técnica
 
 | Item | O que registrar |
 |------|------------------|
