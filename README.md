@@ -239,7 +239,7 @@ Essa estrutura permite organizar os dados de forma separada e relacionada, evita
 | **Prompt(s) utilizados** | "Baseado no arquivo enviado de levantamento de dados do Marcado Santana, e verifique se está correto os fluxogramas enviado abaixo". |
 | **Resposta recebida** |"Sim. Comparei os dois fluxogramas com o Levantamento de Dados do Mercado Santana que você enviou. No geral, o fluxograma do processo proposto está bem alinhado ao levantamento". |
 | **Fontes consultadas e verificadas** | Comparação direta do retorno da IA com o documento de Levantamento de Dados do Mercado Santana e com os diagramas de fluxograma elaborados pelo grupo. |
-| **Trechos rejeitados ou corrigidos** |(Ajustar conforme o caso do grupo, por exemplo: "Nenhum trecho descartado; a validação confirmou a estrutura planejada" ou especificar eventuais ajustes feitos nos fluxogramas após o feedback). |
+| **Trechos rejeitados ou corrigidos** | Nenhum trecho descartado; a validação confirmou a estrutura planejada |
 | **Justificativa da escolha final** | A resposta da IA confirmou que a proposta mantinha alinhamento com a documentação de campo, permitindo ao grupo dar sequência e manter o fluxograma validado. |
 | **Reflexão crítica** | A IA realizou uma validação geral de alinhamento textual/estrutural, mas coube ao grupo revisar os detalhes operacionais específicos e as particularidades do fluxo do Mercado Santana que não estavam explicitamente mapeadas na análise genérica. |
 
