@@ -272,15 +272,15 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 | **Justificativa da escolha final**   | A estrutura final foi definida pelo grupo com base nas informações coletadas e nas necessidades identificadas no Mercado Santana. A IA foi utilizada apenas como apoio.                                                                             |
 | **Reflexão crítica**                 | O uso da IA facilitou a organização das ideias e ajudou a esclarecer algumas dúvidas, mas foi necessário analisar as sugestões antes de utilizá-las, pois a ferramenta pode apresentar informações que não correspondem à realidade da organização. |
 
-### Uso .. — ...
+### Uso 05 — Uso de Inteligência Artificial
 
 | Item | O que registrar |
 |------|------------------|
-| **Ferramenta e etapa** | Qual IA foi usada e em qual parte do trabalho (ex.: pesquisa sobre o setor da organização, redação do README, organização dos requisitos, revisão ortográfica/gramatical). |
-| **Motivação** | Por que o grupo recorreu à IA nesse ponto específico. |
-| **Prompt(s) utilizados** | Texto exato (ou muito próximo) do que foi perguntado/pedido à IA. |
-| **Resposta recebida** | Resumo ou trecho relevante da resposta da IA. |
-| **Fontes consultadas e verificadas** | Se a IA citou fontes/dados, quais foram checadas pelo grupo e como (ex.: comparação com o que foi observado na visita de campo). |
-| **Trechos rejeitados ou corrigidos** | O que da resposta da IA foi descartado, editado ou corrigido manualmente, e por quê. |
-| **Justificativa da escolha final** | Por que o grupo manteve, adaptou ou rejeitou o que a IA sugeriu. |
-| **Reflexão crítica** | Limites, vieses ou erros identificados no uso da IA nessa etapa (ex.: informação desatualizada, alucinação, generalização incorreta sobre o tipo de organização). |
+| **Ferramenta e etapa**|**Gemini** — Utilizado para auxiliar na compreensão do Diagrama Entidade-Relacionamento (DER), das entidades, dos atributos e das cardinalidades, contribuindo para a organização e estruturação do sistema do Mercado Santana.|
+| **Motivação** |A IA foi utilizada para auxiliar na compreensão das cardinalidades e na organização das entidades do sistema, considerando os setores e processos identificados no Mercado Santana. O recurso também ajudou na interpretação do modelo do DER e na comparação com os conteúdos apresentados pelo professor.|
+| **Prompt(s) utilizados** |“Me dê uns exemplos sobre justificativa técnica?”, “Der + justificativa técnica”, “Explique a relação técnica e a separação das entidades produto, item_produto, item_venda e venda”, “Reescreva a justificativa de Entrada removendo a entidade Fornecedor” e “Ajude a estruturar os Requisitos Não Funcionais focando em baixo capacidade de processamento” |
+| **Resposta recebida** |A IA organizou as respostas de forma profissional, compreendeu a estrutura do diagrama (DER) enviado e auxiliou na identificação das relações entre as entidades Produto, Categoria e Movimentação de Estoque. Além disso, propôs uma estrutura de Documento de Justificativa Técnica (DJT) e sugeriu a divisão dos Requisitos Não Funcionais focando em computadores de baixo processamento.|
+| **Fontes consultadas e verificadas** |As informações sugeridas pela IA foram comparadas com os materiais disponibilizados pelo professor e com as informações levantadas sobre o Mercado Santana. As sugestões da IA não foram utilizadas como fonte única para a definição do modelo.|
+| **Trechos rejeitados ou corrigidos** |Algumas sugestões apresentadas pela IA foram rejeitadas ou corrigidas manualmente por não corresponderem à realidade do Mercado Santana ou aos critérios definidos pelo professor.|
+| **Justificativa da escolha final** |A equipe priorizou as orientações apresentadas pelo professor e as informações obtidas sobre o Mercado Santana. Com isso, algumas sugestões da IA foram adaptadas ou removidas, incluindo elementos relacionados a Fornecedor, Item_Entrada e algumas estruturas de Item_Venda, para manter o modelo de acordo com a realidade da organização e com os requisitos definidos para o projeto.|
+| **Reflexão crítica** |A IA foi útil como ferramenta de apoio, principalmente para compreender conceitos de modelagem e organizar ideias. Entretanto, suas respostas apresentaram generalizações que não correspondiam totalmente à realidade do Mercado Santana. Por isso, foi necessário analisar, corrigir e adaptar as sugestões com base nas informações da organização e nas orientações do professor.|
