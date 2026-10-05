@@ -103,6 +103,7 @@ Venda: representa cada venda realizada pelo mercado, registrando a data e hora, 
 Movimentacao_Estoque: registra as alterações realizadas no estoque, permitindo controlar entradas, saídas e outros tipos de movimentação, juntamente com suas respectivas quantidades, datas e motivos.
 
 6.2 Atributos e classificações
+
 Cada entidade possui atributos responsáveis por armazenar suas informações. As PKs (chaves primárias) identificam cada registro de forma única. Os relacionamentos entre as entidades representam as associações existentes entre os dados do sistema.
 
 Produto
@@ -147,6 +148,7 @@ data_hora — data e horário da movimentação;
 motivo — motivo da movimentação.
 
 6.3 Relacionamentos pertinentes
+
 Categoria — Produto: 1:N
 O relacionamento “possui” estabelece que uma Categoria pode possuir vários Produtos, enquanto cada Produto pertence a uma única Categoria.
 
@@ -166,6 +168,7 @@ O relacionamento “registra” estabelece que um Produto pode possuir várias M
 Dessa forma, é possível manter o histórico das alterações realizadas no estoque de cada produto.
 
 6.4 Restrições e políticas organizacionais
+
 Cada produto deve estar associado a uma única categoria.
 
 Uma categoria pode possuir vários produtos.
