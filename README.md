@@ -229,7 +229,7 @@ Essa estrutura permite organizar os dados de forma separada e relacionada, evita
 | **Fontes consultadas e verificadas** | As informações sobre o funcionamento do estabelecimento foram verificadas com base nas respostas fornecidas pelo responsável durante a pesquisa de campo. |
 | **Trechos rejeitados ou corrigidos** | Sugestões que não correspondiam à realidade do estabelecimento foram ajustadas ou desconsideradas pelo grupo. |
 | **Justificativa da escolha final** | Foram mantidas as informações que correspondiam aos dados obtidos diretamente na pesquisa de campo. |
-| **Reflexão crítica** | O ChatGPT foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. |
+| **Reflexão crítica** | O Gemini foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. |
 
 ### Uso 2 — Processo de Negócio
 
