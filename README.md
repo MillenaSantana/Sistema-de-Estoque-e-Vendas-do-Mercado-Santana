@@ -222,15 +222,16 @@ Essa estrutura permite organizar os dados de forma separada e relacionada, evita
 
 | Item | Registro |
 |---|---|
-| **Ferramenta e etapa** | **Gemini**| Utilizado para auxiliar na compreensão do Diagrama Entidade-Relacionamento (DER), das entidades, dos atributos e das cardinalidades, contribuindo para a organização e estruturação do sistema do Mercado Santana.
-| **Motivação**|A IA foi utilizada para auxiliar na compreensão das cardinalidades e na organização das entidades do sistema, considerando os setores e processos identificados no Mercado Santana. O recurso também ajudou na interpretação do modelo do DER e na comparação com os conteúdos apresentados pelo professor.
-| **Prompt(s) utilizados** |“Me dê uns exemplos sobre justificativa técnica?”, “Der + justificativa técnica”, “Explique a relação técnica e a separação das entidades produto, item_produto, item_venda e venda”, “Reescreva a justificativa de Entrada removendo a entidade Fornecedor” e “Ajude a estruturar os Requisitos Não Funcionais focando em baixo capacidade de processamento”
-| **Resposta recebida** |A IA organizou as respostas de forma profissional, compreendeu a estrutura do diagrama (DER) enviado e auxiliou na identificação das relações entre as entidades Produto, Categoria e Movimentação de Estoque. Além disso, propôs uma estrutura de Documento de Justificativa Técnica (DJT) e sugeriu a divisão dos Requisitos Não Funcionais focando em computadores de baixo processamento.
-| **Fontes consultadas e verificadas** |As informações sugeridas pela IA foram comparadas com os materiais disponibilizados pelo professor e com as informações levantadas sobre o Mercado Santana. As sugestões da IA não foram utilizadas como fonte única para a definição do modelo.
-| **Trechos rejeitados ou corrigidos** |Algumas sugestões apresentadas pela IA foram rejeitadas ou corrigidas manualmente por não corresponderem à realidade do Mercado Santana ou aos critérios definidos pelo professor.
-| **Justificativa da escolha final** |A equipe priorizou as orientações apresentadas pelo professor e as informações obtidas sobre o Mercado Santana. Com isso, algumas sugestões da IA foram adaptadas ou removidas, incluindo elementos relacionados a Fornecedor, Item_Entrada e algumas estruturas de Item_Venda, para manter o modelo de acordo com a realidade da organização e com os requisitos definidos para o projeto.
-| **Reflexão crítica** | A IA foi útil como ferramenta de apoio, principalmente para compreender conceitos de modelagem e organizar ideias. Entretanto, suas respostas apresentaram generalizações que não correspondiam totalmente à realidade do Mercado Santana. Por isso, foi necessário analisar, corrigir e adaptar as sugestões com base nas informações da organização e nas orientações do professor.
-### Uso 2 — PROCESSOS DE NEGÓCIOS
+| **Ferramenta e etapa** | *Gemini* — utilizado na etapa de organização e análise das informações obtidas na pesquisa de campo realizada com o responsável pelo Mercado Santana. |
+|  **Motivação** | Auxiliar na organização das respostas da entrevista e na identificação dos principais problemas relacionados ao controle de estoque e às vendas. 
+| **Prompt(s) utilizados** | “Essas foram as respostas do proprietário, agora deixe o documento mais profissional e com base nas respostas responde o que iremos fazer, o que o programa vai precisar para funcionar.” |
+| **Resposta recebida** | A IA organizou as respostas de forma mais profissional e objetiva, identificou a falta de um sistema de controle de estoque e vendas como principal problema e sugeriu funcionalidades para o sistema. |
+| **Fontes consultadas e verificadas** | As informações sobre o funcionamento do estabelecimento foram verificadas com base nas respostas fornecidas pelo responsável durante a pesquisa de campo. |
+| **Trechos rejeitados ou corrigidos** | Sugestões que não correspondiam à realidade do estabelecimento foram ajustadas ou desconsideradas pelo grupo. |
+| **Justificativa da escolha final** | Foram mantidas as informações que correspondiam aos dados obtidos diretamente na pesquisa de campo. |
+| **Reflexão crítica** | O ChatGPT foi utilizado como ferramenta de apoio para organizar e interpretar as informações, mas as decisões foram baseadas nos dados reais fornecidos pelo responsável pelo estabelecimento. |
+
+### Uso 2 — Processo de Negócio
 
 | Item | O que registrar |
 |------|------------------|
