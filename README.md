@@ -210,7 +210,7 @@ A entidade Produto concentra as informações necessárias para identificar os p
 
 A entidade Categoria foi criada para organizar os produtos em grupos, facilitando sua classificação e gerenciamento.
 
-A entidade Venda representa o registro geral de cada venda realizada, enquanto Item_Venda detalha os produtos presentes em cada venda, suas quantidades, preços unitários e subtotais.
+A entidade Venda representa o registro geral de cada venda realizada, enquanto detalha os produtos presentes em cada venda, suas quantidades, preços unitários e subtotais.
 
 A entidade Movimentacao_Estoque permite registrar as alterações realizadas no estoque, mantendo informações sobre tipo, quantidade, data, horário e motivo da movimentação.
 
@@ -222,7 +222,7 @@ Essa estrutura permite organizar os dados de forma separada e relacionada, evita
 
 | Item | Registro |
 |---|---|
-| **Ferramenta e etapa** | *Gemini* — utilizado na etapa de organização e análise das informações obtidas na pesquisa de campo realizada com o responsável pelo Mercado Santana. |
+| **Ferramenta e etapa** | **Gemini** — utilizado na etapa de organização e análise das informações obtidas na pesquisa de campo realizada com o responsável pelo Mercado Santana. |
 |  **Motivação** | Auxiliar na organização das respostas da entrevista e na identificação dos principais problemas relacionados ao controle de estoque e às vendas. 
 | **Prompt(s) utilizados** | “Essas foram as respostas do proprietário, agora deixe o documento mais profissional e com base nas respostas responde o que iremos fazer, o que o programa vai precisar para funcionar.” |
 | **Resposta recebida** | A IA organizou as respostas de forma mais profissional e objetiva, identificou a falta de um sistema de controle de estoque e vendas como principal problema e sugeriu funcionalidades para o sistema. |
@@ -235,7 +235,7 @@ Essa estrutura permite organizar os dados de forma separada e relacionada, evita
 
 | Item | O que registrar |
 |------|------------------|
-| **Ferramenta e etapa** | ChatGPT – Etapa de revisão e validação dos fluxogramas com base no levantamento de dados do Mercado Santana.. |
+| **Ferramenta e etapa** | **ChatGPT** – Etapa de revisão e validação dos fluxogramas com base no levantamento de dados do Mercado Santana. |
 | **Motivação** | Verificar a coerência e o alinhamento dos fluxogramas propostos em relação às informações e requisitos coletados no levantamento de dados prévio. |
 | **Prompt(s) utilizados** | "Baseado no arquivo enviado de levantamento de dados do Marcado Santana, e verifique se está correto os fluxogramas enviado abaixo". |
 | **Resposta recebida** |"Sim. Comparei os dois fluxogramas com o Levantamento de Dados do Mercado Santana que você enviou. No geral, o fluxograma do processo proposto está bem alinhado ao levantamento". |
@@ -264,7 +264,7 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 
 | Item                                 | Registro                                                                                                                                                                                                                                            |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Ferramenta e etapa**               | ChatGPT — utilizado como apoio durante a etapa de modelagem conceitual.                                                                                                                                                                             |
+| **Ferramenta e etapa**               | **ChatGPT** — utilizado como apoio durante a etapa de modelagem conceitual.                                                                                                                                                                             |
 | **Motivação**                        | Utilizamos a ferramenta para esclarecer dúvidas e auxiliar na organização das informações que já haviam sido levantadas pelo grupo.                                                                                                                 |
 | **Prompt utilizado**                 | “Pode nos ajudar a organizar as informações do Mercado Santana para identificar possíveis entidades, atributos e relacionamentos para o banco de dados?”                                                                                            |
 | **Resposta recebida**                | A IA apresentou sugestões de possíveis entidades, atributos e relacionamentos que poderiam ser considerados na modelagem.                                                                                                                           |
