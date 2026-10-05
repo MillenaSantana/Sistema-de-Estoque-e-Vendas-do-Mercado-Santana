@@ -87,8 +87,8 @@ entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos e Relacionamentos)
-
 6.1 Modelo conceitual
+
 O modelo conceitual representa o controle de vendas e estoque do Mercado Santana, organizando as principais informações necessárias para o cadastro de produtos, categorias, entradas de mercadorias, vendas e movimentações de estoque.
 
 Entidades reconhecidas
