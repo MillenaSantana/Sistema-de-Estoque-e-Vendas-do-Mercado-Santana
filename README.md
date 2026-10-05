@@ -204,7 +204,7 @@ O Diagrama Entidade-Relacionamento apresenta a modelagem conceitual do sistema, 
 <p align="center">
   <img src="Diagrama Entidade-Relacionamento.png" alt="Diagrama Entidade-Relacionamento" width="900">
 </p>
----
+
 
 # 8. Justificativa Técnica
 
