@@ -24,7 +24,7 @@
 
 ---
 
-**#2. Processos de Negócio**
+**2. Processos de Negócio**
 
 Esta seção descreve o funcionamento atual e a proposta de informatização dos principais processos do Mercado Santana. Em todos os fluxos, o responsável pelo estabelecimento deve conferir as informações e manter os registros das operações para preservar o histórico de vendas, estoque e movimentações financeiras.
 
