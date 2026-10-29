@@ -19,7 +19,7 @@
 
  **Endereço:** [Av. Naylor de Oliveira, 116 - Cidade Tiradentes, São Paulo - SP, 08470-800]
  **Telefone:** [11 97157-9851]
- **Google Maps:** [Google Maps — Mercado Santana](https://www.google.com/maps/search/?api=1&query=Mercado+Santana)
+ **Google Maps:** [Google Maps — Mercado Santana](https://maps.app.goo.gl/Qb853Zpj6gXqc9pv8)
  **Responsável:** [Fernando Ribeiro]
 
 ---
