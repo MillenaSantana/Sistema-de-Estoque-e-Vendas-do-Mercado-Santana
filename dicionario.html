@@ -3,944 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Dicionário de Dados - Mercado Santana</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            color: #000;
-            background-color: #fff;
-            line-height: 1.6;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        h1, h2, h3, h4 {
-            color: #000;
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 30px;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #1f4e79;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #1f4e79;
+            margin: 25px 0 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
+            margin-top: 12px;
         }
 
         th, td {
-            border: 1px solid #000;
-            padding: 8px;
+            border: 1px solid #ddd;
+            padding: 12px;
             text-align: left;
-            vertical-align: top;
         }
 
         th {
-            background-color: #eee;
+            background: #1f4e79;
+            color: white;
         }
 
-        code {
-            font-family: Consolas, monospace;
+        tr:nth-child(even) {
+            background: #f2f5f8;
         }
 
-        .observacao {
-            border: 1px solid #000;
-            padding: 10px;
-            margin: 15px 0;
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            section {
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 500px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<h1>Dicionário de Dados do Mercado Santana</h1>
-
-<hr>
-
-<h2>1. Introdução</h2>
-
-<p>
-    Este documento apresenta o dicionário de dados do Sistema de Estoque e
-    Vendas do Mercado Santana. O objetivo é documentar as entidades, os
-    atributos, os relacionamentos, as regras de acesso e as características
-    técnicas previstas para o banco de dados do mercadinho.
-</p>
-
-<p>
-    O sistema tem como finalidade apoiar o controle dos produtos
-    comercializados, das categorias, das entradas de mercadorias, das vendas
-    e das movimentações de estoque.
-</p>
-
-<h2>2. Sistema Gerenciador de Banco de Dados</h2>
-
-<table>
-    <tr>
-        <th>Item</th>
-        <th>Definição</th>
-        <th>Justificativa</th>
-    </tr>
-    <tr>
-        <td>SGBD</td>
-        <td>MySQL 8.0</td>
-        <td>
-            Sistema gerenciador de banco de dados relacional adequado para
-            organizar e consultar as informações do mercadinho.
-        </td>
-    </tr>
-    <tr>
-        <td>Mecanismo de armazenamento</td>
-        <td>InnoDB</td>
-        <td>
-            Suporta transações, integridade referencial e chaves estrangeiras.
-            É adequado para operações de estoque e vendas.
-        </td>
-    </tr>
-    <tr>
-        <td>Codificação</td>
-        <td>utf8mb4</td>
-        <td>
-            Permite armazenar caracteres acentuados, caracteres especiais
-            e diferentes símbolos utilizados nos dados.
-        </td>
-    </tr>
-    <tr>
-        <td>Collation</td>
-        <td>utf8mb4_0900_ai_ci</td>
-        <td>
-            Permite comparações que desconsideram acentos e diferenças
-            entre letras maiúsculas e minúsculas.
-        </td>
-    </tr>
-</table>
-
-<p>
-    <strong>Observação:</strong> as configurações acima representam a
-    padronização técnica proposta para o projeto. Devem ser conferidas
-    com a configuração efetivamente utilizada no banco de dados.
-</p>
-
-<h2>3. Notação Formal e Padronização</h2>
-
-<p>
-    Para facilitar a leitura e a manutenção do banco de dados, são utilizadas
-    convenções de nomenclatura e símbolos.
-</p>
-
-<table>
-    <tr>
-        <th>Notação</th>
-        <th>Significado</th>
-        <th>Exemplo</th>
-    </tr>
-    <tr>
-        <td>@</td>
-        <td>Identifica uma chave primária na documentação.</td>
-        <td>@id_produto</td>
-    </tr>
-    <tr>
-        <td>ID_</td>
-        <td>Prefixo para identificadores.</td>
-        <td>ID_CATEGORIA</td>
-    </tr>
-    <tr>
-        <td>NM_</td>
-        <td>Prefixo para atributos de nome.</td>
-        <td>NM_PRODUTO</td>
-    </tr>
-    <tr>
-        <td>DT_</td>
-        <td>Prefixo para atributos de data.</td>
-        <td>DT_ENTRADA</td>
-    </tr>
-    <tr>
-        <td>CD_</td>
-        <td>Prefixo para códigos.</td>
-        <td>CD_PRODUTO</td>
-    </tr>
-    <tr>
-        <td>LG_</td>
-        <td>Prefixo para elementos de registro ou log.</td>
-        <td>LG_OPERACAO</td>
-    </tr>
-    <tr>
-        <td>PK</td>
-        <td>Chave primária que identifica unicamente cada registro.</td>
-        <td>id_produto</td>
-    </tr>
-    <tr>
-        <td>FK</td>
-        <td>Chave estrangeira utilizada para relacionar tabelas.</td>
-        <td>id_categoria</td>
-    </tr>
-    <tr>
-        <td>1:N</td>
-        <td>Relacionamento de um para muitos.</td>
-        <td>Categoria e Produto</td>
-    </tr>
-    <tr>
-        <td>N:N</td>
-        <td>Relacionamento de muitos para muitos.</td>
-        <td>Venda e Produto</td>
-    </tr>
-</table>
-
-<p>
-    Os nomes das entidades são apresentados em letras maiúsculas.
-    Os atributos seguem o padrão minúsculo com palavras separadas por
-    sublinhado (<code>snake_case</code>).
-</p>
-
-<h2>4. Entidades e Dicionário de Dados</h2>
-
-<p>
-    Esta seção apresenta as oito entidades identificadas no modelo conceitual:
-    CATEGORIA, PRODUTO, ENTRADA, ITEM_ENTRADA, FORNECEDOR, VENDA,
-    ITEM_VENDA e MOVIMENTACAO_ESTOQUE.
-</p>
-
-<p>
-    Os tipos físicos apresentados são propostas para MySQL 8.0 e devem
-    ser confirmados na conversão para o modelo lógico.
-</p>
-
-<h3>4.1 CATEGORIA</h3>
-
-<p>Classifica os produtos do mercado em grupos.</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_categoria</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único da categoria.</td>
-    </tr>
-    <tr>
-        <td>nome</td>
-        <td>VARCHAR(80)</td>
-        <td>-</td>
-        <td>Nome da categoria.</td>
-    </tr>
-</table>
-
-<h3>4.2 PRODUTO</h3>
-
-<p>Armazena os produtos comercializados e seus dados de preço e estoque.</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_produto</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único do produto.</td>
-    </tr>
-    <tr>
-        <td>nome</td>
-        <td>VARCHAR(120)</td>
-        <td>-</td>
-        <td>Nome ou descrição do produto.</td>
-    </tr>
-    <tr>
-        <td>preco_venda</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Preço de venda atual do produto.</td>
-    </tr>
-    <tr>
-        <td>quantidade_estoque</td>
-        <td>INT</td>
-        <td>-</td>
-        <td>Quantidade atualmente disponível em estoque.</td>
-    </tr>
-    <tr>
-        <td>estoque_minimo</td>
-        <td>INT</td>
-        <td>-</td>
-        <td>Quantidade mínima definida para sinalizar necessidade de reposição.</td>
-    </tr>
-    <tr>
-        <td>id_categoria</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Categoria à qual o produto pertence.</td>
-    </tr>
-</table>
-
-<h3>4.3 ENTRADA</h3>
-
-<p>Registra o recebimento de mercadorias e a nota fiscal correspondente.</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_entrada</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único da entrada.</td>
-    </tr>
-    <tr>
-        <td>data_entrada</td>
-        <td>DATE</td>
-        <td>-</td>
-        <td>Data do recebimento das mercadorias.</td>
-    </tr>
-    <tr>
-        <td>numero_nota_fiscal</td>
-        <td>VARCHAR(30)</td>
-        <td>-</td>
-        <td>Número da nota fiscal relacionada à entrada.</td>
-    </tr>
-    <tr>
-        <td>valor_total</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Valor total da entrada.</td>
-    </tr>
-    <tr>
-        <td>id_fornecedor</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Fornecedor responsável pelo fornecimento.</td>
-    </tr>
-</table>
-
-<h3>4.4 ITEM_ENTRADA</h3>
-
-<p>
-    Entidade associativa que detalha os produtos que compõem cada entrada.
-    Permite registrar vários produtos em uma mesma entrada.
-</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_item_entrada</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único do item da entrada.</td>
-    </tr>
-    <tr>
-        <td>quantidade</td>
-        <td>INT</td>
-        <td>-</td>
-        <td>Quantidade do produto recebida na entrada.</td>
-    </tr>
-    <tr>
-        <td>custo_unitario</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Custo de uma unidade do produto na entrada.</td>
-    </tr>
-    <tr>
-        <td>subtotal</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Subtotal do item, calculado pela quantidade multiplicada pelo custo unitário.</td>
-    </tr>
-    <tr>
-        <td>id_produto</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Produto recebido.</td>
-    </tr>
-    <tr>
-        <td>id_entrada</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Entrada à qual o item pertence.</td>
-    </tr>
-</table>
-
-<h3>4.5 FORNECEDOR</h3>
-
-<p>Armazena os dados de identificação e contato dos fornecedores do mercado.</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_fornecedor</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único do fornecedor.</td>
-    </tr>
-    <tr>
-        <td>nome</td>
-        <td>VARCHAR(120)</td>
-        <td>-</td>
-        <td>Nome ou razão social do fornecedor.</td>
-    </tr>
-    <tr>
-        <td>telefone</td>
-        <td>VARCHAR(20)</td>
-        <td>-</td>
-        <td>Telefone de contato do fornecedor.</td>
-    </tr>
-    <tr>
-        <td>endereco</td>
-        <td>VARCHAR(200)</td>
-        <td>-</td>
-        <td>Endereço do fornecedor.</td>
-    </tr>
-</table>
-
-<h3>4.6 VENDA</h3>
-
-<p>Registra os dados gerais de cada operação de venda realizada no mercado.</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_venda</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único da venda.</td>
-    </tr>
-    <tr>
-        <td>data_hora</td>
-        <td>DATETIME</td>
-        <td>-</td>
-        <td>Data e horário em que a venda foi realizada.</td>
-    </tr>
-    <tr>
-        <td>valor_total</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Valor total da venda.</td>
-    </tr>
-    <tr>
-        <td>forma_pagamento</td>
-        <td>VARCHAR(30)</td>
-        <td>-</td>
-        <td>Forma de pagamento utilizada.</td>
-    </tr>
-</table>
-
-<h4>Como funciona a leitura da entidade VENDA?</h4>
-
-<p>
-    A leitura de VENDA começa pela identificação do registro por
-    <code>id_venda</code>. Em seguida, podem ser consultados
-    <code>data_hora</code>, <code>valor_total</code> e
-    <code>forma_pagamento</code>.
-</p>
-
-<p>
-    Para saber quais produtos foram vendidos e em quais quantidades,
-    deve-se consultar ITEM_VENDA usando <code>id_venda</code>.
-    Cada item informa o produto por <code>id_produto</code>,
-    a quantidade, o preço unitário e o subtotal.
-    Assim, VENDA guarda o resumo da operação e ITEM_VENDA guarda
-    seu detalhamento.
-</p>
-
-<h3>4.7 ITEM_VENDA</h3>
-
-<p>
-    Entidade associativa que detalha os produtos incluídos em cada venda,
-    resolvendo o relacionamento muitos-para-muitos entre VENDA e PRODUTO.
-</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_item_venda</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único do item vendido.</td>
-    </tr>
-    <tr>
-        <td>quantidade</td>
-        <td>INT</td>
-        <td>-</td>
-        <td>Quantidade do produto incluída na venda.</td>
-    </tr>
-    <tr>
-        <td>preco_unitario</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Preço unitário aplicado no momento da venda.</td>
-    </tr>
-    <tr>
-        <td>subtotal</td>
-        <td>DECIMAL(10,2)</td>
-        <td>-</td>
-        <td>Subtotal do item, calculado pela quantidade multiplicada pelo preço unitário.</td>
-    </tr>
-    <tr>
-        <td>id_venda</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Venda à qual o item pertence.</td>
-    </tr>
-    <tr>
-        <td>id_produto</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Produto vendido.</td>
-    </tr>
-</table>
-
-<h3>4.8 MOVIMENTACAO_ESTOQUE</h3>
-
-<p>
-    Registra alterações nas quantidades em estoque e pode estar relacionada
-    a um produto, a um item de entrada ou a um item de venda, conforme o
-    evento que originou a movimentação.
-</p>
-
-<table>
-    <tr>
-        <th>Atributo</th>
-        <th>Tipo</th>
-        <th>Chave</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>id_movimentacao_estoque</td>
-        <td>INT</td>
-        <td>PK</td>
-        <td>Identificador único da movimentação.</td>
-    </tr>
-    <tr>
-        <td>tipo</td>
-        <td>VARCHAR(20)</td>
-        <td>-</td>
-        <td>Classificação da movimentação, por exemplo entrada ou saída.</td>
-    </tr>
-    <tr>
-        <td>quantidade</td>
-        <td>INT</td>
-        <td>-</td>
-        <td>Quantidade movimentada.</td>
-    </tr>
-    <tr>
-        <td>data_hora</td>
-        <td>DATETIME</td>
-        <td>-</td>
-        <td>Data e horário em que ocorreu a movimentação.</td>
-    </tr>
-    <tr>
-        <td>motivo</td>
-        <td>VARCHAR(120)</td>
-        <td>-</td>
-        <td>Justificativa ou origem da movimentação.</td>
-    </tr>
-    <tr>
-        <td>id_produto</td>
-        <td>INT</td>
-        <td>FK</td>
-        <td>Produto cujo estoque foi movimentado.</td>
-    </tr>
-    <tr>
-        <td>id_item_entrada</td>
-        <td>INT</td>
-        <td>FK opcional</td>
-        <td>Item de entrada que originou a movimentação, quando aplicável.</td>
-    </tr>
-    <tr>
-        <td>id_item_venda</td>
-        <td>INT</td>
-        <td>FK opcional</td>
-        <td>Item de venda que originou a movimentação, quando aplicável.</td>
-    </tr>
-</table>
-
-<p>
-    <strong>Observação:</strong> a regra de obrigatoriedade de
-    <code>id_item_entrada</code> e <code>id_item_venda</code>, bem como
-    a restrição para impedir referências simultâneas incompatíveis,
-    deve ser definida no modelo lógico e nas regras de negócio.
-</p>
-
-<h2>5. Relacionamentos entre as Entidades</h2>
-
-<table>
-    <tr>
-        <th>Entidades</th>
-        <th>Cardinalidade</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>CATEGORIA — PRODUTO</td>
-        <td>1:N</td>
-        <td>Uma categoria pode possuir vários produtos; cada produto está associado a uma categoria.</td>
-    </tr>
-    <tr>
-        <td>PRODUTO — ITEM_ENTRADA</td>
-        <td>1:N</td>
-        <td>Um produto pode aparecer em vários itens de entrada.</td>
-    </tr>
-    <tr>
-        <td>ENTRADA — ITEM_ENTRADA</td>
-        <td>1:N</td>
-        <td>Uma entrada contém um ou vários itens; cada item pertence a uma entrada.</td>
-    </tr>
-    <tr>
-        <td>FORNECEDOR — ENTRADA</td>
-        <td>1:N</td>
-        <td>Um fornecedor pode fornecer várias entradas; cada entrada está vinculada a um fornecedor.</td>
-    </tr>
-    <tr>
-        <td>VENDA — ITEM_VENDA</td>
-        <td>1:N</td>
-        <td>Uma venda possui um ou vários itens; cada item pertence a uma venda.</td>
-    </tr>
-    <tr>
-        <td>PRODUTO — ITEM_VENDA</td>
-        <td>1:N</td>
-        <td>Um produto pode aparecer em vários itens de venda.</td>
-    </tr>
-    <tr>
-        <td>PRODUTO — MOVIMENTACAO_ESTOQUE</td>
-        <td>1:N</td>
-        <td>Um produto pode gerar várias movimentações de estoque.</td>
-    </tr>
-    <tr>
-        <td>ITEM_ENTRADA — MOVIMENTACAO_ESTOQUE</td>
-        <td>Opcional</td>
-        <td>Uma movimentação pode referenciar um item de entrada como origem.</td>
-    </tr>
-    <tr>
-        <td>ITEM_VENDA — MOVIMENTACAO_ESTOQUE</td>
-        <td>Opcional</td>
-        <td>Uma movimentação pode referenciar um item de venda como origem.</td>
-    </tr>
-</table>
-
-<p>
-    Os relacionamentos muitos-para-muitos entre ENTRADA e PRODUTO e entre
-    VENDA e PRODUTO são resolvidos pelas entidades associativas
-    ITEM_ENTRADA e ITEM_VENDA, respectivamente.
-</p>
-
-<h2>6. Índices das Entidades</h2>
-
-<p>
-    Cada entidade possui um índice de chave primária. Os índices de chaves
-    estrangeiras são recomendados para apoiar os relacionamentos e as consultas.
-    Índices secundários adicionais dependem das consultas realizadas pelo sistema.
-</p>
-
-<table>
-    <tr>
-        <th>Entidade</th>
-        <th>Índice ou coluna</th>
-        <th>Tipo</th>
-        <th>Finalidade</th>
-    </tr>
-    <tr><td>CATEGORIA</td><td>id_categoria</td><td>PK</td><td>Identificar cada categoria.</td></tr>
-    <tr><td>CATEGORIA</td><td>nome</td><td>Secundário sugerido</td><td>Pesquisar categorias pelo nome.</td></tr>
-    <tr><td>PRODUTO</td><td>id_produto</td><td>PK</td><td>Identificar cada produto.</td></tr>
-    <tr><td>PRODUTO</td><td>id_categoria</td><td>FK</td><td>Localizar produtos por categoria.</td></tr>
-    <tr><td>PRODUTO</td><td>nome</td><td>Secundário sugerido</td><td>Pesquisar produtos pelo nome.</td></tr>
-    <tr><td>ENTRADA</td><td>id_entrada</td><td>PK</td><td>Identificar cada entrada.</td></tr>
-    <tr><td>ENTRADA</td><td>id_fornecedor</td><td>FK</td><td>Consultar entradas por fornecedor.</td></tr>
-    <tr><td>ENTRADA</td><td>data_entrada</td><td>Secundário sugerido</td><td>Consultar entradas por período.</td></tr>
-    <tr><td>ENTRADA</td><td>numero_nota_fiscal</td><td>Secundário sugerido</td><td>Localizar uma entrada pela nota fiscal.</td></tr>
-    <tr><td>ITEM_ENTRADA</td><td>id_item_entrada</td><td>PK</td><td>Identificar cada item de entrada.</td></tr>
-    <tr><td>ITEM_ENTRADA</td><td>id_produto</td><td>FK</td><td>Consultar entradas de um produto.</td></tr>
-    <tr><td>ITEM_ENTRADA</td><td>id_entrada</td><td>FK</td><td>Listar os itens de uma entrada.</td></tr>
-    <tr><td>FORNECEDOR</td><td>id_fornecedor</td><td>PK</td><td>Identificar cada fornecedor.</td></tr>
-    <tr><td>FORNECEDOR</td><td>nome</td><td>Secundário sugerido</td><td>Pesquisar fornecedores pelo nome.</td></tr>
-    <tr><td>VENDA</td><td>id_venda</td><td>PK</td><td>Identificar cada venda.</td></tr>
-    <tr><td>VENDA</td><td>data_hora</td><td>Secundário sugerido</td><td>Consultar vendas por período.</td></tr>
-    <tr><td>ITEM_VENDA</td><td>id_item_venda</td><td>PK</td><td>Identificar cada item vendido.</td></tr>
-    <tr><td>ITEM_VENDA</td><td>id_venda</td><td>FK</td><td>Listar os itens de uma venda.</td></tr>
-    <tr><td>ITEM_VENDA</td><td>id_produto</td><td>FK</td><td>Consultar vendas de um produto.</td></tr>
-    <tr><td>MOVIMENTACAO_ESTOQUE</td><td>id_movimentacao_estoque</td><td>PK</td><td>Identificar cada movimentação.</td></tr>
-    <tr><td>MOVIMENTACAO_ESTOQUE</td><td>id_produto</td><td>FK</td><td>Consultar movimentações por produto.</td></tr>
-    <tr><td>MOVIMENTACAO_ESTOQUE</td><td>id_item_entrada</td><td>FK</td><td>Localizar a entrada que originou a movimentação.</td></tr>
-    <tr><td>MOVIMENTACAO_ESTOQUE</td><td>id_item_venda</td><td>FK</td><td>Localizar a venda que originou a movimentação.</td></tr>
-</table>
-
-<h2>7. Regras de Negócio</h2>
-
-<ol>
-    <li>Cada produto deve estar associado a uma categoria.</li>
-    <li>Uma categoria pode possuir vários produtos.</li>
-    <li>Cada entrada deve estar vinculada a um fornecedor.</li>
-    <li>Uma entrada pode conter vários produtos por meio de ITEM_ENTRADA.</li>
-    <li>Uma venda pode conter vários produtos por meio de ITEM_VENDA.</li>
-    <li>As movimentações devem registrar produto, quantidade, tipo, data e motivo.</li>
-    <li>As entradas de mercadorias devem aumentar o estoque dos produtos correspondentes.</li>
-    <li>As vendas devem diminuir o estoque dos produtos vendidos.</li>
-    <li>O sistema deve evitar que as operações resultem em estoque negativo.</li>
-    <li>As alterações no estoque devem respeitar as regras definidas pelo responsável pelo mercado.</li>
-</ol>
-
-<h2>8. Controle de Acesso</h2>
-
-<p>
-    A tabela apresenta as permissões previstas para o projeto.
-    Ela não comprova que as permissões já estejam configuradas no MySQL.
-</p>
-
-<table>
-    <tr>
-        <th>Entidade</th>
-        <th>LER</th>
-        <th>INSERIR</th>
-        <th>ATUALIZAR</th>
-        <th>APAGAR</th>
-    </tr>
-    <tr>
-        <td>PRODUTO</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-    </tr>
-    <tr>
-        <td>CATEGORIA</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-    </tr>
-    <tr>
-        <td>ENTRADA</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-    </tr>
-    <tr>
-        <td>ITEM_ENTRADA</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-    </tr>
-    <tr>
-        <td>FORNECEDOR</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-    </tr>
-    <tr>
-        <td>VENDA</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Nenhum papel</td>
-        <td>Nenhum papel</td>
-    </tr>
-    <tr>
-        <td>ITEM_VENDA</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Nenhum papel</td>
-        <td>Nenhum papel</td>
-    </tr>
-    <tr>
-        <td>MOVIMENTACAO_ESTOQUE</td>
-        <td>Responsável pelo mercado</td>
-        <td>Responsável pelo mercado</td>
-        <td>Nenhum papel</td>
-        <td>Nenhum papel</td>
-    </tr>
-</table>
-
-<p>
-    A restrição de atualização e exclusão de vendas e movimentações busca
-    preservar o histórico das operações. A implementação deve ser conferida
-    com as necessidades reais do mercado.
-</p>
-
-<h2>9. Segurança, Auditoria e LGPD</h2>
-
-<h3>9.1 Dados tratados</h3>
-
-<table>
-    <tr>
-        <th>Dados</th>
-        <th>Finalidade</th>
-        <th>Observação</th>
-    </tr>
-    <tr>
-        <td>Nome e preço dos produtos</td>
-        <td>Cadastro e comercialização de produtos.</td>
-        <td>Em regra, são dados operacionais e não pessoais.</td>
-    </tr>
-    <tr>
-        <td>Identificação da categoria</td>
-        <td>Organização dos produtos.</td>
-        <td>Não representa, por si só, dado pessoal.</td>
-    </tr>
-    <tr>
-        <td>Data, número da nota fiscal e valor da entrada</td>
-        <td>Registro e conferência de entradas de mercadorias.</td>
-        <td>Documentos fiscais completos podem conter dados pessoais.</td>
-    </tr>
-    <tr>
-        <td>Data, horário, valor e forma de pagamento da venda</td>
-        <td>Registro e consulta das vendas.</td>
-        <td>Os atributos listados não incluem cadastro específico de clientes.</td>
-    </tr>
-    <tr>
-        <td>Tipo, quantidade, data e motivo da movimentação</td>
-        <td>Controle e conferência do estoque.</td>
-        <td>Dados operacionais do estoque.</td>
-    </tr>
-    <tr>
-        <td>Nome, telefone e endereço do fornecedor</td>
-        <td>Identificação, contato e gestão comercial.</td>
-        <td>Podem ser dados pessoais quando identificarem pessoa natural.</td>
-    </tr>
-    <tr>
-        <td>Registros de auditoria, caso implementados</td>
-        <td>Verificação de acessos e operações.</td>
-        <td>Podem conter dados pessoais se identificarem usuários.</td>
-    </tr>
-</table>
-
-<h3>9.2 Bases legais</h3>
-
-<p>
-    A aplicação da Lei Geral de Proteção de Dados Pessoais
-    (LGPD - Lei nº 13.709/2018) depende dos dados efetivamente tratados
-    e da finalidade de cada operação.
-</p>
-
-<ul>
-    <li>
-        <strong>Cumprimento de obrigação legal ou regulatória:</strong>
-        pode ser aplicável à manutenção de documentos fiscais e contábeis
-        exigidos por lei.
-    </li>
-    <li>
-        <strong>Execução de contrato:</strong>
-        pode ser aplicável quando o tratamento for necessário para executar
-        uma relação contratual.
-    </li>
-    <li>
-        <strong>Exercício regular de direitos:</strong>
-        pode ser aplicável quando os dados forem necessários para o exercício
-        de direitos em processos judiciais, administrativos ou arbitrais.
-    </li>
-    <li>
-        <strong>Legítimo interesse:</strong>
-        pode ser considerado em situações específicas, após avaliação
-        de finalidade, necessidade e direitos do titular.
-    </li>
-</ul>
-
-<p>
-    Essas são possibilidades, não uma definição automática da base legal
-    para todos os registros. O responsável pelo tratamento deverá confirmar
-    a base adequada para cada finalidade.
-</p>
-
-<h3>9.3 Retenção e descarte</h3>
-
-<p>
-    Os dados devem ser mantidos pelo período necessário às finalidades
-    operacionais e ao cumprimento das obrigações legais aplicáveis.
-    Documentos fiscais e contábeis devem respeitar os prazos específicos
-    exigidos para cada tipo de documento.
-</p>
-
-<p>
-    O prazo exato de retenção não está definido no modelo fornecido.
-    Os registros fiscais e contábeis deverão ser mantidos durante os prazos
-    exigidos pela legislação aplicável. Os registros operacionais e de
-    auditoria deverão ter prazo formal definido pelo responsável pelo mercado.
-    Ao fim da finalidade e dos prazos legais aplicáveis, os dados pessoais
-    deverão ser eliminados ou anonimizados, ressalvadas as hipóteses legais
-    de conservação.
-</p>
-
-<h3>9.4 Medidas de segurança e auditoria</h3>
-
-<ul>
-    <li>Limitar o acesso ao banco de dados às pessoas autorizadas.</li>
-    <li>Utilizar senhas fortes e proteger as credenciais de acesso.</li>
-    <li>Evitar o compartilhamento de contas de usuário.</li>
-    <li>Registrar operações relevantes de acesso e alteração, caso o mecanismo de auditoria seja implementado.</li>
-    <li>Definir quem poderá consultar e administrar os registros de auditoria.</li>
-    <li>Não registrar senhas ou credenciais em logs.</li>
-    <li>Estabelecer prazo de retenção para os registros de auditoria.</li>
-    <li>Manter cópias de segurança e testar a recuperação dos dados.</li>
-</ul>
-
-<h2>10. Pontos a Confirmar</h2>
-
-<ol>
-    <li>Confirmar os tipos físicos dos atributos no modelo lógico.</li>
-    <li>Confirmar a nomenclatura física sem acentos para id_movimentacao_estoque e endereco.</li>
-    <li>Definir a obrigatoriedade de id_item_entrada e id_item_venda em MOVIMENTACAO_ESTOQUE.</li>
-    <li>Confirmar as cardinalidades e obrigatoriedades do DER final.</li>
-    <li>Definir as chaves estrangeiras e os índices necessários.</li>
-    <li>Confirmar as regras de atualização e exclusão de registros.</li>
-    <li>Validar os prazos de retenção fiscal, contábil e de auditoria.</li>
-    <li>Confirmar as bases legais conforme os dados efetivamente tratados.</li>
-</ol>
-
-<h2>11. Histórico de Alterações</h2>
-
-<table>
-    <tr>
-        <th>Versão</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>1.0</td>
-        <td>Documento inicial do dicionário de dados do Mercado Santana.</td>
-    </tr>
-    <tr>
-        <td>3.0</td>
-        <td>
-            Compatibilização com o modelo conceitual: inclusão de FORNECEDOR,
-            ITEM_ENTRADA e ITEM_VENDA; atualização dos atributos de PRODUTO,
-            ENTRADA e MOVIMENTACAO_ESTOQUE; revisão dos relacionamentos,
-            índices, regras de negócio e dados tratados pela LGPD.
-        </td>
-    </tr>
-</table>
-
-<hr>
-
-<p>
-    <strong>Documento:</strong> Dicionário de Dados do Mercado Santana
-</p>
-
-<p>
-    <strong>Projeto:</strong> Sistema de Estoque e Vendas do Mercado Santana
-</p>
+<header>
+    <h1>Dicionário de Dados Conceitual</h1>
+    <p>Sistema de Estoque e Vendas - Mercado Santana</p>
+</header>
+
+<main>
+
+    <section>
+        <h2>1. Apresentação</h2>
+        <p>
+            O Dicionário de Dados apresenta as entidades,
+            atributos, relacionamentos e regras utilizadas
+            na modelagem do banco de dados do Sistema de
+            Estoque e Vendas do Mercado Santana.
+        </p>
+        <p>
+            Seu objetivo é documentar a estrutura do banco
+            de dados, facilitando a compreensão das informações
+            armazenadas e dos relacionamentos entre as entidades.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Entidades e Atributos</h2>
+
+        <h3>CATEGORIA</h3>
+        <p>Armazena as categorias utilizadas para classificar os produtos.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_categoria</td>
+                <td>Identificador único da categoria.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>nome_categoria</td>
+                <td>Nome da categoria.</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h3>PRODUTO</h3>
+        <p>Armazena os dados dos produtos comercializados pelo mercado.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_produto</td>
+                <td>Identificador único do produto.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>nome_produto</td>
+                <td>Nome do produto.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>preco</td>
+                <td>Preço de venda do produto.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>quantidade_estoque</td>
+                <td>Quantidade disponível em estoque.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>id_categoria</td>
+                <td>Categoria à qual o produto pertence.</td>
+                <td>FK</td>
+            </tr>
+        </table>
+
+        <h3>ENTRADA</h3>
+        <p>Registra as entradas de mercadorias no estoque.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_entrada</td>
+                <td>Identificador único da entrada.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>data_entrada</td>
+                <td>Data em que a mercadoria entrou no estoque.</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h3>ITEM_ENTRADA</h3>
+        <p>Registra os produtos e as quantidades referentes a cada entrada.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_item_entrada</td>
+                <td>Identificador único do item de entrada.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>id_entrada</td>
+                <td>Entrada à qual o item pertence.</td>
+                <td>FK</td>
+            </tr>
+            <tr>
+                <td>id_produto</td>
+                <td>Produto recebido.</td>
+                <td>FK</td>
+            </tr>
+            <tr>
+                <td>quantidade</td>
+                <td>Quantidade recebida do produto.</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h3>FORNECEDOR</h3>
+        <p>Armazena os dados dos fornecedores de mercadorias.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_fornecedor</td>
+                <td>Identificador único do fornecedor.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>nome_fornecedor</td>
+                <td>Nome do fornecedor.</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h3>VENDA</h3>
+        <p>Registra as vendas realizadas pelo mercado.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_venda</td>
+                <td>Identificador único da venda.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>data_venda</td>
+                <td>Data em que a venda foi realizada.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>valor_total</td>
+                <td>Valor total da venda.</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h3>ITEM_VENDA</h3>
+        <p>Registra os produtos e quantidades de cada venda.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_item_venda</td>
+                <td>Identificador único do item vendido.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>id_venda</td>
+                <td>Venda à qual o item pertence.</td>
+                <td>FK</td>
+            </tr>
+            <tr>
+                <td>id_produto</td>
+                <td>Produto vendido.</td>
+                <td>FK</td>
+            </tr>
+            <tr>
+                <td>quantidade</td>
+                <td>Quantidade vendida.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>preco_unitario</td>
+                <td>Preço unitário do produto no momento da venda.</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h3>MOVIMENTACAO_ESTOQUE</h3>
+        <p>Registra as movimentações de entrada e saída dos produtos.</p>
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descrição</th>
+                <th>Chave</th>
+            </tr>
+            <tr>
+                <td>id_movimentacao</td>
+                <td>Identificador único da movimentação.</td>
+                <td>PK</td>
+            </tr>
+            <tr>
+                <td>id_produto</td>
+                <td>Produto movimentado.</td>
+                <td>FK</td>
+            </tr>
+            <tr>
+                <td>tipo_movimentacao</td>
+                <td>Tipo da movimentação: entrada ou saída.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>quantidade</td>
+                <td>Quantidade movimentada.</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>data_movimentacao</td>
+                <td>Data em que a movimentação ocorreu.</td>
+                <td>-</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. Relacionamentos entre as Entidades</h2>
+
+        <ul>
+            <li>
+                <strong>CATEGORIA e PRODUTO:</strong>
+                uma categoria pode possuir vários produtos.
+            </li>
+            <li>
+                <strong>ENTRADA e ITEM_ENTRADA:</strong>
+                uma entrada pode possuir vários itens.
+            </li>
+            <li>
+                <strong>PRODUTO e ITEM_ENTRADA:</strong>
+                um produto pode aparecer em diferentes entradas.
+            </li>
+            <li>
+                <strong>VENDA e ITEM_VENDA:</strong>
+                uma venda pode possuir vários itens.
+            </li>
+            <li>
+                <strong>PRODUTO e ITEM_VENDA:</strong>
+                um produto pode aparecer em diferentes vendas.
+            </li>
+            <li>
+                <strong>PRODUTO e MOVIMENTACAO_ESTOQUE:</strong>
+                um produto pode possuir várias movimentações.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Regras de Negócio</h2>
+
+        <ul>
+            <li>
+                Cada produto deve estar associado a uma categoria.
+            </li>
+            <li>
+                Cada entidade possui um identificador único.
+            </li>
+            <li>
+                As chaves estrangeiras estabelecem os relacionamentos
+                entre as entidades.
+            </li>
+            <li>
+                As entradas representam o recebimento de mercadorias.
+            </li>
+            <li>
+                As vendas representam a saída de produtos do estoque.
+            </li>
+            <li>
+                As movimentações registram as alterações nas quantidades
+                disponíveis em estoque.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Legenda</h2>
+
+        <p><strong>PK:</strong> Chave Primária (Primary Key).</p>
+        <p><strong>FK:</strong> Chave Estrangeira (Foreign Key).</p>
+        <p><strong>-:</strong> Atributo sem indicação de chave.</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Projeto Sistema de Estoque e Vendas - Mercado Santana</p>
+    <p>Dicionário de Dados Conceitual</p>
+</footer>
 
 </body>
 </html>
