@@ -1,10 +1,13 @@
 ## Metadados
 
-- Isabella Bonfim Reis - 48837423
-- Maria Eduarda Santos Guedes - 48216810
-- Millena Dias Santana - 47555041
-- Raquel Guimarães Pereira - 47813369
-- Yasmin Helena Marinho Pinda - 47740981
+| Nome completo do aluno | RGM | Usuário do GitHub |
+|---|---|---|
+| Isabella Bonfim Reis | 48837423 | [@MillenaSantana](https://github.com/MillenaSantana) |
+| Maria Eduarda Santos Guedes |  48216810 | [@MillenaSantana](https://github.com/MillenaSantana) |
+| Millena Dias Santana | 47555041 | [@MillenaSantana](https://github.com/MillenaSantana) |
+| Raquel Guimarães Pereira | 47813369 | [@MillenaSantana](https://github.com/MillenaSantana) |
+| Yasmin Helena Marinho Pinda | 47740981 | [@MillenaSantana](https://github.com/MillenaSantana) |
+
   
 # Sistema-de-Estoque-e-Vendas-do-Mercado-Santana
 
