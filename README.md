@@ -2,11 +2,11 @@
 
 | Nome completo do aluno | RGM | Usuário do GitHub |
 |---|---|---|
-| Isabella Bonfim Reis | 48837423 | [@MillenaSantana](https://github.com/MillenaSantana) |
-| Maria Eduarda Santos Guedes |  48216810 | [@MillenaSantana](https://github.com/MillenaSantana) |
+| Isabella Bonfim Reis | 48837423 | [@isab7fim](https://github.com/isab7fim) |
+| Maria Eduarda Santos Guedes |  48216810 | [@mariaeduardamazuqueli](https://github.com/mariaeduardamazuqueli) |
 | Millena Dias Santana | 47555041 | [@MillenaSantana](https://github.com/MillenaSantana) |
-| Raquel Guimarães Pereira | 47813369 | [@MillenaSantana](https://github.com/MillenaSantana) |
-| Yasmin Helena Marinho Pinda | 47740981 | [@MillenaSantana](https://github.com/MillenaSantana) |
+| Raquel Guimarães Pereira | 47813369 | [@ raquel-dev70](https://github.com/raquel-dev70) |
+| Yasmin Helena Marinho Pinda | 47740981 | [@yasminpinda](https://github.com/yasminpinda) |
 
   
 # Sistema-de-Estoque-e-Vendas-do-Mercado-Santana
