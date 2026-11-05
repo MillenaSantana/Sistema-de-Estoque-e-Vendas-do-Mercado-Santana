@@ -161,6 +161,7 @@ O diagrama completo está disponível em: [Visualizar Modelo Conceitual](./Model
 ### Ferramenta utilizada
 
 O modelo conceitual foi desenvolvido utilizando o software brModelo.
+
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos e Relacionamentos)
