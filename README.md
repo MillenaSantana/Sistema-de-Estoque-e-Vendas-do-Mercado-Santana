@@ -282,16 +282,11 @@ O modelo contempla oito entidades principais: Categoria, Produto, Fornecedor, En
 
 3.2 Arquivo do modelo conceitual
 
-O diagrama completo está disponível em: [Visualizar Modelo Conceitual](DER).
+O diagrama completo está disponível em: [Visualizar Modelo Conceitual](Modelo_Conceitual.pdf).
 
 3.3 Ferramenta utilizada
 
 O modelo conceitual foi desenvolvido utilizando o software brModelo.
-
-<p align="center">
-  <img src="Diagrama Entidade-Relacionamento.png" alt="Diagrama Entidade-Relacionamento" width="900">
-</p>
-
 
 # 8. Justificativa Técnica
 
