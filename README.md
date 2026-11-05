@@ -156,7 +156,7 @@ O modelo contempla oito entidades principais: Categoria, Produto, Fornecedor, En
 
 ### Arquivo do modelo conceitual
 
-O diagrama completo está disponível em: [Visualizar Modelo Conceitual](\Modelo_Conceitual.pdf)
+O diagrama completo está disponível em: [Visualizar Modelo Conceitual](./Modelo_Conceitual.pdf).
 
 ### Ferramenta utilizada
 
