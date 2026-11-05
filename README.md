@@ -8,17 +8,51 @@
 | Raquel Guimarães Pereira | 47813369 | [@ raquel-dev70](https://github.com/raquel-dev70) |
 | Yasmin Helena Marinho Pinda | 47740981 | [@yasminpinda](https://github.com/yasminpinda) |
 
-  
-# Sistema-de-Estoque-e-Vendas-do-Mercado-Santana
 
 ## 1. Caracterização da Organização
 
-- **Nome e natureza da organização:** O Mercado Santana é um estabelecimento comercial do setor varejista, voltado à comercialização de produtos alimentícios e domésticos. A organização foi escolhida por ser um estabelecimento real ao qual o grupo possui acesso para realizar a pesquisa de campo.
-- **Contexto e porte:** O Mercado Santana está em funcionamento desde 2013 e possui uma operação de pequeno porte, contando geralmente com 2 pessoas envolvidas nas atividades do estabelecimento. Entre os produtos comercializados estão alimentos, bebidas, produtos de limpeza e itens domésticos.
-- **Problemas e necessidades identificados:** Atualmente, o mercado não possui um sistema informatizado para controle de vendas e estoque. A quantidade dos produtos é acompanhada principalmente por observação física das prateleiras, sem registro das entradas e saídas de mercadorias.
- Essa forma de controle já ocasionou situações de falta de produtos e compras em quantidade maior do que a necessária. Além disso, não há um histórico detalhado das vendas, dificultando a identificação dos produtos mais vendidos.
-- **Justificativa da escolha:** O Mercado Santana foi escolhido por ser uma organização real e acessível ao grupo, possibilitando a realização de uma pesquisa de campo. Além disso, os problemas identificados no controle de estoque e vendas apresentam uma oportunidade para desenvolver uma solução de banco de dados que possa melhorar a organização das informações e auxiliar no gerenciamento do estabelecimento.
-- **Evidências da organização:** As fotos para as evidências da existência da organização e da realização da pesquisa de campo estão disponíveis na pasta [Evidências](./Evidências).
+### 1.1 Nome e natureza da organização
+
+O Mercado Santana é um estabelecimento comercial do setor varejista, voltado à comercialização de produtos alimentícios e domésticos. A organização foi escolhida por ser um estabelecimento real ao qual o grupo possui acesso para realizar a pesquisa de campo.
+
+### 1.2 Contexto e porte
+
+O Mercado Santana está em funcionamento desde 2013 e possui uma operação de pequeno porte, contando com aproximadamente 2 pessoas envolvidas nas atividades do estabelecimento.
+
+Entre os produtos comercializados estão alimentos, bebidas, produtos de limpeza e itens domésticos. O estabelecimento realiza mais de 50 vendas por dia, apresentando uma movimentação frequente de mercadorias e operações comerciais.
+
+### 1.3 Problemas e necessidades identificados
+
+Atualmente, o mercado não possui um sistema informatizado para o controle de vendas e estoque. A quantidade dos produtos é acompanhada principalmente por observação física das prateleiras, sem um registro centralizado das entradas e saídas de mercadorias.
+
+A partir do levantamento realizado, foram identificados os seguintes problemas:
+
+- **P1 – Controle de estoque:** a quantidade dos produtos é acompanhada visualmente, dificultando a identificação precisa dos itens disponíveis e daqueles que precisam ser repostos.
+- **P2 – Controle de entradas e saídas:** a ausência de registros organizados dificulta o acompanhamento das mercadorias recebidas e das saídas de produtos do estoque.
+- **P3 – Histórico de vendas:** a falta de um histórico detalhado das vendas dificulta a consulta das operações realizadas e a identificação dos produtos mais vendidos.
+
+Essas situações já ocasionaram falta de produtos e compras em quantidades maiores do que as necessárias, demonstrando a necessidade de melhorar a organização das informações do estabelecimento.
+
+### 1.4 Escopo do sistema
+
+O banco de dados proposto busca centralizar as informações relacionadas às operações de estoque e vendas do Mercado Santana.
+
+O escopo contempla oito tabelas: Produtos, Categorias, Fornecedores, Entradas, Itens de Entrada, Vendas, Itens de Venda e Movimentações de Estoque.
+
+Essa estrutura permitirá organizar os dados das mercadorias, registrar as entradas e vendas e acompanhar as movimentações do estoque, fornecendo informações para consultas e apoio à tomada de decisões.
+
+### 1.5 Justificativa da escolha
+
+O Mercado Santana foi escolhido por ser uma organização real e acessível ao grupo, possibilitando a realização de uma pesquisa de campo.
+
+Além disso, um dos integrantes do grupo possui vínculo familiar com o responsável pelo estabelecimento, o que facilitou o acesso ao local e a coleta de informações.
+
+Os problemas identificados no controle de estoque e vendas apresentam uma oportunidade para desenvolver uma solução baseada em banco de dados, capaz de melhorar a organização das informações e auxiliar no gerenciamento do estabelecimento.
+
+### 1.6 Evidências da organização
+
+As fotos utilizadas para comprovar a existência da organização e a realização da pesquisa de campo estão disponíveis na pasta [Evidências](https://github.com/MillenaSantana/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/tree/main/Evid%C3%AAncias).
+
 
  **Endereço:** [Av. Naylor de Oliveira, 116 - Cidade Tiradentes, São Paulo - SP, 08470-800]
  **Telefone:** [11 97157-9851]
