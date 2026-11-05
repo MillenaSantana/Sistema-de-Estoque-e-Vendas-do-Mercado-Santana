@@ -148,19 +148,10 @@ Os requisitos do sistema foram definidos a partir dos problemas identificados no
   - As notas fiscais das compras devem ser armazenadas e relacionadas aos respectivos registros de entrada, quando aplicável.
 ---
 
-## 5. Dicionário de Dados Conceitual 
+## 5. Dicionário de Dados Conceitual  
 
-O Diagrama Entidade-Relacionamento (DER) foi elaborado com base nas informações coletadas durante a pesquisa de campo no Mercado Santana. Seu objetivo é representar conceitualmente os dados necessários para o desenvolvimento do banco de dados, apresentando as entidades, seus atributos e os relacionamentos entre elas.
-
-O modelo contempla oito entidades principais: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque.
-
-### Arquivo do modelo conceitual
-
-O diagrama completo está disponível em: [Visualizar Modelo Conceitual](./Modelo_Conceitual.pdf).
-
-### Ferramenta utilizada
-
-O modelo conceitual foi desenvolvido utilizando o software brModelo.
+O Dicionário de Dados foi desenvolvido em formato de site, apresentando as
+entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
 ---
 
