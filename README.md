@@ -153,6 +153,8 @@ Os requisitos do sistema foram definidos a partir dos problemas identificados no
 O Dicionário de Dados foi desenvolvido em formato de site, apresentando as
 entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
+[Acessar o Dicionário de Dados](https://millenasantana.github.io/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/dicionario.html).
+
 ---
 
 ## 6. Modelagem Conceitual (Entidades, Atributos e Relacionamentos)
