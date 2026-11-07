@@ -61,47 +61,81 @@ As fotos utilizadas para comprovar a existência da organização e a realizaç�
 
 ---
 
-**2. Processos de Negócio**
+## 2. Relato da Entrevista
+
+### 2.1 Identificação da entrevista
+
+A entrevista foi realizada com o objetivo de conhecer o funcionamento do Mercado Santana, entender como são realizadas as atividades de compras, vendas e controle de estoque, além de identificar as principais dificuldades do estabelecimento.
+
+- **Entrevistado:** Fernando Ribeiro.
+- **Função:** Responsável pelo Mercado Santana.
+- **Entrevistadores:** Millena Dias Santana.
+- **Data da entrevista:** 27/10/2026.
+- **Local:** Mercado Santana — Avenida Naylor de Oliveira, 116, Cidade Tiradentes, São Paulo - SP.
+
+### 2.2 Informações obtidas
+
+Durante a entrevista, foi possível conhecer melhor a rotina do mercado, que envolve o atendimento aos clientes, a venda de produtos, a organização das mercadorias e o fechamento do caixa ao final do dia.
+
+Atualmente, o controle de estoque é realizado principalmente pela observação das prateleiras, sem um sistema informatizado para registrar as quantidades disponíveis e as movimentações dos produtos. Segundo o responsável, essa forma de controle pode ocasionar a falta de mercadorias, o esquecimento de produtos na hora das compras e a aquisição de quantidades maiores do que o necessário.
+
+Também foi identificada a importância de registrar as vendas, acompanhar o histórico de movimentações e definir uma quantidade mínima para cada produto, facilitando a identificação dos itens que precisam ser repostos.
+
+Em relação aos fornecedores, a escolha é feita principalmente pela comparação dos preços oferecidos. Quando as mercadorias chegam ao estabelecimento, são conferidos os produtos, as quantidades e os valores.
+
+Por fim, o responsável destacou o interesse em consultar informações como a quantidade atual dos produtos em estoque, os itens que precisam ser repostos, os produtos mais vendidos, o histórico de vendas e os dados dos fornecedores.
+
+### 2.3 Observações do grupo
+
+Com base nas informações coletadas, o grupo identificou a necessidade de melhorar o controle de estoque e vendas do Mercado Santana. A ausência de registros informatizados dificulta o acompanhamento das mercadorias e pode gerar problemas na reposição dos produtos.
+
+Diante disso, a proposta de desenvolvimento de um banco de dados busca organizar essas informações, registrar as entradas e saídas de produtos e facilitar o acompanhamento das vendas e do estoque.
+
+### 2.4 Levantamento completo
+
+O documento com as perguntas e respostas utilizadas durante a entrevista está disponível em: [Relato completo da entrevista](./levantamento/relato_entrevista.md).
+
+# 3. Processos de Negócio**
 
 Esta seção descreve o funcionamento atual e a proposta de informatização dos principais processos do Mercado Santana. Em todos os fluxos, o responsável pelo estabelecimento deve conferir as informações e manter os registros das operações para preservar o histórico de vendas, estoque e movimentações financeiras.
 
-**2.1 Processo de Vendas**
+**3.1 Processo de Vendas**
 
 O processo inicia quando o cliente escolhe os produtos e se dirige ao caixa. O funcionário confere os itens, calcula o valor total, informa as formas de pagamento disponíveis e recebe o pagamento. No modelo atual, a venda não é registrada imediatamente no sistema; o controle ocorre principalmente no fechamento do caixa ao final do dia. No processo proposto, a venda é registrada no momento da conclusão, os itens são associados à venda, o estoque é atualizado e o comprovante pode ser consultado posteriormente. Se a quantidade solicitada for maior que o saldo disponível, a venda do item deve ser impedida ou ajustada antes da conclusão.
 
-**2.2 Controle de Estoque e Reposição**
+**3.2 Controle de Estoque e Reposição**
 
 O funcionário acompanha a quantidade disponível dos produtos e verifica se algum item está acabando. Quando o saldo permanece acima do estoque mínimo, a rotina continua normalmente. Quando o saldo atinge ou fica abaixo do mínimo, o produto é identificado para reposição, o responsável avalia a necessidade da compra e o processo de compras é iniciado. Com o sistema proposto, as entradas, vendas, perdas e devoluções atualizam o saldo de estoque, permitindo que o alerta de reposição seja gerado automaticamente.
 
-**2.3 Processo de Compras**
+**3.3 Processo de Compras**
 
 O processo começa com a identificação da necessidade de reposição. O responsável define os produtos e as quantidades, escolhe o fornecedor e realiza o pedido. No recebimento, o funcionário confere a quantidade, os produtos, a nota fiscal e as condições da mercadoria. Se houver divergência, o recebimento deve ser ajustado ou questionado ao fornecedor. Se estiver correto, a entrada é registrada, a mercadoria é armazenada e a nota fiscal é guardada junto ao registro da compra.
 
-**2.4 Trocas, Cancelamentos e Devoluções**
+**3.4 Trocas, Cancelamentos e Devoluções**
 
 O cliente solicita a troca, o cancelamento ou a devolução, e o funcionário localiza a venda por meio da nota ou do comprovante. Em seguida, verifica se a solicitação atende à política do mercado e registra o motivo da operação. Em caso de recusa, o cliente é informado e a justificativa fica registrada. Se a solicitação for aprovada, o fluxo depende do tipo: na troca, separa-se o produto substituto; no cancelamento, a venda é anulada antes da conclusão; na devolução, o produto recebido é conferido. Produto devolvido em condições de venda pode retornar ao estoque; produto vencido, aberto ou danificado deve ser encaminhado ao processo de perdas. Por fim, o pagamento é estornado ou ajustado e o estoque é atualizado.
 
-**2.5 Cadastro e Escolha de Fornecedores**
+**3.5 Cadastro e Escolha de Fornecedores**
 
 Quando surge uma necessidade de compra, o responsável consulta os fornecedores disponíveis. Se o fornecedor ainda não existir no sistema, são cadastrados a razão social, o CNPJ, os contatos e as condições comerciais. Em seguida, são comparados preço, prazo de entrega, qualidade dos produtos e condições de pagamento. O fornecedor aprovado é registrado como escolhido e vinculado ao pedido de compra. Caso nenhum fornecedor seja aprovado, o responsável busca outra opção e repete a cotação antes de emitir o pedido.
 
-**2.6 Pagamento a Fornecedores**
+**3.6 Pagamento a Fornecedores**
 
 Após o recebimento da mercadoria, o funcionário confere o pedido, a quantidade, a nota fiscal e os valores. Se houver inconsistência, o pagamento é bloqueado e a correção é solicitada ao fornecedor. Se os dados estiverem corretos, é registrada a conta a pagar com o valor e o vencimento. Na data prevista, o responsável verifica a autorização e a disponibilidade financeira, realiza o pagamento, armazena o comprovante e baixa a conta. Quando o pagamento não puder ser realizado, a justificativa e a nova programação devem ser registradas.
 
-**2.7 Cadastro de Produtos e Precificação**
+**3.7 Cadastro de Produtos e Precificação**
 
 Antes de vender um item, o responsável verifica se o produto já está cadastrado. Para um novo produto, registra nome, categoria, unidade de medida e estoque mínimo. Para um produto existente, confere e atualiza os dados necessários. Depois, informa o custo de compra, define a margem e calcula o preço sugerido. O preço deve ser revisado e aprovado pelo responsável; somente após essa aprovação o produto é ativado e disponibilizado para vendas e controle de estoque.
 
-**2.8 Tratamento de Perdas por Vencimento ou Danos**
+**3.8 Tratamento de Perdas por Vencimento ou Danos**
 
 Quando um produto vencido ou danificado é identificado, o funcionário o separa e o retira da área de venda para impedir sua comercialização. O motivo da perda é classificado como vencimento ou dano, e são registrados o produto, a quantidade, a data e a justificativa. Se houver possibilidade de devolução, o responsável solicita a devolução ao fornecedor e guarda o comprovante; caso contrário, o item é descartado de forma adequada. Ao final, o sistema registra a saída por perda, atualiza o estoque e mantém o histórico para acompanhamento do responsável.
 
-**2.9 Fechamento de Caixa**
+**3.9 Fechamento de Caixa**
 
 Ao encerrar o expediente, o funcionário interrompe novas vendas e consulta as vendas registradas e as respectivas formas de pagamento. Em seguida, conta o dinheiro e confere os comprovantes de cartões e pagamentos via Pix. Os valores são comparados com o total apresentado pelo sistema. Se houver diferença, as vendas, os comprovantes e a contagem são revisados; persistindo a divergência, o valor e a justificativa são registrados. Se os valores estiverem corretos, o fechamento é confirmado. Em ambos os casos, o relatório e o registro do caixa são armazenados para consulta posterior.
 
-**2.10 Processo Proposto Integrado**
+**3.10 Processo Proposto Integrado**
 
 O processo proposto integra cadastro de produtos, vendas, estoque, compras, fornecedores, pagamentos, perdas e fechamento de caixa por meio de software. O produto é cadastrado e precificado antes de ser disponibilizado para venda. A cada venda, troca, devolução, entrada ou perda, o sistema registra a movimentação correspondente e atualiza o saldo em tempo real. Quando o estoque atinge o mínimo, o sistema sinaliza a reposição; o responsável consulta e escolhe um fornecedor, emite o pedido, registra o recebimento e controla o pagamento. Ao final do dia, o fechamento de caixa consolida as vendas e registra eventuais divergências.
 
@@ -109,10 +143,10 @@ O processo proposto integra cadastro de produtos, vendas, estoque, compras, forn
 
 ---
 
-## 3. Requisitos do Sistema
+## 4. Requisitos do Sistema
 Os requisitos do sistema foram definidos a partir dos problemas identificados no Mercado Santana, principalmente relacionados à ausência de controle informatizado das vendas e do estoque. Atualmente, as vendas não são registradas em um sistema e o estoque é acompanhado visualmente, o que dificulta o controle das entradas e saídas, a identificação dos produtos mais vendidos e a reposição de mercadorias. 
 
-### 3.1 Requisitos Funcionais
+### 4.1 Requisitos Funcionais
 - **RF01 — Cadastro de produtos:** o sistema deve permitir cadastrar e consultar os produtos comercializados pelo mercado.
 - **RF02 — Registro de vendas:** o sistema deve permitir registrar as vendas realizadas e os produtos vendidos em cada operação.
 - **RF03 — Controle de estoque:** o sistema deve registrar as entradas e saídas de produtos e manter atualizada a quantidade disponível.
