@@ -93,7 +93,7 @@ Diante disso, a proposta de desenvolvimento de um banco de dados busca organizar
 
 ### 2.4 Levantamento completo
 
-O documento com as perguntas e respostas utilizadas durante a entrevista está disponível em: [Relato completo da entrevista](./levantamento/relato_entrevista.md).
+O documento com as perguntas e respostas utilizadas durante a entrevista está disponível em: [Relato completo da entrevista](./levantamento_relato_entrevista.pdf).
 
 # 3. Processos de Negócio**
 
