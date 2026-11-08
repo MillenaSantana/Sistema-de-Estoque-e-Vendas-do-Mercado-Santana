@@ -143,43 +143,288 @@ O processo proposto integra cadastro de produtos, vendas, estoque, compras, forn
 
 ---
 
-## 4. Requisitos do Sistema
-Os requisitos do sistema foram definidos a partir dos problemas identificados no Mercado Santana, principalmente relacionados à ausência de controle informatizado das vendas e do estoque. Atualmente, as vendas não são registradas em um sistema e o estoque é acompanhado visualmente, o que dificulta o controle das entradas e saídas, a identificação dos produtos mais vendidos e a reposição de mercadorias. 
+<!-- 4. REQUISITOS DO SISTEMA -->
+<section id="requisitos">
 
-### 4.1 Requisitos Funcionais
-- **RF01 — Cadastro de produtos:** o sistema deve permitir cadastrar e consultar os produtos comercializados pelo mercado.
-- **RF02 — Registro de vendas:** o sistema deve permitir registrar as vendas realizadas e os produtos vendidos em cada operação.
-- **RF03 — Controle de estoque:** o sistema deve registrar as entradas e saídas de produtos e manter atualizada a quantidade disponível.
-- **RF04 — Consulta de estoque:** o sistema deve permitir consultar a quantidade disponível de cada produto.
-- **RF05 — Controle de estoque mínimo:** o sistema deve permitir definir uma quantidade mínima para cada produto e identificar quando ela for atingida.
-- **RF06 — Reposição:** o sistema deve permitir identificar os produtos que necessitam de reposição.
-- **RF07 — Histórico de vendas:** o sistema deve armazenar as vendas realizadas para possibilitar consultas posteriores e identificar os produtos mais vendidos.
-- **RF08 — Controle de produtos não comercializáveis:** o sistema deve permitir registrar produtos vencidos ou danificados.
-- **RF09 — Registro de entradas:** o sistema deve permitir registrar a entrada de mercadorias e as respectivas quantidades recebidas.
+  <h1>4. Requisitos do Sistema</h1>
 
-### 3.2 Requisitos Não Funcionais
-- **RNF01 — Usabilidade:** o sistema deve possuir uma interface simples e intuitiva, facilitando seu uso pelos responsáveis pelo estabelecimento.
-- **RNF02 — Segurança:** o acesso às informações e funcionalidades deve ser restrito a usuários autorizados.
-- **RNF03 — Integridade:** o sistema deve manter os dados consistentes e evitar registros que comprometam o controle de vendas e estoque.
-- **RNF04 — Confiabilidade:** os registros armazenados devem permanecer disponíveis para consultas posteriores.
+  <p>
+    Os requisitos do sistema foram definidos com base nos problemas identificados
+    durante a pesquisa de campo no Mercado Santana, considerando as necessidades
+    apresentadas pelo responsável pelo estabelecimento.
+  </p>
 
+  <p>
+    A proposta busca organizar as informações dos produtos, controlar as entradas
+    e saídas de mercadorias, registrar as vendas e facilitar o acompanhamento
+    do estoque.
+  </p>
 
----
+  <h2>4.1 Requisitos Funcionais</h2>
 
-## 4. Regras de Negócio
-- **Regras operacionais:**
-  - Cada produto deve possuir uma identificação única no sistema.
-  - A quantidade disponível de um produto não pode ser inferior a zero.
-  - Ao registrar uma venda, a quantidade vendida deve ser subtraída do estoque.
-  - Ao registrar uma entrada, a quantidade recebida deve ser adicionada ao estoque.
-  - Cada produto pode possuir uma quantidade mínima definida para orientar a reposição.
-  - Quando o estoque estiver abaixo do mínimo estabelecido, o produto deve ser identificado para reposição.
-  - Não deve ser permitida uma venda em quantidade superior ao estoque disponível.
-  - Produtos registrados como vencidos ou danificados não devem ser considerados disponíveis para venda.
-  - As movimentações de estoque e as vendas realizadas devem permanecer registradas para consultas posteriores.
-- **Restrições organizacionais:**
-  - A decisão sobre quais produtos devem ser comprados é realizada pelo responsável pelo estabelecimento.
-  - As notas fiscais das compras devem ser armazenadas e relacionadas aos respectivos registros de entrada, quando aplicável.
+  <ul>
+    <li><strong>RF01 — Cadastro de produtos:</strong> o sistema deve permitir cadastrar,
+    consultar e atualizar os produtos comercializados pelo mercado, armazenando
+    suas informações de identificação, categoria, preço de venda e estoque mínimo.</li>
+
+    <li><strong>RF02 — Cadastro de categorias:</strong> o sistema deve permitir cadastrar
+    e consultar categorias para organizar e classificar os produtos comercializados.</li>
+
+    <li><strong>RF03 — Cadastro de fornecedores:</strong> o sistema deve permitir cadastrar,
+    consultar e atualizar os dados dos fornecedores responsáveis pelo fornecimento
+    das mercadorias.</li>
+
+    <li><strong>RF04 — Registro de entradas:</strong> o sistema deve permitir registrar
+    o recebimento de mercadorias, armazenando a data da entrada, o número da nota
+    fiscal, o fornecedor e os produtos recebidos com suas respectivas quantidades.</li>
+
+    <li><strong>RF05 — Atualização do estoque por entradas:</strong> o sistema deve
+    atualizar a quantidade disponível dos produtos após o registro de uma entrada
+    de mercadorias.</li>
+
+    <li><strong>RF06 — Registro de vendas:</strong> o sistema deve permitir registrar
+    as vendas realizadas, armazenando a data, o horário, o valor total e a forma
+    de pagamento utilizada.</li>
+
+    <li><strong>RF07 — Detalhamento das vendas:</strong> o sistema deve permitir registrar
+    os produtos presentes em cada venda, incluindo suas respectivas quantidades,
+    preços unitários e subtotais.</li>
+
+    <li><strong>RF08 — Atualização do estoque por vendas:</strong> o sistema deve subtrair
+    automaticamente do estoque as quantidades dos produtos comercializados após
+    a confirmação de uma venda.</li>
+
+    <li><strong>RF09 — Consulta de estoque:</strong> o sistema deve permitir consultar
+    a quantidade disponível de cada produto cadastrado.</li>
+
+    <li><strong>RF10 — Controle de estoque mínimo:</strong> o sistema deve permitir
+    definir uma quantidade mínima para cada produto e identificar aqueles cujo
+    estoque esteja igual ou abaixo desse limite.</li>
+
+    <li><strong>RF11 — Identificação de produtos para reposição:</strong> o sistema
+    deve permitir consultar os produtos que atingiram o estoque mínimo, facilitando
+    a identificação das necessidades de compra.</li>
+
+    <li><strong>RF12 — Registro de movimentações de estoque:</strong> o sistema deve
+    registrar as movimentações realizadas nos produtos, incluindo entradas, saídas
+    e perdas, armazenando o tipo, a quantidade, a data e o motivo da movimentação.</li>
+
+    <li><strong>RF13 — Controle de produtos não comercializáveis:</strong> o sistema
+    deve permitir registrar produtos vencidos ou danificados, identificando-os
+    como indisponíveis para venda e registrando suas respectivas saídas por perda.</li>
+
+    <li><strong>RF14 — Histórico de vendas:</strong> o sistema deve armazenar os registros
+    das vendas realizadas, permitindo consultar operações anteriores e identificar
+    os produtos mais vendidos.</li>
+  </ul>
+
+  <h2>4.2 Requisitos Não Funcionais</h2>
+
+  <ul>
+    <li><strong>RNF01 — Usabilidade:</strong> o sistema deve apresentar uma interface
+    simples, intuitiva e organizada, permitindo que os responsáveis pelo
+    estabelecimento realizem as operações sem conhecimentos técnicos avançados.</li>
+
+    <li><strong>RNF02 — Segurança:</strong> o sistema deve restringir o acesso às
+    funcionalidades e informações a usuários autorizados, evitando alterações
+    ou consultas indevidas.</li>
+
+    <li><strong>RNF03 — Integridade dos dados:</strong> o sistema deve garantir a
+    consistência das informações armazenadas, impedindo registros inválidos,
+    duplicidade de identificações e quantidades negativas no estoque.</li>
+
+    <li><strong>RNF04 — Confiabilidade:</strong> o sistema deve preservar os registros
+    de vendas, entradas e movimentações de estoque, permitindo consultas posteriores
+    sem perda do histórico das operações.</li>
+
+    <li><strong>RNF05 — Desempenho:</strong> o sistema deve permitir a realização de
+    consultas e registros de operações cotidianas sem exigir equipamentos de alto
+    desempenho, considerando a estrutura de pequeno porte do estabelecimento.</li>
+
+    <li><strong>RNF06 — Manutenibilidade:</strong> o sistema deve possuir uma estrutura
+    organizada, permitindo futuras correções, atualizações e inclusão de
+    funcionalidades sem comprometer os dados já armazenados.</li>
+  </ul>
+
+</section>
+
+<hr>
+
+<!-- 5. REGRAS DE NEGÓCIO -->
+<section id="regras-negocio">
+
+  <h1>5. Regras de Negócio</h1>
+
+  <p>
+    As regras de negócio estabelecem as condições que devem ser respeitadas
+    durante a utilização do sistema, garantindo que as operações de vendas,
+    compras e controle de estoque estejam de acordo com o funcionamento
+    do Mercado Santana.
+  </p>
+
+  <h2>5.1 Regras Operacionais</h2>
+
+  <ul>
+    <li><strong>RN01 — Identificação de produtos:</strong> cada produto deve possuir
+    uma identificação única no sistema.</li>
+
+    <li><strong>RN02 — Associação de categorias:</strong> cada produto deve estar
+    associado a uma única categoria cadastrada.</li>
+
+    <li><strong>RN03 — Controle de estoque:</strong> a quantidade disponível de um
+    produto não pode ser inferior a zero.</li>
+
+    <li><strong>RN04 — Saída por venda:</strong> toda venda confirmada deve gerar
+    a baixa das quantidades correspondentes no estoque.</li>
+
+    <li><strong>RN05 — Entrada de mercadorias:</strong> toda entrada de mercadorias
+    registrada deve acrescentar as quantidades recebidas ao estoque dos
+    respectivos produtos.</li>
+
+    <li><strong>RN06 — Disponibilidade para venda:</strong> não deve ser permitida
+    a venda de produtos em quantidade superior à disponível em estoque.</li>
+
+    <li><strong>RN07 — Estoque mínimo:</strong> cada produto pode possuir uma
+    quantidade mínima definida pelo responsável pelo estabelecimento.</li>
+
+    <li><strong>RN08 — Reposição de mercadorias:</strong> quando a quantidade
+    disponível de um produto atingir ou ficar abaixo do estoque mínimo,
+    ele deve ser identificado para reposição.</li>
+
+    <li><strong>RN09 — Registro de movimentações:</strong> toda movimentação
+    de estoque deve possuir identificação do produto, tipo de operação,
+    quantidade, data e motivo.</li>
+
+    <li><strong>RN10 — Controle de perdas:</strong> produtos vencidos ou danificados
+    devem ser retirados da disponibilidade de venda e registrados como perdas
+    quando não puderem retornar ao estoque comercializável.</li>
+
+    <li><strong>RN11 — Histórico de operações:</strong> as vendas, entradas e
+    movimentações de estoque devem permanecer registradas para possibilitar
+    consultas posteriores.</li>
+
+    <li><strong>RN12 — Registro de entradas:</strong> toda entrada de mercadorias
+    deve possuir informações sobre a data de recebimento e, quando aplicável,
+    o número da nota fiscal correspondente.</li>
+
+    <li><strong>RN13 — Detalhamento das vendas:</strong> cada venda deve possuir
+    pelo menos um produto associado, com sua respectiva quantidade e valor.</li>
+  </ul>
+
+  <h2>5.2 Restrições Organizacionais</h2>
+
+  <ul>
+    <li>A decisão sobre quais produtos devem ser comprados é de responsabilidade
+    do responsável pelo estabelecimento.</li>
+
+    <li>A escolha dos fornecedores deve considerar fatores como preço, qualidade
+    dos produtos e condições de entrega.</li>
+
+    <li>As mercadorias recebidas devem ser conferidas antes de serem registradas
+    como entradas no estoque.</li>
+
+    <li>As notas fiscais das compras devem ser armazenadas e relacionadas aos
+    respectivos registros de entrada, quando aplicável.</li>
+
+    <li>Produtos vencidos, danificados ou impróprios para comercialização não
+    podem permanecer disponíveis para venda.</li>
+  </ul>
+
+</section>
+
+<hr>
+
+<!-- 6. RELAÇÃO ENTRE PROBLEMAS, REQUISITOS E REGRAS -->
+<section id="rastreabilidade">
+
+  <h1>6. Relação entre Problemas, Requisitos e Regras de Negócio</h1>
+
+  <p>
+    Para garantir que o sistema proposto atenda às necessidades identificadas
+    durante a pesquisa de campo, foi estabelecida uma relação entre os problemas
+    encontrados no Mercado Santana, os requisitos definidos e as regras de
+    negócio correspondentes.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Problema identificado</th>
+        <th>Requisitos relacionados</th>
+        <th>Regras de negócio relacionadas</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <strong>P1 — Controle de estoque:</strong>
+          a quantidade dos produtos é acompanhada visualmente, dificultando
+          a identificação dos itens disponíveis e daqueles que precisam ser repostos.
+        </td>
+        <td>RF01, RF02, RF09, RF10 e RF11.</td>
+        <td>RN01, RN02, RN03, RN07 e RN08.</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>P2 — Controle de entradas e saídas:</strong>
+          a ausência de registros organizados dificulta o acompanhamento
+          das mercadorias recebidas e das saídas de produtos do estoque.
+        </td>
+        <td>RF04, RF05, RF06, RF07, RF08, RF12 e RF13.</td>
+        <td>RN03, RN04, RN05, RN06, RN09, RN10 e RN12.</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>P3 — Histórico de vendas:</strong>
+          a falta de um histórico detalhado dificulta a consulta das operações
+          realizadas e a identificação dos produtos mais vendidos.
+        </td>
+        <td>RF06, RF07 e RF14.</td>
+        <td>RN09, RN11 e RN13.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>6.1 Atendimento às Necessidades Identificadas</h2>
+
+  <p>
+    A partir da relação apresentada, é possível observar como os requisitos
+    e as regras de negócio contribuem para solucionar os problemas encontrados:
+  </p>
+
+  <ul>
+    <li>
+      <strong>P1 — Controle de estoque:</strong> os requisitos de consulta,
+      cadastro e controle de estoque mínimo permitem acompanhar as quantidades
+      disponíveis e identificar produtos que precisam de reposição, reduzindo
+      a dependência da observação física das prateleiras.
+    </li>
+
+    <li>
+      <strong>P2 — Controle de entradas e saídas:</strong> os registros de entradas,
+      vendas, perdas e movimentações permitem acompanhar as alterações realizadas
+      no estoque, mantendo as quantidades atualizadas e o histórico das operações.
+    </li>
+
+    <li>
+      <strong>P3 — Histórico de vendas:</strong> o registro das vendas e de seus
+      respectivos produtos permite consultar operações anteriores, acompanhar
+      a comercialização das mercadorias e identificar os produtos mais vendidos.
+    </li>
+  </ul>
+
+  <p>
+    Dessa forma, os requisitos funcionais, não funcionais e as regras de negócio
+    foram estruturados para atender às necessidades identificadas na pesquisa
+    de campo, mantendo a proposta de informatização alinhada à realidade
+    operacional do Mercado Santana.
+  </p>
+
+</section>
+
 ---
 
 ## 5. Dicionário de Dados Conceitual  
