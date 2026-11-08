@@ -259,8 +259,6 @@ A partir da relação apresentada, é possível observar como os requisitos e as
 - **P2 — Controle de entradas e saídas:** os registros de entradas, vendas, perdas e movimentações permitem acompanhar as alterações realizadas no estoque, mantendo as quantidades atualizadas e o histórico das operações.
 
 - **P3 — Histórico de vendas:** o registro das vendas e de seus respectivos produtos permite consultar operações anteriores, acompanhar a comercialização das mercadorias e identificar os produtos mais vendidos.
-
-Dessa forma, os requisitos funcionais, não funcionais e as regras de negócio foram estruturados para atender às necessidades identificadas na pesquisa de campo, mantendo a proposta de informatização alinhada à realidade operacional do Mercado Santana.
 ---
 
 ## 5. Dicionário de Dados Conceitual  
