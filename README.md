@@ -507,7 +507,7 @@ Para garantir a organização e a consistência das informações armazenadas no
 
 O diagrama completo do modelo lógico está disponível no arquivo desenvolvido utilizando a ferramenta brModelo.
 
-[Visualizar Modelo Lógico (PDF)](Modelo%20Logico%20-%20BRMW.pdf)
+[Visualizar Modelo Lógico (PDF)](Logic_model.pdf)
 
 ## 8.6 Ferramenta utilizada
 
