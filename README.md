@@ -708,3 +708,19 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 | **Trechos rejeitados ou corrigidos** |Algumas sugestões apresentadas pela IA foram rejeitadas ou corrigidas manualmente por não corresponderem à realidade do Mercado Santana ou aos critérios definidos pelo professor.|
 | **Justificativa da escolha final** |A equipe priorizou as orientações apresentadas pelo professor e as informações obtidas sobre o Mercado Santana. Com isso, algumas sugestões da IA foram adaptadas ou removidas, incluindo elementos relacionados a Fornecedor, Item_Entrada e algumas estruturas de Item_Venda, para manter o modelo de acordo com a realidade da organização e com os requisitos definidos para o projeto.|
 | **Reflexão crítica** |A IA foi útil como ferramenta de apoio, principalmente para compreender conceitos de modelagem e organizar ideias. Entretanto, suas respostas apresentaram generalizações que não correspondiam totalmente à realidade do Mercado Santana. Por isso, foi necessário analisar, corrigir e adaptar as sugestões com base nas informações da organização e nas orientações do professor.|
+---
+
+---
+
+###  Uso 4 — Modelagem Lógica do Banco de Dados
+
+| Item | Registro |
+| :--- | :--- |
+| **Ferramenta e etapa** | ChatGPT — Etapa de elaboração e documentação do modelo lógico do banco de dados. |
+| **Motivação** | Auxiliar na organização das tabelas, descrição dos atributos, identificação das chaves primárias (PK), chaves estrangeiras (FK) e relacionamentos entre as entidades. |
+| **Prompt(s) utilizados** | "Com base no modelo lógico enviado em PDF e na estrutura do modelo conceitual, organize a documentação do modelo lógico, apresentando as tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos." |
+| **Resposta recebida** | A IA organizou a documentação das oito entidades do banco de dados: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque, descrevendo seus atributos, tipos de dados e relacionamentos. |
+| **Fontes consultadas e verificadas** | Arquivo Modelo Lógico – BRMW.pdf e documentação do modelo conceitual do Mercado Santana. |
+| **Trechos rejeitados/corrigidos** | Foram revisadas as descrições dos atributos e dos relacionamentos para manter correspondência com o diagrama lógico elaborado no brModelo. |
+| **Justificativa da escolha final** | A documentação foi organizada com base no diagrama desenvolvido pelo grupo, facilitando a compreensão da estrutura do banco de dados e de suas relações. |
+| **Reflexão crítica** | A Inteligência Artificial foi utilizada como ferramenta de apoio à organização e documentação técnica. As informações geradas foram conferidas com o diagrama original, cabendo ao grupo validar os atributos, tipos de dados e relacionamentos apresentados. |
