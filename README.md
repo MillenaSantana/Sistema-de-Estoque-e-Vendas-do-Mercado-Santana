@@ -394,8 +394,115 @@ O diagrama completo está disponível em: [Visualizar Modelo Conceitual](Modelo_
 3.3 Ferramenta utilizada
 
 O modelo conceitual foi desenvolvido utilizando o software brModelo.
+# Sistema de Estoque e Vendas — Mercado Santana
 
-# 8. Justificativa Técnica
+## Sobre o Projeto
+
+O Sistema de Estoque e Vendas do Mercado Santana foi desenvolvido com o objetivo de organizar e facilitar o controle de produtos, entradas de mercadorias, vendas e movimentações de estoque.
+
+O projeto busca melhorar o gerenciamento das informações do mercado, permitindo maior organização dos dados, acompanhamento das quantidades disponíveis e registro das operações realizadas.
+
+## Objetivos
+
+- Organizar o cadastro de produtos e categorias.
+- Controlar as entradas de mercadorias.
+- Registrar as vendas realizadas.
+- Acompanhar as movimentações de estoque.
+- Identificar produtos com estoque baixo.
+- Organizar as informações dos fornecedores.
+- Facilitar a consulta e análise dos dados do mercado.
+
+## Tecnologias Utilizadas
+
+- **MySQL 8.0:** gerenciamento do banco de dados.
+- **InnoDB:** mecanismo de armazenamento.
+- **UTF8MB4:** suporte à codificação de caracteres.
+- **brModelo:** elaboração dos modelos conceitual e lógico.
+- **SQL:** criação de tabelas, inserção, consulta e manipulação de dados.
+- **GitHub:** armazenamento e documentação do projeto.
+
+## Banco de Dados
+
+O banco de dados foi estruturado para armazenar e relacionar as informações necessárias ao controle de estoque e vendas do Mercado Santana.
+
+### Principais Entidades
+
+| Entidade | Descrição |
+|---|---|
+| Categoria | Organiza os produtos por categorias. |
+| Produto | Armazena os dados dos produtos comercializados. |
+| Fornecedor | Registra as informações dos fornecedores. |
+| Entrada | Registra o recebimento de mercadorias. |
+| Item_Entrada | Armazena os produtos presentes em cada entrada. |
+| Venda | Registra as vendas realizadas. |
+| Item_Venda | Armazena os produtos presentes em cada venda. |
+| Movimentacao_Estoque | Registra as alterações realizadas no estoque. |
+
+## Modelagem do Banco de Dados
+
+A modelagem foi desenvolvida para representar a estrutura e os relacionamentos entre as informações do sistema.
+
+### Modelo Conceitual
+
+O modelo conceitual apresenta as entidades, os atributos e os relacionamentos necessários para representar os processos de estoque e vendas do mercado.
+
+[Visualizar Modelo Conceitual (PDF)](https://github.com/MillenaSantana/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/blob/main/Modelo_Conceitual.pdf)
+
+### 8. Modelo Lógico
+
+O modelo lógico apresenta a organização das tabelas, seus atributos, tipos de dados, chaves primárias (PK), chaves estrangeiras (FK) e relacionamentos.
+
+[Visualizar Modelo Lógico (PDF)](Modelo%20Logico%20-%20BRMW.pdf)
+
+## Funcionalidades e Processos
+
+O projeto contempla a organização dos seguintes processos:
+
+- Cadastro e gerenciamento de produtos.
+- Organização de produtos por categorias.
+- Controle de fornecedores.
+- Registro de entradas de mercadorias.
+- Controle de vendas.
+- Registro de itens vendidos.
+- Controle de movimentações de estoque.
+- Acompanhamento das quantidades disponíveis.
+
+## Consultas e Análises
+
+O banco de dados permite desenvolver consultas SQL para auxiliar no acompanhamento das atividades do mercado, como:
+
+- Identificação dos produtos mais vendidos.
+- Consulta de produtos com estoque baixo.
+- Consulta do histórico de vendas.
+- Acompanhamento das entradas de mercadorias.
+- Consulta das movimentações de estoque.
+- Análise das informações para apoio à tomada de decisões.
+
+## Organização e Segurança dos Dados
+
+O projeto considera a integridade das informações por meio da utilização de chaves primárias e estrangeiras, além de restrições para manter os relacionamentos entre as tabelas.
+
+Também são consideradas práticas de organização, controle de acesso e proteção dos dados, levando em conta os princípios da Lei Geral de Proteção de Dados (LGPD).
+
+## Desenvolvimento do Projeto
+
+O projeto foi desenvolvido em grupo, com divisão de responsabilidades entre os integrantes, envolvendo atividades de levantamento de requisitos, modelagem de dados, estruturação do banco de dados, desenvolvimento de consultas SQL, testes e documentação.
+
+## Repositório
+
+**GitHub:** [Sistema de Estoque e Vendas do Mercado Santana](https://github.com/MillenaSantana/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana)
+
+---
+
+<div align="center">
+
+**Sistema de Estoque e Vendas — Mercado Santana**
+
+*Organização, controle e tecnologia para facilitar a gestão do mercado.*
+
+</div>
+
+# 9. Justificativa Técnica
 
 A modelagem foi definida a partir dos principais processos do Mercado Santana, considerando o controle de produtos, categorias, vendas e movimentações de estoque.
 
