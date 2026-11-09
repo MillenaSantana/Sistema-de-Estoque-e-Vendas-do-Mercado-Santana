@@ -513,6 +513,32 @@ O diagrama completo do modelo lógico está disponível no arquivo desenvolvido 
 
 O modelo lógico foi desenvolvido utilizando o software brModelo, que permite representar a estrutura das tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos.
 
+# Script SQL Completo
+
+O banco de dados do Sistema de Estoque e Vendas do Mercado Santana foi desenvolvido utilizando o MySQL, com o apoio do MySQL Workbench.
+
+A implementação contempla oito tabelas relacionadas, responsáveis pelo armazenamento de informações sobre categorias, produtos, fornecedores, entradas de mercadorias, vendas e movimentações de estoque.
+
+O projeto inclui comandos SQL para criação do banco de dados, definição de chaves primárias e estrangeiras, inserção de registros, consultas, atualizações e exclusões.
+
+Arquivos SQL
+
+[script.sql]() — script completo de implementação do banco de dados.
+
+[massa_de_dados.sql]() — inserção de dados fictícios para simular as operações do mercado.
+
+Execução
+
+Para executar o projeto, é necessário ter o MySQL instalado e uma conexão configurada no MySQL Workbench.
+
+Abra o arquivo script.sql no MySQL Workbench.
+
+Execute os comandos na ordem definida no arquivo.
+
+Caso a massa de dados esteja separada, execute massa_de_dados.sql antes das consultas.
+
+Confira os resultados das consultas SQL para verificar o funcionamento do banco.
+
 # 9. Justificativa Técnica
 
 ## 1. Justificativas Técnicas da Modelagem — Mercado Santana : 
