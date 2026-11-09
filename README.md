@@ -712,7 +712,7 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 
 ---
 
-###  Uso 4 — Modelagem Lógica do Banco de Dados
+###  Uso 4 — Modelagem Lógica 
 
 | Item | Registro |
 | :--- | :--- |
