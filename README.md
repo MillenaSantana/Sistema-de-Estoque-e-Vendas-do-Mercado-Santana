@@ -438,69 +438,123 @@ O banco de dados foi estruturado para armazenar e relacionar as informações ne
 | Item_Venda | Armazena os produtos presentes em cada venda. |
 | Movimentacao_Estoque | Registra as alterações realizadas no estoque. |
 
-## Modelagem do Banco de Dados
+# 8. Modelo Lógico
 
-A modelagem foi desenvolvida para representar a estrutura e os relacionamentos entre as informações do sistema.
+## 8.1 Modelo lógico
 
-### Modelo Conceitual
+O modelo lógico representa a estrutura do banco de dados do Sistema de Estoque e Vendas do Mercado Santana, transformando o modelo conceitual em tabelas relacionadas entre si.
 
-O modelo conceitual apresenta as entidades, os atributos e os relacionamentos necessários para representar os processos de estoque e vendas do mercado.
+Sua finalidade é organizar os dados necessários para o funcionamento do sistema, estabelecendo as chaves primárias (PK), responsáveis pela identificação única dos registros, e as chaves estrangeiras (FK), utilizadas para estabelecer os relacionamentos entre as tabelas.
 
-[Visualizar Modelo Conceitual (PDF)](https://github.com/MillenaSantana/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana/blob/main/Modelo_Conceitual.pdf)
+O modelo é composto por oito tabelas principais: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque.
 
-### 8. Modelo Lógico
+## 8.2 Estrutura das tabelas e atributos
 
-O modelo lógico apresenta a organização das tabelas, seus atributos, tipos de dados, chaves primárias (PK), chaves estrangeiras (FK) e relacionamentos.
+Cada tabela possui atributos responsáveis por armazenar as informações correspondentes às operações do mercado.
+
+**Categoria**
+
+- `id_categoria` — INT, chave primária (PK).
+- `nome` — VARCHAR, nome da categoria.
+
+**Produto**
+
+- `id_produto` — INT, chave primária (PK).
+- `nome` — VARCHAR, nome do produto.
+- `preco_venda` — FLOAT, preço de venda do produto.
+- `quantidade_estoque` — INT, quantidade disponível no estoque.
+- `estoque_minimo` — INT, quantidade mínima estabelecida para o estoque.
+- `id_categoria` — INT, chave estrangeira (FK), relacionada à tabela Categoria.
+
+**Fornecedor**
+
+- `id_fornecedor` — INT, chave primária (PK).
+- `nome` — VARCHAR, nome do fornecedor.
+- `telefone` — VARCHAR, telefone para contato.
+- `endereco` — VARCHAR, endereço do fornecedor.
+
+**Entrada**
+
+- `id_entrada` — INT, chave primária (PK).
+- `data_entrada` — DATE, data de recebimento das mercadorias.
+- `numero_nota_fiscal` — VARCHAR, número da nota fiscal.
+- `valor_total` — FLOAT, valor total da entrada.
+- `id_fornecedor` — INT, chave estrangeira (FK), relacionada à tabela Fornecedor.
+
+**Item_Entrada**
+
+- `id_item_entrada` — INT, chave primária (PK).
+- `quantidade` — INT, quantidade de produtos recebidos.
+- `custo_unitario` — FLOAT, custo de cada unidade do produto.
+- `subtotal` — FLOAT, valor total dos itens registrados.
+- `id_produto` — INT, chave estrangeira (FK), relacionada à tabela Produto.
+- `id_entrada` — INT, chave estrangeira (FK), relacionada à tabela Entrada.
+
+**Venda**
+
+- `id_venda` — INT, chave primária (PK).
+- `data_hora` — DATETIME, data e horário da venda.
+- `valor_total` — FLOAT, valor total da venda.
+- `forma_pagamento` — VARCHAR, forma de pagamento utilizada.
+
+**Item_Venda**
+
+- `id_item_venda` — INT, chave primária (PK).
+- `quantidade` — INT, quantidade de produtos vendidos.
+- `preco_unitario` — FLOAT, preço de cada unidade comercializada.
+- `subtotal` — FLOAT, valor total dos itens vendidos.
+- `id_produto` — INT, chave estrangeira (FK), relacionada à tabela Produto.
+- `id_venda` — INT, chave estrangeira (FK), relacionada à tabela Venda.
+
+**Movimentacao_Estoque**
+
+- `id_movimentacao_estoque` — INT, chave primária (PK).
+- `tipo` — VARCHAR, tipo de movimentação realizada.
+- `quantidade` — INT, quantidade movimentada.
+- `data_hora` — DATETIME, data e horário da movimentação.
+- `motivo` — VARCHAR, motivo da movimentação.
+- `id_produto` — INT, chave estrangeira (FK), relacionada à tabela Produto.
+- `id_item_venda` — INT, chave estrangeira (FK), relacionada à tabela Item_Venda.
+- `id_item_entrada` — INT, chave estrangeira (FK), relacionada à tabela Item_Entrada.
+
+## 8.3 Relacionamentos entre as tabelas
+
+Os relacionamentos entre as tabelas são estabelecidos por meio das chaves estrangeiras, permitindo a integração das informações armazenadas no banco de dados.
+
+- **Categoria — Produto (1:N):** uma categoria pode possuir vários produtos, enquanto cada produto está associado a uma categoria.
+- **Fornecedor — Entrada (1:N):** um fornecedor pode estar relacionado a várias entradas de mercadorias, enquanto cada entrada está vinculada a um fornecedor.
+- **Entrada — Item_Entrada (1:N):** uma entrada pode possuir vários itens, enquanto cada item pertence a uma única entrada.
+- **Produto — Item_Entrada (1:N):** um produto pode aparecer em várias entradas, enquanto cada item de entrada está relacionado a um produto.
+- **Venda — Item_Venda (1:N):** uma venda pode conter vários itens, enquanto cada item pertence a uma única venda.
+- **Produto — Item_Venda (1:N):** um produto pode aparecer em várias vendas, enquanto cada item vendido está relacionado a um produto.
+- **Produto — Movimentacao_Estoque (1:N):** um produto pode possuir várias movimentações de estoque, enquanto cada movimentação está associada a um produto.
+- **Item_Entrada — Movimentacao_Estoque:** permite relacionar as movimentações de estoque aos itens de entrada.
+- **Item_Venda — Movimentacao_Estoque:** permite relacionar as movimentações de estoque aos itens vendidos.
+
+## 8.4 Restrições e integridade dos dados
+
+Para garantir a organização e a consistência das informações armazenadas no banco de dados, são estabelecidas as seguintes restrições:
+
+- Cada tabela deve possuir uma chave primária para identificar seus registros.
+- As chaves estrangeiras devem referenciar registros existentes nas respectivas tabelas.
+- Cada produto deve estar associado a uma categoria.
+- Cada entrada deve estar relacionada a um fornecedor.
+- Cada item de entrada deve estar associado a uma entrada e a um produto.
+- Cada item de venda deve estar associado a uma venda e a um produto.
+- As movimentações de estoque devem estar relacionadas ao produto correspondente.
+- As quantidades movimentadas devem ser maiores que zero.
+- Os registros de vendas e movimentações de estoque devem ser mantidos para preservar o histórico das operações.
+- Os dados de entrada devem permitir a identificação do fornecedor, da nota fiscal e dos produtos recebidos.
+
+## 8.5 Arquivo do modelo lógico
+
+O diagrama completo do modelo lógico está disponível no arquivo desenvolvido utilizando a ferramenta brModelo.
 
 [Visualizar Modelo Lógico (PDF)](Modelo%20Logico%20-%20BRMW.pdf)
 
-## Funcionalidades e Processos
+## 8.6 Ferramenta utilizada
 
-O projeto contempla a organização dos seguintes processos:
-
-- Cadastro e gerenciamento de produtos.
-- Organização de produtos por categorias.
-- Controle de fornecedores.
-- Registro de entradas de mercadorias.
-- Controle de vendas.
-- Registro de itens vendidos.
-- Controle de movimentações de estoque.
-- Acompanhamento das quantidades disponíveis.
-
-## Consultas e Análises
-
-O banco de dados permite desenvolver consultas SQL para auxiliar no acompanhamento das atividades do mercado, como:
-
-- Identificação dos produtos mais vendidos.
-- Consulta de produtos com estoque baixo.
-- Consulta do histórico de vendas.
-- Acompanhamento das entradas de mercadorias.
-- Consulta das movimentações de estoque.
-- Análise das informações para apoio à tomada de decisões.
-
-## Organização e Segurança dos Dados
-
-O projeto considera a integridade das informações por meio da utilização de chaves primárias e estrangeiras, além de restrições para manter os relacionamentos entre as tabelas.
-
-Também são consideradas práticas de organização, controle de acesso e proteção dos dados, levando em conta os princípios da Lei Geral de Proteção de Dados (LGPD).
-
-## Desenvolvimento do Projeto
-
-O projeto foi desenvolvido em grupo, com divisão de responsabilidades entre os integrantes, envolvendo atividades de levantamento de requisitos, modelagem de dados, estruturação do banco de dados, desenvolvimento de consultas SQL, testes e documentação.
-
-## Repositório
-
-**GitHub:** [Sistema de Estoque e Vendas do Mercado Santana](https://github.com/MillenaSantana/Sistema-de-Estoque-e-Vendas-do-Mercado-Santana)
-
----
-
-<div align="center">
-
-**Sistema de Estoque e Vendas — Mercado Santana**
-
-*Organização, controle e tecnologia para facilitar a gestão do mercado.*
-
-</div>
+O modelo lógico foi desenvolvido utilizando o software brModelo, que permite representar a estrutura das tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos.
 
 # 9. Justificativa Técnica
 
