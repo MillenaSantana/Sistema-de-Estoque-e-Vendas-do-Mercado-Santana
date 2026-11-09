@@ -394,49 +394,6 @@ O diagrama completo está disponível em: [Visualizar Modelo Conceitual](Modelo_
 3.3 Ferramenta utilizada
 
 O modelo conceitual foi desenvolvido utilizando o software brModelo.
-# Sistema de Estoque e Vendas — Mercado Santana
-
-## Sobre o Projeto
-
-O Sistema de Estoque e Vendas do Mercado Santana foi desenvolvido com o objetivo de organizar e facilitar o controle de produtos, entradas de mercadorias, vendas e movimentações de estoque.
-
-O projeto busca melhorar o gerenciamento das informações do mercado, permitindo maior organização dos dados, acompanhamento das quantidades disponíveis e registro das operações realizadas.
-
-## Objetivos
-
-- Organizar o cadastro de produtos e categorias.
-- Controlar as entradas de mercadorias.
-- Registrar as vendas realizadas.
-- Acompanhar as movimentações de estoque.
-- Identificar produtos com estoque baixo.
-- Organizar as informações dos fornecedores.
-- Facilitar a consulta e análise dos dados do mercado.
-
-## Tecnologias Utilizadas
-
-- **MySQL 8.0:** gerenciamento do banco de dados.
-- **InnoDB:** mecanismo de armazenamento.
-- **UTF8MB4:** suporte à codificação de caracteres.
-- **brModelo:** elaboração dos modelos conceitual e lógico.
-- **SQL:** criação de tabelas, inserção, consulta e manipulação de dados.
-- **GitHub:** armazenamento e documentação do projeto.
-
-## Banco de Dados
-
-O banco de dados foi estruturado para armazenar e relacionar as informações necessárias ao controle de estoque e vendas do Mercado Santana.
-
-### Principais Entidades
-
-| Entidade | Descrição |
-|---|---|
-| Categoria | Organiza os produtos por categorias. |
-| Produto | Armazena os dados dos produtos comercializados. |
-| Fornecedor | Registra as informações dos fornecedores. |
-| Entrada | Registra o recebimento de mercadorias. |
-| Item_Entrada | Armazena os produtos presentes em cada entrada. |
-| Venda | Registra as vendas realizadas. |
-| Item_Venda | Armazena os produtos presentes em cada venda. |
-| Movimentacao_Estoque | Registra as alterações realizadas no estoque. |
 
 # 8. Modelo Lógico
 
