@@ -411,68 +411,68 @@ Cada tabela possui atributos responsáveis por armazenar as informações corres
 
 **Categoria**
 
-- `id_categoria` — INT, chave primária (PK).
-- `nome` — VARCHAR, nome da categoria.
+- id_categoria — INT, chave primária (PK).
+- nome— VARCHAR, nome da categoria.
 
 **Produto**
 
-- `id_produto` — INT, chave primária (PK).
-- `nome` — VARCHAR, nome do produto.
-- `preco_venda` — FLOAT, preço de venda do produto.
-- `quantidade_estoque` — INT, quantidade disponível no estoque.
-- `estoque_minimo` — INT, quantidade mínima estabelecida para o estoque.
-- `id_categoria` — INT, chave estrangeira (FK), relacionada à tabela Categoria.
+- id_produto — INT, chave primária (PK).
+- nome — VARCHAR, nome do produto.
+- preco_venda — FLOAT, preço de venda do produto.
+- quantidade_estoque — INT, quantidade disponível no estoque.
+- estoque_minimo — INT, quantidade mínima estabelecida para o estoque.
+- id_categoria — INT, chave estrangeira (FK), relacionada à tabela Categoria.
 
 **Fornecedor**
 
-- `id_fornecedor` — INT, chave primária (PK).
-- `nome` — VARCHAR, nome do fornecedor.
-- `telefone` — VARCHAR, telefone para contato.
-- `endereco` — VARCHAR, endereço do fornecedor.
+- id_fornecedor — INT, chave primária (PK).
+- nome — VARCHAR, nome do fornecedor.
+- telefone — VARCHAR, telefone para contato.
+- endereco — VARCHAR, endereço do fornecedor.
 
 **Entrada**
 
-- `id_entrada` — INT, chave primária (PK).
-- `data_entrada` — DATE, data de recebimento das mercadorias.
-- `numero_nota_fiscal` — VARCHAR, número da nota fiscal.
-- `valor_total` — FLOAT, valor total da entrada.
-- `id_fornecedor` — INT, chave estrangeira (FK), relacionada à tabela Fornecedor.
+- id_entrada — INT, chave primária (PK).
+- data_entrada — DATE, data de recebimento das mercadorias.
+- numero_nota_fiscal — VARCHAR, número da nota fiscal.
+- valor_total — FLOAT, valor total da entrada.
+- id_fornecedor — INT, chave estrangeira (FK), relacionada à tabela Fornecedor.
 
 **Item_Entrada**
 
-- `id_item_entrada` — INT, chave primária (PK).
-- `quantidade` — INT, quantidade de produtos recebidos.
-- `custo_unitario` — FLOAT, custo de cada unidade do produto.
-- `subtotal` — FLOAT, valor total dos itens registrados.
-- `id_produto` — INT, chave estrangeira (FK), relacionada à tabela Produto.
-- `id_entrada` — INT, chave estrangeira (FK), relacionada à tabela Entrada.
+- id_item_entrada — INT, chave primária (PK).
+- quantidade — INT, quantidade de produtos recebidos.
+- custo_unitario — FLOAT, custo de cada unidade do produto.
+- subtotal — FLOAT, valor total dos itens registrados.
+- id_produto — INT, chave estrangeira (FK), relacionada à tabela Produto.
+- id_entrada — INT, chave estrangeira (FK), relacionada à tabela Entrada.
 
 **Venda**
 
-- `id_venda` — INT, chave primária (PK).
-- `data_hora` — DATETIME, data e horário da venda.
-- `valor_total` — FLOAT, valor total da venda.
-- `forma_pagamento` — VARCHAR, forma de pagamento utilizada.
+- id_venda — INT, chave primária (PK).
+- data_hora — DATETIME, data e horário da venda.
+- valor_total — FLOAT, valor total da venda.
+- forma_pagamento — VARCHAR, forma de pagamento utilizada.
 
 **Item_Venda**
 
-- `id_item_venda` — INT, chave primária (PK).
-- `quantidade` — INT, quantidade de produtos vendidos.
-- `preco_unitario` — FLOAT, preço de cada unidade comercializada.
-- `subtotal` — FLOAT, valor total dos itens vendidos.
-- `id_produto` — INT, chave estrangeira (FK), relacionada à tabela Produto.
-- `id_venda` — INT, chave estrangeira (FK), relacionada à tabela Venda.
+- id_item_venda — INT, chave primária (PK).
+- quantidade — INT, quantidade de produtos vendidos.
+- preco_unitario — FLOAT, preço de cada unidade comercializada.
+- subtotal — FLOAT, valor total dos itens vendidos.
+- id_produto — INT, chave estrangeira (FK), relacionada à tabela Produto.
+- id_venda — INT, chave estrangeira (FK), relacionada à tabela Venda.
 
 **Movimentacao_Estoque**
 
-- `id_movimentacao_estoque` — INT, chave primária (PK).
-- `tipo` — VARCHAR, tipo de movimentação realizada.
-- `quantidade` — INT, quantidade movimentada.
-- `data_hora` — DATETIME, data e horário da movimentação.
-- `motivo` — VARCHAR, motivo da movimentação.
-- `id_produto` — INT, chave estrangeira (FK), relacionada à tabela Produto.
-- `id_item_venda` — INT, chave estrangeira (FK), relacionada à tabela Item_Venda.
-- `id_item_entrada` — INT, chave estrangeira (FK), relacionada à tabela Item_Entrada.
+- id_movimentacao_estoque — INT, chave primária (PK).
+- tipo — VARCHAR, tipo de movimentação realizada.
+- quantidade — INT, quantidade movimentada.
+- data_hora — DATETIME, data e horário da movimentação.
+- motivo — VARCHAR, motivo da movimentação.
+- id_produto — INT, chave estrangeira (FK), relacionada à tabela Produto.
+- id_item_venda — INT, chave estrangeira (FK), relacionada à tabela Item_Venda.
+- id_item_entrada — INT, chave estrangeira (FK), relacionada à tabela Item_Entrada.
 
 ## 8.3 Relacionamentos entre as tabelas
 
