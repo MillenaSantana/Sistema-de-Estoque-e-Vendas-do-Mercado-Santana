@@ -1,429 +1,337 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dicionário de Dados - Mercado Santana</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
-            padding: 30px;
-        }
-
-        header {
-            background: #1f4e79;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            margin-bottom: 10px;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        h2 {
-            color: #1f4e79;
-            margin-bottom: 15px;
-        }
-
-        h3 {
-            color: #1f4e79;
-            margin: 25px 0 10px;
-        }
-
-        p {
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 12px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background: #1f4e79;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background: #f2f5f8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 12px;
-            }
-
-            section {
-                padding: 15px;
-                overflow-x: auto;
-            }
-
-            table {
-                min-width: 500px;
-            }
-        }
-    </style>
 </head>
-
 <body>
 
-<header>
-    <h1>Dicionário de Dados Conceitual</h1>
-    <p>Sistema de Estoque e Vendas - Mercado Santana</p>
-</header>
+    <h1>Dicionário de Dados</h1>
 
-<main>
+    <h2>1. Apresentação</h2>
 
-    <section>
-        <h2>1. Apresentação</h2>
-        <p>
-            O Dicionário de Dados apresenta as entidades,
-            atributos, relacionamentos e regras utilizadas
-            na modelagem do banco de dados do Sistema de
-            Estoque e Vendas do Mercado Santana.
-        </p>
-        <p>
-            Seu objetivo é documentar a estrutura do banco
-            de dados, facilitando a compreensão das informações
-            armazenadas e dos relacionamentos entre as entidades.
-        </p>
-    </section>
+    <p>
+        Este dicionário de dados apresenta as entidades, os atributos
+        e os tipos de dados utilizados no Sistema de Estoque e Vendas
+        do Mercado Santana.
+    </p>
 
-    <section>
-        <h2>2. Entidades e Atributos</h2>
+    <h2>2. Entidades e Atributos</h2>
 
-        <h3>CATEGORIA</h3>
-        <p>Armazena as categorias utilizadas para classificar os produtos.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_categoria</td>
-                <td>Identificador único da categoria.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>nome_categoria</td>
-                <td>Nome da categoria.</td>
-                <td>-</td>
-            </tr>
-        </table>
+    <h3>2.1 CATEGORIA</h3>
+    <p>Armazena as categorias dos produtos comercializados.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_categoria</td>
+            <td>INT</td>
+            <td>Identificador da categoria (PK).</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>VARCHAR</td>
+            <td>Nome da categoria.</td>
+        </tr>
+    </table>
 
-        <h3>PRODUTO</h3>
-        <p>Armazena os dados dos produtos comercializados pelo mercado.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_produto</td>
-                <td>Identificador único do produto.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>nome_produto</td>
-                <td>Nome do produto.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>preco</td>
-                <td>Preço de venda do produto.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>quantidade_estoque</td>
-                <td>Quantidade disponível em estoque.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>id_categoria</td>
-                <td>Categoria à qual o produto pertence.</td>
-                <td>FK</td>
-            </tr>
-        </table>
+    <h3>2.2 PRODUTO</h3>
+    <p>Armazena as informações dos produtos disponíveis no mercado.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_produto</td>
+            <td>INT</td>
+            <td>Identificador do produto (PK).</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>VARCHAR</td>
+            <td>Nome do produto.</td>
+        </tr>
+        <tr>
+            <td>preco_venda</td>
+            <td>FLOAT</td>
+            <td>Preço de venda do produto.</td>
+        </tr>
+        <tr>
+            <td>quantidade_estoque</td>
+            <td>INT</td>
+            <td>Quantidade disponível em estoque.</td>
+        </tr>
+        <tr>
+            <td>estoque_minimo</td>
+            <td>INT</td>
+            <td>Quantidade mínima permitida em estoque.</td>
+        </tr>
+        <tr>
+            <td>id_categoria</td>
+            <td>INT</td>
+            <td>Identificador da categoria (FK).</td>
+        </tr>
+    </table>
 
-        <h3>ENTRADA</h3>
-        <p>Registra as entradas de mercadorias no estoque.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_entrada</td>
-                <td>Identificador único da entrada.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>data_entrada</td>
-                <td>Data em que a mercadoria entrou no estoque.</td>
-                <td>-</td>
-            </tr>
-        </table>
+    <h3>2.3 FORNECEDOR</h3>
+    <p>Armazena os dados dos fornecedores do mercado.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_fornecedor</td>
+            <td>INT</td>
+            <td>Identificador do fornecedor (PK).</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>VARCHAR</td>
+            <td>Nome do fornecedor.</td>
+        </tr>
+        <tr>
+            <td>telefone</td>
+            <td>VARCHAR</td>
+            <td>Telefone do fornecedor.</td>
+        </tr>
+        <tr>
+            <td>endereço</td>
+            <td>VARCHAR</td>
+            <td>Endereço do fornecedor.</td>
+        </tr>
+    </table>
 
-        <h3>ITEM_ENTRADA</h3>
-        <p>Registra os produtos e as quantidades referentes a cada entrada.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_item_entrada</td>
-                <td>Identificador único do item de entrada.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>id_entrada</td>
-                <td>Entrada à qual o item pertence.</td>
-                <td>FK</td>
-            </tr>
-            <tr>
-                <td>id_produto</td>
-                <td>Produto recebido.</td>
-                <td>FK</td>
-            </tr>
-            <tr>
-                <td>quantidade</td>
-                <td>Quantidade recebida do produto.</td>
-                <td>-</td>
-            </tr>
-        </table>
+    <h3>2.4 ENTRADA</h3>
+    <p>Registra as entradas de mercadorias no estoque.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_entrada</td>
+            <td>INT</td>
+            <td>Identificador da entrada (PK).</td>
+        </tr>
+        <tr>
+            <td>data_entrada</td>
+            <td>DATE</td>
+            <td>Data de entrada das mercadorias.</td>
+        </tr>
+        <tr>
+            <td>numero_nota_fiscal</td>
+            <td>VARCHAR</td>
+            <td>Número da nota fiscal.</td>
+        </tr>
+        <tr>
+            <td>valor_total</td>
+            <td>FLOAT</td>
+            <td>Valor total da entrada.</td>
+        </tr>
+        <tr>
+            <td>id_fornecedor</td>
+            <td>INT</td>
+            <td>Identificador do fornecedor (FK).</td>
+        </tr>
+    </table>
 
-        <h3>FORNECEDOR</h3>
-        <p>Armazena os dados dos fornecedores de mercadorias.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_fornecedor</td>
-                <td>Identificador único do fornecedor.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>nome_fornecedor</td>
-                <td>Nome do fornecedor.</td>
-                <td>-</td>
-            </tr>
-        </table>
+    <h3>2.5 ITEM_ENTRADA</h3>
+    <p>Registra os produtos que fazem parte de cada entrada.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_item_entrada</td>
+            <td>INT</td>
+            <td>Identificador do item de entrada (PK).</td>
+        </tr>
+        <tr>
+            <td>quantidade</td>
+            <td>INT</td>
+            <td>Quantidade do produto recebido.</td>
+        </tr>
+        <tr>
+            <td>custo_unitario</td>
+            <td>FLOAT</td>
+            <td>Custo de cada unidade do produto.</td>
+        </tr>
+        <tr>
+            <td>subtotal</td>
+            <td>FLOAT</td>
+            <td>Valor total do item.</td>
+        </tr>
+        <tr>
+            <td>id_produto</td>
+            <td>INT</td>
+            <td>Identificador do produto (FK).</td>
+        </tr>
+        <tr>
+            <td>id_entrada</td>
+            <td>INT</td>
+            <td>Identificador da entrada (FK).</td>
+        </tr>
+    </table>
 
-        <h3>VENDA</h3>
-        <p>Registra as vendas realizadas pelo mercado.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_venda</td>
-                <td>Identificador único da venda.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>data_venda</td>
-                <td>Data em que a venda foi realizada.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>valor_total</td>
-                <td>Valor total da venda.</td>
-                <td>-</td>
-            </tr>
-        </table>
+    <h3>2.6 VENDA</h3>
+    <p>Armazena os dados das vendas realizadas.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_venda</td>
+            <td>INT</td>
+            <td>Identificador da venda (PK).</td>
+        </tr>
+        <tr>
+            <td>data_hora</td>
+            <td>DATETIME</td>
+            <td>Data e horário da venda.</td>
+        </tr>
+        <tr>
+            <td>valor_total</td>
+            <td>FLOAT</td>
+            <td>Valor total da venda.</td>
+        </tr>
+        <tr>
+            <td>forma_pagamento</td>
+            <td>VARCHAR</td>
+            <td>Forma de pagamento utilizada.</td>
+        </tr>
+    </table>
 
-        <h3>ITEM_VENDA</h3>
-        <p>Registra os produtos e quantidades de cada venda.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_item_venda</td>
-                <td>Identificador único do item vendido.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>id_venda</td>
-                <td>Venda à qual o item pertence.</td>
-                <td>FK</td>
-            </tr>
-            <tr>
-                <td>id_produto</td>
-                <td>Produto vendido.</td>
-                <td>FK</td>
-            </tr>
-            <tr>
-                <td>quantidade</td>
-                <td>Quantidade vendida.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>preco_unitario</td>
-                <td>Preço unitário do produto no momento da venda.</td>
-                <td>-</td>
-            </tr>
-        </table>
+    <h3>2.7 ITEM_VENDA</h3>
+    <p>Registra os produtos que fazem parte de cada venda.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_item_venda</td>
+            <td>INT</td>
+            <td>Identificador do item da venda (PK).</td>
+        </tr>
+        <tr>
+            <td>quantidade</td>
+            <td>INT</td>
+            <td>Quantidade de produtos vendidos.</td>
+        </tr>
+        <tr>
+            <td>preco_unitario</td>
+            <td>FLOAT</td>
+            <td>Preço de cada unidade do produto.</td>
+        </tr>
+        <tr>
+            <td>subtotal</td>
+            <td>FLOAT</td>
+            <td>Valor total do item.</td>
+        </tr>
+        <tr>
+            <td>id_produto</td>
+            <td>INT</td>
+            <td>Identificador do produto (FK).</td>
+        </tr>
+        <tr>
+            <td>id_venda</td>
+            <td>INT</td>
+            <td>Identificador da venda (FK).</td>
+        </tr>
+    </table>
 
-        <h3>MOVIMENTACAO_ESTOQUE</h3>
-        <p>Registra as movimentações de entrada e saída dos produtos.</p>
-        <table>
-            <tr>
-                <th>Atributo</th>
-                <th>Descrição</th>
-                <th>Chave</th>
-            </tr>
-            <tr>
-                <td>id_movimentacao</td>
-                <td>Identificador único da movimentação.</td>
-                <td>PK</td>
-            </tr>
-            <tr>
-                <td>id_produto</td>
-                <td>Produto movimentado.</td>
-                <td>FK</td>
-            </tr>
-            <tr>
-                <td>tipo_movimentacao</td>
-                <td>Tipo da movimentação: entrada ou saída.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>quantidade</td>
-                <td>Quantidade movimentada.</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>data_movimentacao</td>
-                <td>Data em que a movimentação ocorreu.</td>
-                <td>-</td>
-            </tr>
-        </table>
-    </section>
+    <h3>2.8 MOVIMENTACAO_ESTOQUE</h3>
+    <p>Registra as movimentações realizadas no estoque.</p>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Tipo de dado</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>id_movimentacao_estoque</td>
+            <td>INT</td>
+            <td>Identificador da movimentação de estoque (PK).</td>
+        </tr>
+        <tr>
+            <td>tipo</td>
+            <td>VARCHAR</td>
+            <td>Tipo de movimentação realizada.</td>
+        </tr>
+        <tr>
+            <td>quantidade</td>
+            <td>INT</td>
+            <td>Quantidade movimentada.</td>
+        </tr>
+        <tr>
+            <td>data_hora</td>
+            <td>DATETIME</td>
+            <td>Data e horário da movimentação.</td>
+        </tr>
+        <tr>
+            <td>motivo</td>
+            <td>VARCHAR</td>
+            <td>Motivo da movimentação.</td>
+        </tr>
+        <tr>
+            <td>id_produto</td>
+            <td>INT</td>
+            <td>Identificador do produto (FK).</td>
+        </tr>
+        <tr>
+            <td>id_item_venda</td>
+            <td>INT</td>
+            <td>Identificador do item da venda (FK).</td>
+        </tr>
+        <tr>
+            <td>id_item_entrada</td>
+            <td>INT</td>
+            <td>Identificador do item da entrada (FK).</td>
+        </tr>
+    </table>
 
-    <section>
-        <h2>3. Relacionamentos entre as Entidades</h2>
+    <h2>3. Relacionamentos entre as Entidades</h2>
 
-        <ul>
-            <li>
-                <strong>CATEGORIA e PRODUTO:</strong>
-                uma categoria pode possuir vários produtos.
-            </li>
-            <li>
-                <strong>ENTRADA e ITEM_ENTRADA:</strong>
-                uma entrada pode possuir vários itens.
-            </li>
-            <li>
-                <strong>PRODUTO e ITEM_ENTRADA:</strong>
-                um produto pode aparecer em diferentes entradas.
-            </li>
-            <li>
-                <strong>VENDA e ITEM_VENDA:</strong>
-                uma venda pode possuir vários itens.
-            </li>
-            <li>
-                <strong>PRODUTO e ITEM_VENDA:</strong>
-                um produto pode aparecer em diferentes vendas.
-            </li>
-            <li>
-                <strong>PRODUTO e MOVIMENTACAO_ESTOQUE:</strong>
-                um produto pode possuir várias movimentações.
-            </li>
-        </ul>
-    </section>
+    <p>CATEGORIA possui relacionamento com PRODUTO por meio do atributo id_categoria.</p>
 
-    <section>
-        <h2>4. Regras de Negócio</h2>
+    <p>FORNECEDOR possui relacionamento com ENTRADA por meio do atributo id_fornecedor.</p>
 
-        <ul>
-            <li>
-                Cada produto deve estar associado a uma categoria.
-            </li>
-            <li>
-                Cada entidade possui um identificador único.
-            </li>
-            <li>
-                As chaves estrangeiras estabelecem os relacionamentos
-                entre as entidades.
-            </li>
-            <li>
-                As entradas representam o recebimento de mercadorias.
-            </li>
-            <li>
-                As vendas representam a saída de produtos do estoque.
-            </li>
-            <li>
-                As movimentações registram as alterações nas quantidades
-                disponíveis em estoque.
-            </li>
-        </ul>
-    </section>
+    <p>ENTRADA possui relacionamento com ITEM_ENTRADA por meio do atributo id_entrada.</p>
 
-    <section>
-        <h2>5. Legenda</h2>
+    <p>PRODUTO possui relacionamento com ITEM_ENTRADA por meio do atributo id_produto.</p>
 
-        <p><strong>PK:</strong> Chave Primária (Primary Key).</p>
-        <p><strong>FK:</strong> Chave Estrangeira (Foreign Key).</p>
-        <p><strong>-:</strong> Atributo sem indicação de chave.</p>
-    </section>
+    <p>VENDA possui relacionamento com ITEM_VENDA por meio do atributo id_venda.</p>
 
-</main>
+    <p>PRODUTO possui relacionamento com ITEM_VENDA por meio do atributo id_produto.</p>
 
-<footer>
-    <p>Projeto Sistema de Estoque e Vendas - Mercado Santana</p>
-    <p>Dicionário de Dados Conceitual</p>
-</footer>
+    <p>MOVIMENTACAO_ESTOQUE possui relacionamento com PRODUTO por meio do atributo id_produto.</p>
+
+    <p>MOVIMENTACAO_ESTOQUE pode referenciar ITEM_VENDA e ITEM_ENTRADA por meio dos respectivos identificadores.</p>
+
+    <h2>4. Legenda</h2>
+
+    <p>PK: Chave Primária.</p>
+    <p>FK: Chave Estrangeira.</p>
+    <p>INT: Número inteiro.</p>
+    <p>VARCHAR: Texto de tamanho variável.</p>
+    <p>FLOAT: Número decimal.</p>
+    <p>DATE: Data.</p>
+    <p>DATETIME: Data e horário.</p>
 
 </body>
 </html>
+
