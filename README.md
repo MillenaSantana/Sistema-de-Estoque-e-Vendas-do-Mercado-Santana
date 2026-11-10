@@ -474,7 +474,7 @@ O modelo conceitual foi desenvolvido utilizando o software brModelo.
 | Ausência de atributos necessários ao controle de estoque na entidade PRODUTO. | Foram adicionados os atributos `quantidade_estoque` e `estoque_minimo`. | Permitir o acompanhamento do estoque disponível e identificar a necessidade de reposição. |
 | MOVIMENTACAO_ESTOQUE não identificava a operação responsável pela alteração no estoque. | Foram adicionados relacionamentos entre MOVIMENTACAO_ESTOQUE, ITEM_VENDA e ITEM_ENTRADA. | Permitir a rastreabilidade das movimentações e identificar a origem das entradas e saídas. |
 | Ausência da entidade FORNECEDOR no modelo conceitual. | Foi incluída a entidade FORNECEDOR, relacionada à entidade ENTRADA. | Permitir o cadastro dos fornecedores e identificar a origem das mercadorias recebidas. |
-# 10. Conversão do Modelo Conceitual para o Modelo Lógico
+## 10. Conversão do Modelo Conceitual para o Modelo Lógico
 
 ## 10.1 Conversão do Modelo Conceitual para o Modelo Lógico
 
