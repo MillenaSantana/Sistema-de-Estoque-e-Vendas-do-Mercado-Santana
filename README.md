@@ -1022,19 +1022,12 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 | Item | O que registrar |
 |------|------------------|
 | **Ferramenta e etapa**|**Gemini/Chatgpt** — Apoio à análise técnica e à documentação de BI & IA do Mercado Santana.|
-
 | **Motivação** |Compreender a lógica dos códigos desenvolvidos, analisar a estrutura do banco de dados e verificar a coerência entre a implementação e as propostas de BI & IA.|
-
 | **Prompt(s) utilizados** | "Quero entender melhor a lógica e os detalhes da sua parte, pois vou analisar os códigos. A parte de BI & IA não significa apenas que está tudo concluído. É necessário que os seus códigos estejam de acordo com a proposta de BI & IA e que essa integração seja demonstrada na documentação do meu README." |
-
-| **Resposta recebida** |A IA sugeriu indicadores gerenciais, como Ticket Médio, Giro de Estoque e Margem de Lucro. Entretanto, apresentou uma estrutura baseada na utilização de ferramentas comerciais específicas de visualização e análise de dados.|
-
+| **Resposta recebida** |A IA sugeriu indicadores gerenciais, como Ticket Médio, Giro de Estoque e Margem de Lucro. Entretanto, apresentou uma estrutura baseada na utilização de ferramentas comerciais específicas de visualização e análise de dados.
 | **Fontes consultadas e verificadas** | README do projeto, documentação uso_de_ia.md, códigos SQL e informações levantadas na pesquisa de campo.|
-
 | **Trechos rejeitados ou corrigidos** | Foram retiradas referências a ferramentas comerciais que não faziam parte do desenvolvimento. Também foram ajustadas propostas que não correspondiam às funcionalidades efetivamente implementadas.|
-
 | **Justificativa da escolha final** | A documentação foi adaptada à realidade do projeto, priorizando os recursos utilizados, as consultas SQL, os indicadores gerenciais e as possibilidades futuras de aplicação de BI e IA.|
-
 | **Reflexão crítica** | A Inteligência Artificial foi utilizada como recurso complementar ao desenvolvimento. As análises, verificações, correções e decisões técnicas foram realizadas mediante avaliação humana, com responsabilidade sobre o conteúdo final apresentado.|
 
 ---
