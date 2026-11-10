@@ -527,17 +527,15 @@ O modelo lógico foi desenvolvido utilizando o software brModelo, que permite re
 ## 11. Script SQL Completo
 
 
-## 3. Script SQL Completo
-
 A implementação do banco de dados do **Mercado Santana** foi desenvolvida utilizando o SGBD **MySQL**, com base no modelo lógico do projeto.
 
 O script reúne as instruções necessárias para criar e estruturar o banco de dados, inserir dados fictícios e realizar operações de consulta, atualização, exclusão e auditoria.
 
-### 3.1 Acesso ao Script
+### 11.1 Acesso ao Script
 
 📂 **[Acessar o Script SQL Completo](docs/script.sql)**
 
-### 3.2 Estrutura do Script
+### 11.2 Estrutura do Script
 
 | Etapa | Comandos SQL | Finalidade |
 |---|---|---|
@@ -551,7 +549,7 @@ O script reúne as instruções necessárias para criar e estruturar o banco de 
 | 8 | Consultas gerenciais (`G01` a `G12`) | Apoiar a análise de vendas, estoque, fornecedores e movimentações. |
 | 9 | Consultas de auditoria (`A01` a `A08`) | Verificar a consistência dos dados e o cumprimento das regras de negócio. |
 
-### 3.3 Consultas Gerenciais
+### 11.3 Consultas Gerenciais
 
 As consultas gerenciais foram elaboradas para apoiar a tomada de decisões no Mercado Santana e responder aos problemas identificados:
 
@@ -561,7 +559,7 @@ As consultas gerenciais foram elaboradas para apoiar a tomada de decisões no Me
 
 As consultas estão identificadas pelos códigos `G01` a `G12`, acompanhados de comentários explicativos.
 
-### 3.4 Consultas de Auditoria
+### 11.4 Consultas de Auditoria
 
 As consultas de auditoria, identificadas pelos códigos `A01` a `A08`, foram desenvolvidas para verificar a integridade dos registros e identificar possíveis inconsistências.
 
@@ -575,34 +573,34 @@ Entre as verificações estão:
 
 Cada auditoria possui referência às regras de negócio relacionadas.
 
-### 3.5 Execução
+### 11.5 Execução
 
 O arquivo `script.sql` deve ser executado no MySQL, preferencialmente em um banco de dados vazio, respeitando a sequência das instruções.
 
 Os exemplos de `UPDATE` e `DELETE` utilizam transações e `ROLLBACK` para demonstrar as operações sem manter alterações permanentes nos dados de teste.
 
-## 11. Justificativa Técnica
+## 12. Justificativa Técnica
 
-### 11.1 Justificativas Técnicas da Modelagem — Mercado Santana : 
+### 12.1 Justificativas Técnicas da Modelagem — Mercado Santana : 
 O banco de dados foi estruturado com as entidades **Categoria**, **Produto**, **Fornecedor**, **Entrada**, **Item_Entrada**, **Venda**, **Item_Venda** e **Movimentacao_Estoque**. 
 
 As chaves estrangeiras (**FK**) foram integralmente definidas com o tipo `INT` para otimizar os relacionamentos e indexações. Para os atributos numéricos e financeiros, a escolha dos tipos de dados seguiu critérios rigorosos de precisão e integridade, conforme detalhado abaixo:
 
-### 11.2 Movimentacao_Estoque
+### 12.2 Movimentacao_Estoque
 Responsável pelo controle centralizado de entradas, saídas, saldos e custos operacionais. Esta entidade consolida o histórico de fluxo de mercadorias, permitindo auditorias de estoque e cálculos de giro em tempo real.
 
-### 11.3 Item_Entrada e Item_Venda
+### 12.3 Item_Entrada e Item_Venda
 Representam as tabelas associativas (N:N) que quebram o relacionamento multinível entre produtos e as operações de compra/venda. Elas isolam o preço histórico praticado no momento exato da transação, blindando o histórico financeiro contra alterações futuras no preço do cadastro do produto.
 
-### 11.4 Tipos de Dados: DECIMAL vs FLOAT
+### 12.4 Tipos de Dados: DECIMAL vs FLOAT
 **DECIMAL (Valores Financeiros):** Para valores monetários (como preço unitário, subtotal e descontos), utilizou-se o tipo `DECIMAL(10,2)`. A escolha evita os problemas crônicos de arredondamento e perda de precisão computacional inerentes ao tipo `FLOAT`.
 **FLOAT (Quantidades Fracionadas):** O tipo `FLOAT` foi aplicado estritamente a campos de quantidade de itens que permitem frações (ex: produtos vendidos por quilo ou litro, como panificação e hortifrúti).
 
-### 11.5 Chaves Estrangeiras (FK) do Tipo INT
+### 12.5 Chaves Estrangeiras (FK) do Tipo INT
 Definidas nativamente como inteiros para garantir alta performance nas operações de `JOIN`. A tipagem estrita assegura a **integridade referencial** por meio de restrições (`FOREIGN KEY`), impedindo a criação de registros órfãos e garantindo a consistência dos dados em cascata.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 12. Coerência DER vs. Modelo Lógico:
+## 13. Coerência DER vs. Modelo Lógico:
 **O mapeamento das tabelas funcionou?**
 Sim! Nos relacionamentos "refere-se" e "possui", o mapeamento funcionou perfeitamente. O relacionamento "refere-se" serve para ligar as tabelas `Produto`, `Item_Entrada` e `Item_Venda` através de chaves estrangeiras (`FK`), identificando pelo ID qual mercadoria está sendo movimentada. Já o relacionamento "possui" liga a tabela `Venda` com a tabela `Item_Venda`, identificando exatamente em qual cupom fiscal aquela compra foi registrada, não deixando nenhuma informação solta no sistema do mercado.
 
@@ -613,7 +611,7 @@ No código, a tabela produto se liga à entidade pai por meio da coluna id_categ
  Na transposição do modelo conceitual para o lógico, foram criadas corretamente as tabelas intermediárias item_venda e item_entrada. Elas funcionam unindo as chaves estrangeiras (id_produto com id_venda ou id_entrada) para registrar os dados de cada movimentação, como no caso do cupom ou nota fiscal, mapeando atributos específicos como quantidade, preco_unitario e subtotal.
  
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 13. Decisões de Engenharia de Dados: 
+## 14. Decisões de Engenharia de Dados: 
  **1. Escolha da Tipagem para Valores Monetários (DECIMAL vs FLOAT):**
 Utilizamos o tipo **`FLOAT`** em campos como `preco_venda` e `valor_total` em vez do tipo `DECIMAL`. Não usamos ambos porque o progrma ´BRMODELO´ não disponilibiza essa função, então optamos por usar o FLOAT. Essa decisão garante que atributos como `custo_unitario`, `preco_unitario` e os resultados de valores totais como `subtotal` fiquem com os valores exatos, sem erros de arredondamento no fechamento do caixa do mercado.
 
@@ -631,7 +629,7 @@ A estrutura das tabelas Item_Entrada e Item_Venda permite estabelecer relacionam
 Essa restrição impede que seja registrado um item de venda com um id_produto inexistente na tabela Produto, garantindo a integridade referencial. Além disso, o mecanismo de armazenamento ENGINE=InnoDB, em conjunto com as chaves estrangeiras, ajuda a preservar a consistência dos dados e a integridade do histórico de vendas e das notas fiscais de entrada.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 14. Seção de BI & IA: 
+## 15. Seção de BI & IA: 
 **Informações comparativas entre a pesquisa de campo e a massa sintética de teste**
 
 | Informação | Pesquisa de campo | Massa sintética de teste |
@@ -708,8 +706,8 @@ WHERE quantidade_estoque<=estoque_minimo
 ORDER BY quantidade_estoque ASC, nome;
 ```
 
-## 9. Uso de Inteligência Artificial
-### Uso 1 —  Caracterização da Organização
+## 16. Uso de Inteligência Artificial
+### Uso —  Caracterização da Organização
 
 | Item | Registro |
 |---|---|
