@@ -95,60 +95,60 @@ Diante disso, a proposta de desenvolvimento de um banco de dados busca organizar
 
 O documento com as perguntas e respostas utilizadas durante a entrevista está disponível em: [Relato completo da entrevista](./levantamento_relato_entrevista.pdf).
 
-# 3. Processos de Negócio
+## 3. Processos de Negócio
 
 Esta seção descreve o funcionamento atual e a proposta de informatização dos principais processos do Mercado Santana. Em todos os fluxos, o responsável pelo estabelecimento deve conferir as informações e manter os registros das operações para preservar o histórico de vendas, estoque e movimentações financeiras.
 
-**3.1 Processo de Vendas**
+### 3.1 Processo de Vendas**
 
 O processo inicia quando o cliente escolhe os produtos e se dirige ao caixa. O funcionário confere os itens, calcula o valor total, informa as formas de pagamento disponíveis e recebe o pagamento. No modelo atual, a venda não é registrada imediatamente no sistema; o controle ocorre principalmente no fechamento do caixa ao final do dia. No processo proposto, a venda é registrada no momento da conclusão, os itens são associados à venda, o estoque é atualizado e o comprovante pode ser consultado posteriormente. Se a quantidade solicitada for maior que o saldo disponível, a venda do item deve ser impedida ou ajustada antes da conclusão.
 
-**3.2 Controle de Estoque e Reposição**
+### 3.2 Controle de Estoque e Reposição**
 
 O funcionário acompanha a quantidade disponível dos produtos e verifica se algum item está acabando. Quando o saldo permanece acima do estoque mínimo, a rotina continua normalmente. Quando o saldo atinge ou fica abaixo do mínimo, o produto é identificado para reposição, o responsável avalia a necessidade da compra e o processo de compras é iniciado. Com o sistema proposto, as entradas, vendas, perdas e devoluções atualizam o saldo de estoque, permitindo que o alerta de reposição seja gerado automaticamente.
 
-**3.3 Processo de Compras**
+### 3.3 Processo de Compras**
 
 O processo começa com a identificação da necessidade de reposição. O responsável define os produtos e as quantidades, escolhe o fornecedor e realiza o pedido. No recebimento, o funcionário confere a quantidade, os produtos, a nota fiscal e as condições da mercadoria. Se houver divergência, o recebimento deve ser ajustado ou questionado ao fornecedor. Se estiver correto, a entrada é registrada, a mercadoria é armazenada e a nota fiscal é guardada junto ao registro da compra.
 
-**3.4 Trocas, Cancelamentos e Devoluções**
+### 3.4 Trocas, Cancelamentos e Devoluções**
 
 O cliente solicita a troca, o cancelamento ou a devolução, e o funcionário localiza a venda por meio da nota ou do comprovante. Em seguida, verifica se a solicitação atende à política do mercado e registra o motivo da operação. Em caso de recusa, o cliente é informado e a justificativa fica registrada. Se a solicitação for aprovada, o fluxo depende do tipo: na troca, separa-se o produto substituto; no cancelamento, a venda é anulada antes da conclusão; na devolução, o produto recebido é conferido. Produto devolvido em condições de venda pode retornar ao estoque; produto vencido, aberto ou danificado deve ser encaminhado ao processo de perdas. Por fim, o pagamento é estornado ou ajustado e o estoque é atualizado.
 
-**3.5 Cadastro e Escolha de Fornecedores**
+### 3.5 Cadastro e Escolha de Fornecedores**
 
 Quando surge uma necessidade de compra, o responsável consulta os fornecedores disponíveis. Se o fornecedor ainda não existir no sistema, são cadastrados a razão social, o CNPJ, os contatos e as condições comerciais. Em seguida, são comparados preço, prazo de entrega, qualidade dos produtos e condições de pagamento. O fornecedor aprovado é registrado como escolhido e vinculado ao pedido de compra. Caso nenhum fornecedor seja aprovado, o responsável busca outra opção e repete a cotação antes de emitir o pedido.
 
-**3.6 Pagamento a Fornecedores**
+### 3.6 Pagamento a Fornecedores**
 
 Após o recebimento da mercadoria, o funcionário confere o pedido, a quantidade, a nota fiscal e os valores. Se houver inconsistência, o pagamento é bloqueado e a correção é solicitada ao fornecedor. Se os dados estiverem corretos, é registrada a conta a pagar com o valor e o vencimento. Na data prevista, o responsável verifica a autorização e a disponibilidade financeira, realiza o pagamento, armazena o comprovante e baixa a conta. Quando o pagamento não puder ser realizado, a justificativa e a nova programação devem ser registradas.
 
-**3.7 Cadastro de Produtos e Precificação**
+### 3.7 Cadastro de Produtos e Precificação**
 
 Antes de vender um item, o responsável verifica se o produto já está cadastrado. Para um novo produto, registra nome, categoria, unidade de medida e estoque mínimo. Para um produto existente, confere e atualiza os dados necessários. Depois, informa o custo de compra, define a margem e calcula o preço sugerido. O preço deve ser revisado e aprovado pelo responsável; somente após essa aprovação o produto é ativado e disponibilizado para vendas e controle de estoque.
 
-**3.8 Tratamento de Perdas por Vencimento ou Danos**
+### 3.8 Tratamento de Perdas por Vencimento ou Danos**
 
 Quando um produto vencido ou danificado é identificado, o funcionário o separa e o retira da área de venda para impedir sua comercialização. O motivo da perda é classificado como vencimento ou dano, e são registrados o produto, a quantidade, a data e a justificativa. Se houver possibilidade de devolução, o responsável solicita a devolução ao fornecedor e guarda o comprovante; caso contrário, o item é descartado de forma adequada. Ao final, o sistema registra a saída por perda, atualiza o estoque e mantém o histórico para acompanhamento do responsável.
 
-**3.9 Fechamento de Caixa**
+### 3.9 Fechamento de Caixa**
 
 Ao encerrar o expediente, o funcionário interrompe novas vendas e consulta as vendas registradas e as respectivas formas de pagamento. Em seguida, conta o dinheiro e confere os comprovantes de cartões e pagamentos via Pix. Os valores são comparados com o total apresentado pelo sistema. Se houver diferença, as vendas, os comprovantes e a contagem são revisados; persistindo a divergência, o valor e a justificativa são registrados. Se os valores estiverem corretos, o fechamento é confirmado. Em ambos os casos, o relatório e o registro do caixa são armazenados para consulta posterior.
 
-**3.10 Processo Proposto Integrado**
+### 3.10 Processo Proposto Integrado**
 
 O processo proposto integra cadastro de produtos, vendas, estoque, compras, fornecedores, pagamentos, perdas e fechamento de caixa por meio de software. O produto é cadastrado e precificado antes de ser disponibilizado para venda. A cada venda, troca, devolução, entrada ou perda, o sistema registra a movimentação correspondente e atualiza o saldo em tempo real. Quando o estoque atinge o mínimo, o sistema sinaliza a reposição; o responsável consulta e escolhe um fornecedor, emite o pedido, registra o recebimento e controla o pagamento. Ao final do dia, o fechamento de caixa consolida as vendas e registra eventuais divergências.
 
 - **Fluxogramas** representados visualmente na pasta [Fluxograma](./Fluxograma).
 
 ---
-# 4. Requisitos do Sistema
+## 4. Requisitos do Sistema
 
 Os requisitos do sistema foram definidos com base nos problemas identificados durante a pesquisa de campo no Mercado Santana, considerando as necessidades apresentadas pelo responsável pelo estabelecimento.
 
 A proposta busca organizar as informações dos produtos, controlar as entradas e saídas de mercadorias, registrar as vendas e facilitar o acompanhamento do estoque.
 
-## 4.1 Requisitos Funcionais
+### 4.1 Requisitos Funcionais
 
 - **RF01 — Cadastro de produtos:** o sistema deve permitir cadastrar, consultar e atualizar os produtos comercializados pelo mercado, armazenando suas informações de identificação, categoria, preço de venda e estoque mínimo.
 
@@ -178,7 +178,7 @@ A proposta busca organizar as informações dos produtos, controlar as entradas 
 
 - **RF14 — Histórico de vendas:** o sistema deve armazenar os registros das vendas realizadas, permitindo consultar operações anteriores e identificar os produtos mais vendidos.
 
-## 4.2 Requisitos Não Funcionais
+### 4.2 Requisitos Não Funcionais
 
 - **RNF01 — Usabilidade:** o sistema deve apresentar uma interface simples, intuitiva e organizada, permitindo que os responsáveis pelo estabelecimento realizem as operações sem conhecimentos técnicos avançados.
 
@@ -194,11 +194,11 @@ A proposta busca organizar as informações dos produtos, controlar as entradas 
 
 ---
 
-# 5. Regras de Negócio
+## 5. Regras de Negócio
 
 As regras de negócio estabelecem as condições que devem ser respeitadas durante a utilização do sistema, garantindo que as operações de vendas, compras e controle de estoque estejam de acordo com o funcionamento do Mercado Santana.
 
-## 5.1 Regras Operacionais
+### 5.1 Regras Operacionais
 
 - **RN01 — Identificação de produtos:** cada produto deve possuir uma identificação única no sistema.
 
@@ -226,7 +226,7 @@ As regras de negócio estabelecem as condições que devem ser respeitadas duran
 
 - **RN13 — Detalhamento das vendas:** cada venda deve possuir pelo menos um produto associado, com sua respectiva quantidade e valor.
 
-## 5.2 Restrições Organizacionais
+### 5.2 Restrições Organizacionais
 
 - A decisão sobre quais produtos devem ser comprados é de responsabilidade do responsável pelo estabelecimento.
 
@@ -240,7 +240,7 @@ As regras de negócio estabelecem as condições que devem ser respeitadas duran
 
 ---
 
-# 6. Relação entre Problemas, Requisitos e Regras de Negócio
+## 6. Relação entre Problemas, Requisitos e Regras de Negócio
 
 Para garantir que o sistema proposto atenda às necessidades identificadas durante a pesquisa de campo, foi estabelecida uma relação entre os problemas encontrados no Mercado Santana, os requisitos definidos e as regras de negócio correspondentes.
 
@@ -250,7 +250,7 @@ Para garantir que o sistema proposto atenda às necessidades identificadas duran
 | **P2 — Controle de entradas e saídas:** a ausência de registros organizados dificulta o acompanhamento das mercadorias recebidas e das saídas de produtos do estoque. | RF04, RF05, RF06, RF07, RF08, RF12 e RF13. | RN03, RN04, RN05, RN06, RN09, RN10 e RN12. |
 | **P3 — Histórico de vendas:** a falta de um histórico detalhado dificulta a consulta das operações realizadas e a identificação dos produtos mais vendidos. | RF06, RF07 e RF14. | RN09, RN11 e RN13. |
 
-## 6.1 Atendimento às Necessidades Identificadas
+### 6.1 Atendimento às Necessidades Identificadas
 
 A partir da relação apresentada, é possível observar como os requisitos e as regras de negócio contribuem para solucionar os problemas encontrados:
 
@@ -261,7 +261,7 @@ A partir da relação apresentada, é possível observar como os requisitos e as
 - **P3 — Histórico de vendas:** o registro das vendas e de seus respectivos produtos permite consultar operações anteriores, acompanhar a comercialização das mercadorias e identificar os produtos mais vendidos.
 ---
 
-## 5. Dicionário de Dados Conceitual  
+## 7. Dicionário de Dados Conceitual  
 
 O Dicionário de Dados foi desenvolvido em formato de site, apresentando as
 entidades, atributos, relacionamentos e regras aplicadas ao modelo.
@@ -270,9 +270,9 @@ entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
 ---
 
-## 6. Modelagem Conceitual (Entidades, Atributos e Relacionamentos)
-6.1 Modelo conceitual
+## 8. Modelagem Conceitual (Entidades, Atributos e Relacionamentos)
 
+### 8.1 Modelagem Conceitual
 
 O modelo conceitual representa o controle de vendas e estoque do Mercado Santana, organizando as principais informações necessárias para o cadastro de produtos, categorias, entradas de mercadorias, vendas e movimentações de estoque.
 
@@ -287,7 +287,7 @@ Venda: representa cada venda realizada pelo mercado, registrando a data e hora, 
 
 Movimentacao_Estoque: registra as alterações realizadas no estoque, permitindo controlar entradas, saídas e outros tipos de movimentação, juntamente com suas respectivas quantidades, datas e motivos.
 
-6.2 Atributos e classificações
+### 8.2 Atributos e classificações
 
 Cada entidade possui atributos responsáveis por armazenar suas informações. As PKs (chaves primárias) identificam cada registro de forma única. Os relacionamentos entre as entidades representam as associações existentes entre os dados do sistema.
 
@@ -332,7 +332,7 @@ data_hora — data e horário da movimentação;
 
 motivo — motivo da movimentação.
 
-6.3 Relacionamentos pertinentes
+### 8.3 Relacionamentos pertinentes
 
 Categoria — Produto: 1:N
 O relacionamento “possui” estabelece que uma Categoria pode possuir vários Produtos, enquanto cada Produto pertence a uma única Categoria.
@@ -352,7 +352,7 @@ O relacionamento “registra” estabelece que um Produto pode possuir várias M
 
 Dessa forma, é possível manter o histórico das alterações realizadas no estoque de cada produto.
 
-6.4 Restrições e políticas organizacionais
+### 8.4 Restrições e políticas organizacionais
 
 Cada produto deve estar associado a uma única categoria.
 
@@ -381,23 +381,23 @@ As vendas devem registrar a data e hora, o valor total e a forma de pagamento.
 As vendas e movimentações de estoque devem permanecer registradas para manter o histórico das operações.
 ---
 
-# 7. Diagrama Entidade-Relacionamento (DER)
+## 9. Diagrama Entidade-Relacionamento (DER)
 
 O Diagrama Entidade-Relacionamento (DER) foi elaborado com base nas informações coletadas durante a pesquisa de campo no Mercado Santana. Seu objetivo é representar conceitualmente os dados necessários para o desenvolvimento do banco de dados, apresentando as entidades, seus atributos e os relacionamentos entre elas.
 
 O modelo contempla oito entidades principais: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque.
 
-3.2 Arquivo do modelo conceitual
+### 9.2 Arquivo do modelo conceitual
 
 O diagrama completo está disponível em: [Visualizar Modelo Conceitual](Modelo_Conceitual.pdf).
 
-3.3 Ferramenta utilizada
+### 9.3 Ferramenta utilizada
 
 O modelo conceitual foi desenvolvido utilizando o software brModelo.
 
-# 8. Modelo Lógico
+## 10. Modelo Lógico
 
-## 8.1 Modelo lógico
+### 10.1 Modelo lógico
 
 O modelo lógico representa a estrutura do banco de dados do Sistema de Estoque e Vendas do Mercado Santana, transformando o modelo conceitual em tabelas relacionadas entre si.
 
@@ -405,7 +405,7 @@ Sua finalidade é organizar os dados necessários para o funcionamento do sistem
 
 O modelo é composto por oito tabelas principais: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque.
 
-## 8.2 Estrutura das tabelas e atributos
+### 10.2 Estrutura das tabelas e atributos
 
 Cada tabela possui atributos responsáveis por armazenar as informações correspondentes às operações do mercado.
 
@@ -474,7 +474,7 @@ Cada tabela possui atributos responsáveis por armazenar as informações corres
 - id_item_venda — INT, chave estrangeira (FK), relacionada à tabela Item_Venda.
 - id_item_entrada — INT, chave estrangeira (FK), relacionada à tabela Item_Entrada.
 
-## 8.3 Relacionamentos entre as tabelas
+### 10.3 Relacionamentos entre as tabelas
 
 Os relacionamentos entre as tabelas são estabelecidos por meio das chaves estrangeiras, permitindo a integração das informações armazenadas no banco de dados.
 
@@ -488,7 +488,7 @@ Os relacionamentos entre as tabelas são estabelecidos por meio das chaves estra
 - **Item_Entrada — Movimentacao_Estoque:** permite relacionar as movimentações de estoque aos itens de entrada.
 - **Item_Venda — Movimentacao_Estoque:** permite relacionar as movimentações de estoque aos itens vendidos.
 
-## 8.4 Restrições e integridade dos dados
+### 10.4 Restrições e integridade dos dados
 
 Para garantir a organização e a consistência das informações armazenadas no banco de dados, são estabelecidas as seguintes restrições:
 
@@ -503,17 +503,17 @@ Para garantir a organização e a consistência das informações armazenadas no
 - Os registros de vendas e movimentações de estoque devem ser mantidos para preservar o histórico das operações.
 - Os dados de entrada devem permitir a identificação do fornecedor, da nota fiscal e dos produtos recebidos.
 
-## 8.5 Arquivo do modelo lógico
+### 10.5 Arquivo do modelo lógico
 
 O diagrama completo do modelo lógico está disponível no arquivo desenvolvido utilizando a ferramenta brModelo.
 
 [Visualizar Modelo Lógico (PDF)](Logic_model.pdf)
 
-## 8.6 Ferramenta utilizada
+### 10.6 Ferramenta utilizada
 
 O modelo lógico foi desenvolvido utilizando o software brModelo, que permite representar a estrutura das tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos.
 
-# Script SQL Completo
+## Script SQL Completo
 
 O banco de dados do Sistema de Estoque e Vendas do Mercado Santana foi desenvolvido utilizando o MySQL, com o apoio do MySQL Workbench.
 
@@ -521,13 +521,13 @@ A implementação contempla oito tabelas relacionadas, responsáveis pelo armaze
 
 O projeto inclui comandos SQL para criação do banco de dados, definição de chaves primárias e estrangeiras, inserção de registros, consultas, atualizações e exclusões.
 
-Arquivos SQL
+### Arquivos SQL
 
 [script.sql]() — script completo de implementação do banco de dados.
 
 [massa_de_dados.sql]() — inserção de dados fictícios para simular as operações do mercado.
 
-Execução
+### Execução
 
 Para executar o projeto, é necessário ter o MySQL instalado e uma conexão configurada no MySQL Workbench.
 
@@ -539,28 +539,28 @@ Caso a massa de dados esteja separada, execute massa_de_dados.sql antes das cons
 
 Confira os resultados das consultas SQL para verificar o funcionamento do banco.
 
-# 9. Justificativa Técnica
+## 11. Justificativa Técnica
 
-## 1. Justificativas Técnicas da Modelagem — Mercado Santana : 
+### 11.1 Justificativas Técnicas da Modelagem — Mercado Santana : 
 O banco de dados foi estruturado com as entidades **Categoria**, **Produto**, **Fornecedor**, **Entrada**, **Item_Entrada**, **Venda**, **Item_Venda** e **Movimentacao_Estoque**. 
 
 As chaves estrangeiras (**FK**) foram integralmente definidas com o tipo `INT` para otimizar os relacionamentos e indexações. Para os atributos numéricos e financeiros, a escolha dos tipos de dados seguiu critérios rigorosos de precisão e integridade, conforme detalhado abaixo:
 
-### 1.1 Movimentacao_Estoque
+### 11.2 Movimentacao_Estoque
 Responsável pelo controle centralizado de entradas, saídas, saldos e custos operacionais. Esta entidade consolida o histórico de fluxo de mercadorias, permitindo auditorias de estoque e cálculos de giro em tempo real.
 
-### 1.2 Item_Entrada e Item_Venda
+### 11.3 Item_Entrada e Item_Venda
 Representam as tabelas associativas (N:N) que quebram o relacionamento multinível entre produtos e as operações de compra/venda. Elas isolam o preço histórico praticado no momento exato da transação, blindando o histórico financeiro contra alterações futuras no preço do cadastro do produto.
 
-### 1.3 Tipos de Dados: DECIMAL vs FLOAT
+### 11.4 Tipos de Dados: DECIMAL vs FLOAT
 **DECIMAL (Valores Financeiros):** Para valores monetários (como preço unitário, subtotal e descontos), utilizou-se o tipo `DECIMAL(10,2)`. A escolha evita os problemas crônicos de arredondamento e perda de precisão computacional inerentes ao tipo `FLOAT`.
 **FLOAT (Quantidades Fracionadas):** O tipo `FLOAT` foi aplicado estritamente a campos de quantidade de itens que permitem frações (ex: produtos vendidos por quilo ou litro, como panificação e hortifrúti).
 
-### 1.4 Chaves Estrangeiras (FK) do Tipo INT
+### 11.5 Chaves Estrangeiras (FK) do Tipo INT
 Definidas nativamente como inteiros para garantir alta performance nas operações de `JOIN`. A tipagem estrita assegura a **integridade referencial** por meio de restrições (`FOREIGN KEY`), impedindo a criação de registros órfãos e garantindo a consistência dos dados em cascata.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 2. Coerência DER vs. Modelo Lógico:
+## 12. Coerência DER vs. Modelo Lógico:
 **O mapeamento das tabelas funcionou?**
 Sim! Nos relacionamentos "refere-se" e "possui", o mapeamento funcionou perfeitamente. O relacionamento "refere-se" serve para ligar as tabelas `Produto`, `Item_Entrada` e `Item_Venda` através de chaves estrangeiras (`FK`), identificando pelo ID qual mercadoria está sendo movimentada. Já o relacionamento "possui" liga a tabela `Venda` com a tabela `Item_Venda`, identificando exatamente em qual cupom fiscal aquela compra foi registrada, não deixando nenhuma informação solta no sistema do mercado.
 
@@ -571,9 +571,9 @@ No código, a tabela produto se liga à entidade pai por meio da coluna id_categ
  Na transposição do modelo conceitual para o lógico, foram criadas corretamente as tabelas intermediárias item_venda e item_entrada. Elas funcionam unindo as chaves estrangeiras (id_produto com id_venda ou id_entrada) para registrar os dados de cada movimentação, como no caso do cupom ou nota fiscal, mapeando atributos específicos como quantidade, preco_unitario e subtotal.
  
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 3. Decisões de Engenharia de Dados: 
+## 13. Decisões de Engenharia de Dados: 
  **1. Escolha da Tipagem para Valores Monetários (DECIMAL vs FLOAT):**
-Utilizamos o tipo **`DECIMAL(10,2)`** em campos como `preco_venda` e `valor_total` em vez do tipo `FLOAT`. Não usamos ambos porque queremos precisão financeira nos dados de custos e despesas. Essa decisão garante que atributos como `custo_unitario`, `preco_unitario` e os resultados de valores totais como `subtotal` fiquem com os valores exatos, sem erros de arredondamento no fechamento do caixa do mercado.
+Utilizamos o tipo **`FLOAT`** em campos como `preco_venda` e `valor_total` em vez do tipo `DECIMAL`. Não usamos ambos porque o progrma ´BRMODELO´ não disponilibiza essa função, então optamos por usar o FLOAT. Essa decisão garante que atributos como `custo_unitario`, `preco_unitario` e os resultados de valores totais como `subtotal` fiquem com os valores exatos, sem erros de arredondamento no fechamento do caixa do mercado.
 
 **2. Uso do Mecanismo de Armazenamento (Engine):**
 Foi utilizada a configuração `AUTO_INCREMENT` nas chaves primárias (`PRIMARY KEY`), permitindo que os identificadores sejam gerados automaticamente pelo banco de dados a cada novo registro. Os campos foram definidos com o tipo `INT`, garantindo a identificação única dos registros. Esses identificadores também permitem estabelecer relacionamentos entre as tabelas por meio das chaves estrangeiras (`FOREIGN KEY`), como `id_produto` e `id_venda`.
@@ -583,14 +583,13 @@ Na tabela `Categoria`, foi utilizada a configuração `ENGINE=InnoDB DEFAULT CHA
 
 A configuração `utf8mb4_0900_ai_ci` utiliza uma regra de comparação que ignora diferenças entre letras maiúsculas e minúsculas (ci) e diferenças de acentuação (ai). Dessa forma, ao pesquisar uma categoria como "Limpeza", o banco de dados também consegue reconhecer variações como "limpeza" e "LIMPEZA", facilitando as consultas e a localização dos registros no sistema.
 
-
 **4. Estrutura de Chaves e Relacionamentos:**
 A estrutura das tabelas Item_Entrada e Item_Venda permite estabelecer relacionamentos do tipo Muitos para Muitos (N) entre produtos e operações de entrada e venda. Para isso, foram utilizadas chaves estrangeiras (FOREIGN KEY), como a restrição CONSTRAINT item_venda_ibfk_1 FOREIGN KEY (id_produto) REFERENCES produto (id_produto), que vincula os produtos registrados na tabela Item_Venda aos seus respectivos registros na tabela Produto.
 
 Essa restrição impede que seja registrado um item de venda com um id_produto inexistente na tabela Produto, garantindo a integridade referencial. Além disso, o mecanismo de armazenamento ENGINE=InnoDB, em conjunto com as chaves estrangeiras, ajuda a preservar a consistência dos dados e a integridade do histórico de vendas e das notas fiscais de entrada.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 4. Seção de BI & IA: 
+## 14. Seção de BI & IA: 
 **Informações comparativas entre a pesquisa de campo e a massa sintética de teste**
 
 | Informação | Pesquisa de campo | Massa sintética de teste |
