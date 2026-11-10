@@ -524,31 +524,62 @@ O diagrama completo do modelo lógico está disponível no arquivo desenvolvido 
 
 O modelo lógico foi desenvolvido utilizando o software brModelo, que permite representar a estrutura das tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos.
 
-## Script SQL Completo
+## 11. Script SQL Completo
 
-O banco de dados do Sistema de Estoque e Vendas do Mercado Santana foi desenvolvido utilizando o MySQL, com o apoio do MySQL Workbench.
 
-A implementação contempla oito tabelas relacionadas, responsáveis pelo armazenamento de informações sobre categorias, produtos, fornecedores, entradas de mercadorias, vendas e movimentações de estoque.
+## 3. Script SQL Completo
 
-O projeto inclui comandos SQL para criação do banco de dados, definição de chaves primárias e estrangeiras, inserção de registros, consultas, atualizações e exclusões.
+A implementação do banco de dados do **Mercado Santana** foi desenvolvida utilizando o SGBD **MySQL**, com base no modelo lógico do projeto.
 
-### Arquivos SQL
+O script reúne as instruções necessárias para criar e estruturar o banco de dados, inserir dados fictícios e realizar operações de consulta, atualização, exclusão e auditoria.
 
-[script.sql]() — script completo de implementação do banco de dados.
+### 3.1 Acesso ao Script
 
-[massa_de_dados.sql]() — inserção de dados fictícios para simular as operações do mercado.
+📂 **[Acessar o Script SQL Completo](docs/script.sql)**
 
-### Execução
+### 3.2 Estrutura do Script
 
-Para executar o projeto, é necessário ter o MySQL instalado e uma conexão configurada no MySQL Workbench.
+| Etapa | Comandos SQL | Finalidade |
+|---|---|---|
+| 1 | `CREATE DATABASE` | Criar o banco de dados `mercado_santana`. |
+| 2 | `CREATE TABLE` | Criar as oito tabelas do modelo lógico. |
+| 3 | `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `CHECK` | Definir restrições de integridade e validação dos dados. |
+| 4 | `INSERT INTO` | Inserir a massa de dados fictícios. |
+| 5 | `SELECT` e `JOIN` | Consultar informações relacionadas entre diferentes tabelas. |
+| 6 | `UPDATE` | Demonstrar a atualização de registros. |
+| 7 | `DELETE` | Demonstrar a exclusão controlada de registros. |
+| 8 | Consultas gerenciais (`G01` a `G12`) | Apoiar a análise de vendas, estoque, fornecedores e movimentações. |
+| 9 | Consultas de auditoria (`A01` a `A08`) | Verificar a consistência dos dados e o cumprimento das regras de negócio. |
 
-Abra o arquivo script.sql no MySQL Workbench.
+### 3.3 Consultas Gerenciais
 
-Execute os comandos na ordem definida no arquivo.
+As consultas gerenciais foram elaboradas para apoiar a tomada de decisões no Mercado Santana e responder aos problemas identificados:
 
-Caso a massa de dados esteja separada, execute massa_de_dados.sql antes das consultas.
+- **P1 — Controle de estoque:** acompanhamento das quantidades disponíveis, produtos com estoque baixo e necessidade de reposição.
+- **P2 — Controle de entradas e saídas:** acompanhamento do recebimento de mercadorias, fornecedores e movimentações de estoque.
+- **P3 — Histórico de vendas:** consulta das vendas realizadas, produtos mais vendidos, faturamento e formas de pagamento.
 
-Confira os resultados das consultas SQL para verificar o funcionamento do banco.
+As consultas estão identificadas pelos códigos `G01` a `G12`, acompanhados de comentários explicativos.
+
+### 3.4 Consultas de Auditoria
+
+As consultas de auditoria, identificadas pelos códigos `A01` a `A08`, foram desenvolvidas para verificar a integridade dos registros e identificar possíveis inconsistências.
+
+Entre as verificações estão:
+
+- Integridade dos relacionamentos entre tabelas;
+- Validade dos preços e das quantidades;
+- Consistência dos subtotais e valores totais;
+- Correspondência entre movimentações e saldos de estoque;
+- Rastreabilidade das entradas e saídas de mercadorias.
+
+Cada auditoria possui referência às regras de negócio relacionadas.
+
+### 3.5 Execução
+
+O arquivo `script.sql` deve ser executado no MySQL, preferencialmente em um banco de dados vazio, respeitando a sequência das instruções.
+
+Os exemplos de `UPDATE` e `DELETE` utilizam transações e `ROLLBACK` para demonstrar as operações sem manter alterações permanentes nos dados de teste.
 
 ## 11. Justificativa Técnica
 
