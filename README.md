@@ -1,4 +1,4 @@
-## Metadados
+ ## Metadados
 
 | Nome completo do aluno | RGM | Usuário do GitHub |
 |---|---|---|
@@ -276,7 +276,7 @@ entidades, atributos, relacionamentos e regras aplicadas ao modelo.
 
 O modelo conceitual representa o funcionamento do controle de vendas e estoque do Mercado Santana, organizando as informações necessárias para o cadastro de produtos, categorias, fornecedores, entradas de mercadorias, vendas e movimentações de estoque.
 
-O modelo é composto pelas entidades Produto, Categoria, Entrada, Item_Entrada, Fornecedor, Venda, Item_Venda e Movimentacao_Estoque.
+O modelo é composto por oito entidades: `PRODUTO`, `CATEGORIA`, `ENTRADA`, `ITEM_ENTRADA`, `FORNECEDOR`, `VENDA`, `ITEM_VENDA` e `MOVIMENTACAO_ESTOQUE`.
 
 **Produto:** representa os produtos comercializados pelo mercado, armazenando informações como identificação, nome, preço de venda, quantidade em estoque e estoque mínimo.
 
@@ -286,135 +286,135 @@ O modelo é composto pelas entidades Produto, Categoria, Entrada, Item_Entrada, 
 
 **Item_Entrada:** representa cada produto incluído em uma entrada de mercadorias, registrando a quantidade, o custo unitário e o subtotal.
 
-**Fornecedor:** representa os fornecedores responsáveis pelo fornecimento das mercadorias, armazenando informações de identificação, nome, telefone e endereço.
+**Fornecedor:** representa os fornecedores responsáveis pelo fornecimento das mercadorias, armazenando informações como nome, telefone e endereço.
 
 **Venda:** representa cada venda realizada pelo mercado, registrando a data e hora, o valor total e a forma de pagamento utilizada.
 
 **Item_Venda:** representa cada produto incluído em uma venda, armazenando a quantidade, o preço unitário e o subtotal.
 
-**Movimentacao_Estoque:** registra as alterações realizadas no estoque dos produtos, permitindo acompanhar entradas e saídas, além de armazenar o tipo, a quantidade, a data e o motivo da movimentação.
+**Movimentacao_Estoque:** registra as alterações realizadas no estoque dos produtos, permitindo acompanhar as entradas e saídas, além de armazenar o tipo, a quantidade, a data e o motivo da movimentação.
 
 ### 8.2 Atributos e classificações
 
 Cada entidade possui atributos responsáveis por armazenar suas respectivas informações. As chaves primárias (PK) identificam cada registro de forma única.
 
-**Produto**
+**PRODUTO**
 
-id_produto — chave primária.
+`id_produto` — chave primária.
 
-nome — nome do produto.
+`nome` — nome do produto.
 
-preco_venda — preço de venda do produto.
+`preco_venda` — preço de venda do produto.
 
-quantidade_estoque — quantidade disponível no estoque.
+`quantidade_estoque` — quantidade disponível no estoque.
 
-estoque_minimo — quantidade mínima definida para o produto.
+`estoque_minimo` — quantidade mínima definida para o produto.
 
-**Categoria**
+**CATEGORIA**
 
-id_categoria — chave primária.
+`id_categoria` — chave primária.
 
-nome — nome da categoria.
+`nome` — nome da categoria.
 
-**Entrada**
+**ENTRADA**
 
-id_entrada — chave primária.
+`id_entrada` — chave primária.
 
-data_entrada — data em que a mercadoria foi recebida.
+`data_entrada` — data em que a mercadoria foi recebida.
 
-numero_nota_fiscal — número da nota fiscal relacionada à entrada.
+`numero_nota_fiscal` — número da nota fiscal relacionada à entrada.
 
-valor_total — valor total da entrada.
+`valor_total` — valor total da entrada.
 
-**Item_Entrada**
+**ITEM_ENTRADA**
 
-id_item_entrada — chave primária.
+`id_item_entrada` — chave primária.
 
-quantidade — quantidade de produtos recebidos.
+`quantidade` — quantidade de produtos recebidos.
 
-custo_unitario — custo de cada unidade do produto.
+`custo_unitario` — custo de cada unidade do produto.
 
-subtotal — valor correspondente à quantidade multiplicada pelo custo unitário.
+`subtotal` — valor correspondente à quantidade multiplicada pelo custo unitário.
 
-**Fornecedor**
+**FORNECEDOR**
 
-id_fornecedor — chave primária.
+`id_fornecedor` — chave primária.
 
-nome — nome do fornecedor.
+`nome` — nome do fornecedor.
 
-telefone — telefone para contato.
+`telefone` — telefone para contato.
 
-endereco — endereço do fornecedor.
+`endereco` — endereço do fornecedor.
 
-**Venda**
+**VENDA**
 
-id_venda — chave primária.
+`id_venda` — chave primária.
 
-data_hora — data e horário em que a venda foi realizada.
+`data_hora` — data e horário em que a venda foi realizada.
 
-valor_total — valor total da venda.
+`valor_total` — valor total da venda.
 
-forma_pagamento — forma de pagamento utilizada.
+`forma_pagamento` — forma de pagamento utilizada.
 
-**Item_Venda**
+**ITEM_VENDA**
 
-id_item_venda — chave primária.
+`id_item_venda` — chave primária.
 
-quantidade — quantidade de produtos vendidos.
+`quantidade` — quantidade de produtos vendidos.
 
-preco_unitario — preço de cada unidade do produto no momento da venda.
+`preco_unitario` — preço de cada unidade do produto no momento da venda.
 
-subtotal — valor correspondente à quantidade multiplicada pelo preço unitário.
+`subtotal` — valor correspondente à quantidade multiplicada pelo preço unitário.
 
-**Movimentacao_Estoque**
+**MOVIMENTACAO_ESTOQUE**
 
-id_movimentacao_estoque — chave primária.
+`id_movimentacao_estoque` — chave primária.
 
-tipo — identifica o tipo de movimentação realizada.
+`tipo` — identifica o tipo de movimentação realizada.
 
-quantidade — quantidade movimentada.
+`quantidade` — quantidade movimentada.
 
-data_hora — data e horário da movimentação.
+`data_hora` — data e horário da movimentação.
 
-motivo — motivo da alteração no estoque.
+`motivo` — motivo da alteração no estoque.
 
 ### 8.3 Relacionamentos pertinentes
 
-**Categoria — Produto: 1:N**
+**Categoria — Produto (1:N)**
 
-O relacionamento "possui" estabelece que uma Categoria pode possuir nenhum ou vários Produtos, enquanto cada Produto deve pertencer a exatamente uma Categoria.
+Uma categoria pode possuir nenhum ou vários produtos, enquanto cada produto pertence a uma única categoria.
 
-**Produto — Item_Entrada: 1:N**
+**Produto — Item_Entrada (1:N)**
 
-O relacionamento "refere-se" estabelece que um Produto pode estar presente em nenhum ou vários Itens de Entrada, enquanto cada Item_Entrada está relacionado a exatamente um Produto.
+Um produto pode estar presente em nenhum ou vários itens de entrada, enquanto cada item de entrada está relacionado a um único produto.
 
-**Entrada — Item_Entrada: 1:N**
+**Entrada — Item_Entrada (1:N)**
 
-O relacionamento "contém" estabelece que uma Entrada deve conter um ou vários Itens de Entrada, enquanto cada Item_Entrada pertence a exatamente uma Entrada.
+Uma entrada deve conter um ou vários itens de entrada, enquanto cada item de entrada pertence a uma única entrada.
 
-**Fornecedor — Entrada: 1:N**
+**Fornecedor — Entrada (1:N)**
 
-O relacionamento "fornece" estabelece que um Fornecedor pode estar relacionado a nenhuma ou várias Entradas, enquanto cada Entrada está associada a exatamente um Fornecedor.
+Um fornecedor pode estar relacionado a nenhuma ou várias entradas, enquanto cada entrada está associada a um único fornecedor.
 
-**Produto — Item_Venda: 1:N**
+**Produto — Item_Venda (1:N)**
 
-O relacionamento "refere-se" estabelece que um Produto pode aparecer em nenhum ou vários Itens de Venda, enquanto cada Item_Venda está relacionado a exatamente um Produto.
+Um produto pode aparecer em nenhum ou vários itens de venda, enquanto cada item de venda está relacionado a um único produto.
 
-**Venda — Item_Venda: 1:N**
+**Venda — Item_Venda (1:N)**
 
-O relacionamento "possui" estabelece que uma Venda deve possuir um ou vários Itens de Venda, enquanto cada Item_Venda pertence a exatamente uma Venda.
+Uma venda deve possuir um ou vários itens de venda, enquanto cada item de venda pertence a uma única venda.
 
-**Produto — Movimentacao_Estoque: 1:N**
+**Produto — Movimentacao_Estoque (1:N)**
 
-O relacionamento "registra" estabelece que um Produto pode possuir nenhuma ou várias Movimentações de Estoque, enquanto cada movimentação está relacionada a exatamente um Produto.
+Um produto pode possuir nenhuma ou várias movimentações de estoque, enquanto cada movimentação está relacionada a um único produto.
 
-**Movimentacao_Estoque — Item_Entrada:**
+**Movimentacao_Estoque — Item_Entrada**
 
-O relacionamento "gera" representa a associação entre uma movimentação de estoque e um item de entrada. Conforme o diagrama, cada Item_Entrada está associado a uma movimentação, enquanto uma Movimentacao_Estoque pode estar associada a zero ou um Item_Entrada.
+Representa a associação entre uma movimentação de estoque e um item de entrada. Conforme o diagrama, uma movimentação pode estar associada a zero ou um item de entrada.
 
-**Movimentacao_Estoque — Venda:**
+**Movimentacao_Estoque — Venda**
 
-O relacionamento "gera" representa a associação entre uma venda e as movimentações de estoque correspondentes. Conforme o diagrama, uma Venda pode gerar nenhuma ou várias movimentações, enquanto uma Movimentacao_Estoque pode estar associada a zero ou uma Venda.
+Representa a associação entre as movimentações de estoque e as vendas. Conforme o diagrama, uma venda pode gerar nenhuma ou várias movimentações, enquanto uma movimentação pode estar associada a zero ou uma venda.
 
 ### 8.4 Restrições e políticas organizacionais
 
