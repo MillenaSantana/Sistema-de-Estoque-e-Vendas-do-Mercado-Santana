@@ -474,11 +474,197 @@ O modelo conceitual foi desenvolvido utilizando o software brModelo.
 | Ausência de atributos necessários ao controle de estoque na entidade PRODUTO. | Foram adicionados os atributos `quantidade_estoque` e `estoque_minimo`. | Permitir o acompanhamento do estoque disponível e identificar a necessidade de reposição. |
 | MOVIMENTACAO_ESTOQUE não identificava a operação responsável pela alteração no estoque. | Foram adicionados relacionamentos entre MOVIMENTACAO_ESTOQUE, ITEM_VENDA e ITEM_ENTRADA. | Permitir a rastreabilidade das movimentações e identificar a origem das entradas e saídas. |
 | Ausência da entidade FORNECEDOR no modelo conceitual. | Foi incluída a entidade FORNECEDOR, relacionada à entidade ENTRADA. | Permitir o cadastro dos fornecedores e identificar a origem das mercadorias recebidas. |
+# 10. Conversão do Modelo Conceitual para o Modelo Lógico
+
+## 10.1 Conversão do Modelo Conceitual para o Modelo Lógico
+
+A conversão do modelo conceitual para o modelo lógico foi realizada transformando as entidades identificadas no diagrama em tabelas, seus atributos em colunas e os relacionamentos em chaves estrangeiras.
+
+O modelo lógico resultou em oito tabelas: CATEGORIA, PRODUTO, FORNECEDOR, ENTRADA, ITEM_ENTRADA, VENDA, ITEM_VENDA e MOVIMENTACAO_ESTOQUE.
+
+### Conversão das Entidades em Tabelas
+
+As entidades do modelo conceitual foram transformadas em tabelas no modelo lógico, mantendo suas características e informações principais.
+
+CATEGORIA foi convertida em uma tabela para armazenar o identificador e o nome das categorias.
+
+PRODUTO foi convertido em uma tabela para armazenar o identificador, nome, preço de venda, quantidade em estoque, estoque mínimo e identificador da categoria.
+
+FORNECEDOR foi convertido em uma tabela para armazenar o identificador, nome, telefone e endereço dos fornecedores.
+
+ENTRADA foi convertida em uma tabela para registrar a data de entrada, número da nota fiscal, valor total e fornecedor relacionado.
+
+ITEM_ENTRADA foi convertido em uma tabela para registrar os produtos recebidos em cada entrada, armazenando quantidade, custo unitário, subtotal e os identificadores da entrada e do produto.
+
+VENDA foi convertida em uma tabela para armazenar a data e hora, valor total e forma de pagamento.
+
+ITEM_VENDA foi convertido em uma tabela para registrar os produtos presentes em cada venda, incluindo quantidade, preço unitário, subtotal e os identificadores da venda e do produto.
+
+MOVIMENTACAO_ESTOQUE foi convertida em uma tabela para registrar o tipo de movimentação, quantidade, data e hora, motivo e as referências ao produto e aos itens de entrada ou venda.
+
+### Conversão dos Atributos em Colunas
+
+Os atributos definidos no modelo conceitual foram transformados em colunas nas respectivas tabelas do modelo lógico.
+
+Cada coluna recebeu um tipo de dado de acordo com a informação armazenada, utilizando tipos como INT, VARCHAR, FLOAT, DATE e DATETIME.
+
+Os identificadores foram definidos como chaves primárias ou estrangeiras, conforme sua função nos relacionamentos.
+
+### Conversão dos Relacionamentos em Chaves
+
+Os relacionamentos entre as entidades foram representados por meio de chaves estrangeiras (FK), permitindo conectar os registros das diferentes tabelas.
+
+CATEGORIA e PRODUTO foram relacionados por meio de `id_categoria`, armazenado na tabela PRODUTO.
+
+PRODUTO e ITEM_ENTRADA foram relacionados por meio de `id_produto`, armazenado na tabela ITEM_ENTRADA.
+
+ENTRADA e ITEM_ENTRADA foram relacionados por meio de `id_entrada`, armazenado na tabela ITEM_ENTRADA.
+
+FORNECEDOR e ENTRADA foram relacionados por meio de `id_fornecedor`, armazenado na tabela ENTRADA.
+
+VENDA e ITEM_VENDA foram relacionados por meio de `id_venda`, armazenado na tabela ITEM_VENDA.
+
+PRODUTO e ITEM_VENDA foram relacionados por meio de `id_produto`, armazenado na tabela ITEM_VENDA.
+
+PRODUTO e MOVIMENTACAO_ESTOQUE foram relacionados por meio de `id_produto`, armazenado na tabela MOVIMENTACAO_ESTOQUE.
+
+MOVIMENTACAO_ESTOQUE também possui os campos `id_item_entrada` e `id_item_venda`, que permitem relacionar as movimentações aos respectivos itens de entrada ou venda.
+
+### Tratamento das Cardinalidades
+
+As cardinalidades foram representadas no modelo lógico por meio das chaves estrangeiras, respeitando os relacionamentos definidos no modelo conceitual.
+
+A relação entre CATEGORIA e PRODUTO é de 1:N, pois uma categoria pode possuir vários produtos, enquanto cada produto está associado a uma categoria.
+
+A relação entre FORNECEDOR e ENTRADA é de 1:N, pois um fornecedor pode estar associado a várias entradas, enquanto cada entrada está relacionada a um fornecedor.
+
+A relação entre ENTRADA e ITEM_ENTRADA é de 1:N, pois uma entrada pode conter vários itens, enquanto cada item pertence a uma entrada.
+
+A relação entre PRODUTO e ITEM_ENTRADA é de 1:N, pois um produto pode aparecer em diferentes itens de entrada, enquanto cada item de entrada se refere a um produto.
+
+A relação entre VENDA e ITEM_VENDA é de 1:N, pois uma venda pode possuir vários itens, enquanto cada item pertence a uma venda.
+
+A relação entre PRODUTO e ITEM_VENDA é de 1:N, pois um produto pode aparecer em diferentes vendas, enquanto cada item de venda se refere a um produto.
+
+A relação entre PRODUTO e MOVIMENTACAO_ESTOQUE é de 1:N, pois um produto pode possuir várias movimentações de estoque, enquanto cada movimentação está associada a um produto.
+
+As entidades ITEM_ENTRADA e ITEM_VENDA também funcionam como estruturas associativas, permitindo representar a participação de vários produtos nas operações de entrada e venda.
+
+### Generalização e Especialização
+
+O modelo conceitual não apresenta relacionamentos de generalização ou especialização. Portanto, não foi necessária a aplicação de estratégias de conversão desse tipo para o modelo lógico.
+
+## 10.2 Definição de Chaves Primárias e Estrangeiras
+
+O banco de dados do **Sistema de Estoque e Vendas do Mercado Santana** possui oito tabelas relacionadas por chaves primárias (PK) e estrangeiras (FK), garantindo a identificação dos registros e a integridade dos relacionamentos.
+
+| Tabela | Chave Primária (PK) | Chaves Estrangeiras (FK) |
+|---|---|---|
+| CATEGORIA | `id_categoria` | — |
+| PRODUTO | `id_produto` | `id_categoria` |
+| FORNECEDOR | `id_fornecedor` | — |
+| ENTRADA | `id_entrada` | `id_fornecedor` |
+| ITEM_ENTRADA | `id_item_entrada` | `id_entrada`, `id_produto` |
+| VENDA | `id_venda` | — |
+| ITEM_VENDA | `id_item_venda` | `id_venda`, `id_produto` |
+| MOVIMENTACAO_ESTOQUE | `id_movimentacao_estoque` | `id_produto`, `id_item_entrada`, `id_item_venda` |
+
+As chaves primárias identificam cada registro de forma única, enquanto as chaves estrangeiras estabelecem os relacionamentos entre as tabelas.
+
+## 10.3 Processo de Normalização (1FN, 2FN e 3FN)
+
+A normalização do banco de dados foi considerada até a **Terceira Forma Normal (3FN)**, com o objetivo de organizar as informações, reduzir redundâncias e evitar inconsistências nos registros.
+
+### Primeira Forma Normal (1FN)
+
+A Primeira Forma Normal elimina grupos repetitivos e atributos multivalorados, garantindo que cada campo armazene uma informação individual.
+
+No projeto, as tabelas ITEM_VENDA e ITEM_ENTRADA permitem registrar individualmente os produtos de cada operação. Dessa forma, uma venda ou entrada pode possuir vários produtos sem que eles precisem ser armazenados juntos em um único campo.
+
+### Segunda Forma Normal (2FN)
+
+A Segunda Forma Normal elimina dependências parciais, garantindo que os atributos não-chave dependam integralmente da chave primária.
+
+No modelo lógico, as tabelas utilizam chaves primárias individuais, como `id_produto`, `id_venda` e `id_item_venda`. Essa estrutura evita dependências parciais em relação às chaves primárias, que não são compostas.
+
+### Terceira Forma Normal (3FN)
+
+A Terceira Forma Normal elimina dependências transitivas, evitando que atributos não-chave dependam de outros atributos não-chave.
+
+No projeto, as informações foram separadas em tabelas específicas. Por exemplo, os dados das categorias ficam armazenados em CATEGORIA, enquanto PRODUTO utiliza `id_categoria` para estabelecer o relacionamento.
+
+Da mesma forma, os dados cadastrais dos fornecedores ficam armazenados em FORNECEDOR, enquanto ENTRADA utiliza `id_fornecedor` para identificar o fornecedor relacionado.
+
+Essa separação evita a repetição de informações cadastrais em diferentes registros.
+
+### Justificativa do Processo de Normalização
+
+A 1FN foi necessária para organizar individualmente os produtos registrados nas entradas e vendas.
+
+A 2FN contribuiu para garantir que os atributos dependessem integralmente das respectivas chaves primárias.
+
+A 3FN permitiu separar informações cadastrais e operacionais, evitando a repetição desnecessária de dados de categorias e fornecedores.
+
+Dessa forma, a normalização contribui para manter o banco de dados organizado, reduzir inconsistências e facilitar a manutenção das informações.
+
+## 10.4 Justificativas Técnicas das Decisões
+
+### Escolha das Chaves Primárias (PKs)
+
+Foram utilizadas chaves primárias numéricas e individuais em todas as tabelas, como `id_produto`, `id_venda`, `id_fornecedor` e `id_categoria`.
+
+Essa escolha permite identificar cada registro de maneira única, facilita a criação dos relacionamentos e evita depender de informações que podem sofrer alterações, como nomes de produtos ou fornecedores.
+
+### Escolha das Chaves Estrangeiras (FKs)
+
+As chaves estrangeiras foram utilizadas para estabelecer os relacionamentos entre as tabelas e manter a integridade referencial dos dados.
+
+Os principais relacionamentos implementados são:
+
+- CATEGORIA → PRODUTO: uma categoria pode possuir vários produtos.
+- FORNECEDOR → ENTRADA: um fornecedor pode estar associado a várias entradas.
+- ENTRADA → ITEM_ENTRADA: uma entrada pode conter vários itens.
+- PRODUTO → ITEM_ENTRADA: um produto pode aparecer em diferentes entradas.
+- VENDA → ITEM_VENDA: uma venda pode conter vários itens.
+- PRODUTO → ITEM_VENDA: um produto pode aparecer em diferentes vendas.
+- PRODUTO → MOVIMENTACAO_ESTOQUE: um produto pode possuir diversas movimentações.
+
+A tabela MOVIMENTACAO_ESTOQUE também possui referências aos itens de entrada e venda, permitindo relacionar as movimentações às operações correspondentes.
+
+### Justificativa das Restrições
+
+As restrições são importantes para garantir a integridade e a consistência das informações armazenadas no banco de dados.
+
+PRIMARY KEY identifica cada registro de forma única.
+
+FOREIGN KEY garante que os relacionamentos entre as tabelas respeitem a integridade referencial.
+
+NOT NULL impede a ausência de informações nos campos definidos como obrigatórios.
+
+AUTO_INCREMENT permite gerar identificadores numéricos automaticamente, quando configurado.
+
+UNIQUE impede valores duplicados nos campos em que essa restrição for aplicada.
+
+As restrições de valores permitem controlar as informações aceitas em determinados campos, conforme as regras estabelecidas para o sistema.
+
+**Relação com as regras de negócio (RNxx):** os diagramas não apresentam os códigos das regras de negócio nem detalham quais restrições foram efetivamente implementadas no script SQL. Por isso, a associação de cada restrição a um código RN específico depende da documentação de requisitos do projeto.
+
+### Justificativa das Decisões Arquiteturais
+
+O banco de dados foi desenvolvido considerando a utilização do MySQL, com uma estrutura organizada em oito tabelas para separar as informações cadastrais das operações de entrada, venda e movimentação de estoque.
+
+As tabelas ITEM_VENDA e ITEM_ENTRADA permitem registrar vários produtos em uma mesma operação, mantendo os dados de cada item individualizados.
+
+A tabela MOVIMENTACAO_ESTOQUE permite registrar as alterações relacionadas aos produtos, incluindo informações sobre o tipo, quantidade, data, hora e motivo da movimentação.
+
+A separação entre CATEGORIA, PRODUTO e FORNECEDOR também facilita o gerenciamento dos dados cadastrais, evitando repetições desnecessárias.
+
+Essas decisões foram adotadas para facilitar a organização, a manutenção, as consultas e a integridade das informações.
 
 
-## 10. Modelo Lógico
+## 11. Modelo Lógico
 
-### 10.1 Modelo lógico
+### 11.1 Modelo lógico
 
 O modelo lógico representa a estrutura do banco de dados do Sistema de Estoque e Vendas do Mercado Santana, transformando o modelo conceitual em tabelas relacionadas entre si.
 
@@ -486,7 +672,7 @@ Sua finalidade é organizar os dados necessários para o funcionamento do sistem
 
 O modelo é composto por oito tabelas principais: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque.
 
-### 10.2 Estrutura das tabelas e atributos
+### 11.2 Estrutura das tabelas e atributos
 
 Cada tabela possui atributos responsáveis por armazenar as informações correspondentes às operações do mercado.
 
@@ -555,7 +741,7 @@ Cada tabela possui atributos responsáveis por armazenar as informações corres
 - id_item_venda — INT, chave estrangeira (FK), relacionada à tabela Item_Venda.
 - id_item_entrada — INT, chave estrangeira (FK), relacionada à tabela Item_Entrada.
 
-### 10.3 Relacionamentos entre as tabelas
+### 11.3 Relacionamentos entre as tabelas
 
 Os relacionamentos entre as tabelas são estabelecidos por meio das chaves estrangeiras, permitindo a integração das informações armazenadas no banco de dados.
 
@@ -569,7 +755,7 @@ Os relacionamentos entre as tabelas são estabelecidos por meio das chaves estra
 - **Item_Entrada — Movimentacao_Estoque:** permite relacionar as movimentações de estoque aos itens de entrada.
 - **Item_Venda — Movimentacao_Estoque:** permite relacionar as movimentações de estoque aos itens vendidos.
 
-### 10.4 Restrições e integridade dos dados
+### 11.4 Restrições e integridade dos dados
 
 Para garantir a organização e a consistência das informações armazenadas no banco de dados, são estabelecidas as seguintes restrições:
 
@@ -584,28 +770,28 @@ Para garantir a organização e a consistência das informações armazenadas no
 - Os registros de vendas e movimentações de estoque devem ser mantidos para preservar o histórico das operações.
 - Os dados de entrada devem permitir a identificação do fornecedor, da nota fiscal e dos produtos recebidos.
 
-### 10.5 Arquivo do modelo lógico
+### 11.5 Arquivo do modelo lógico
 
 O diagrama completo do modelo lógico está disponível no arquivo desenvolvido utilizando a ferramenta brModelo.
 
 [Visualizar Modelo Lógico (PDF)](Logic_model.pdf)
 
-### 10.6 Ferramenta utilizada
+### 11.6 Ferramenta utilizada
 
 O modelo lógico foi desenvolvido utilizando o software brModelo, que permite representar a estrutura das tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos.
 
-## 11. Script SQL Completo
+## 12. Script SQL Completo
 
 
 A implementação do banco de dados do **Mercado Santana** foi desenvolvida utilizando o SGBD **MySQL**, com base no modelo lógico do projeto.
 
 O script reúne as instruções necessárias para criar e estruturar o banco de dados, inserir dados fictícios e realizar operações de consulta, atualização, exclusão e auditoria.
 
-### 11.1 Acesso ao Script
+### 12.1 Acesso ao Script
 
 📂 **[Acessar o Script SQL Completo](docs/script.sql)**
 
-### 11.2 Estrutura do Script
+### 12.2 Estrutura do Script
 
 | Etapa | Comandos SQL | Finalidade |
 |---|---|---|
@@ -619,7 +805,7 @@ O script reúne as instruções necessárias para criar e estruturar o banco de 
 | 8 | Consultas gerenciais (`G01` a `G12`) | Apoiar a análise de vendas, estoque, fornecedores e movimentações. |
 | 9 | Consultas de auditoria (`A01` a `A08`) | Verificar a consistência dos dados e o cumprimento das regras de negócio. |
 
-### 11.3 Consultas Gerenciais
+### 12.3 Consultas Gerenciais
 
 As consultas gerenciais foram elaboradas para apoiar a tomada de decisões no Mercado Santana e responder aos problemas identificados:
 
@@ -629,7 +815,7 @@ As consultas gerenciais foram elaboradas para apoiar a tomada de decisões no Me
 
 As consultas estão identificadas pelos códigos `G01` a `G12`, acompanhados de comentários explicativos.
 
-### 11.4 Consultas de Auditoria
+### 12.4 Consultas de Auditoria
 
 As consultas de auditoria, identificadas pelos códigos `A01` a `A08`, foram desenvolvidas para verificar a integridade dos registros e identificar possíveis inconsistências.
 
@@ -643,34 +829,34 @@ Entre as verificações estão:
 
 Cada auditoria possui referência às regras de negócio relacionadas.
 
-### 11.5 Execução
+### 12.5 Execução
 
 O arquivo `script.sql` deve ser executado no MySQL, preferencialmente em um banco de dados vazio, respeitando a sequência das instruções.
 
 Os exemplos de `UPDATE` e `DELETE` utilizam transações e `ROLLBACK` para demonstrar as operações sem manter alterações permanentes nos dados de teste.
 
-## 12. Justificativa Técnica
+## 13. Justificativa Técnica
 
-### 12.1 Justificativas Técnicas da Modelagem — Mercado Santana : 
+### 13.1 Justificativas Técnicas da Modelagem — Mercado Santana : 
 O banco de dados foi estruturado com as entidades **Categoria**, **Produto**, **Fornecedor**, **Entrada**, **Item_Entrada**, **Venda**, **Item_Venda** e **Movimentacao_Estoque**. 
 
 As chaves estrangeiras (**FK**) foram integralmente definidas com o tipo `INT` para otimizar os relacionamentos e indexações. Para os atributos numéricos e financeiros, a escolha dos tipos de dados seguiu critérios rigorosos de precisão e integridade, conforme detalhado abaixo:
 
-### 12.2 Movimentacao_Estoque
+### 13.2 Movimentacao_Estoque
 Responsável pelo controle centralizado de entradas, saídas, saldos e custos operacionais. Esta entidade consolida o histórico de fluxo de mercadorias, permitindo auditorias de estoque e cálculos de giro em tempo real.
 
-### 12.3 Item_Entrada e Item_Venda
+### 13.3 Item_Entrada e Item_Venda
 Representam as tabelas associativas (N:N) que quebram o relacionamento multinível entre produtos e as operações de compra/venda. Elas isolam o preço histórico praticado no momento exato da transação, blindando o histórico financeiro contra alterações futuras no preço do cadastro do produto.
 
-### 12.4 Tipos de Dados: DECIMAL vs FLOAT
+### 13.4 Tipos de Dados: DECIMAL vs FLOAT
 **DECIMAL (Valores Financeiros):** Para valores monetários (como preço unitário, subtotal e descontos), utilizou-se o tipo `DECIMAL(10,2)`. A escolha evita os problemas crônicos de arredondamento e perda de precisão computacional inerentes ao tipo `FLOAT`.
 **FLOAT (Quantidades Fracionadas):** O tipo `FLOAT` foi aplicado estritamente a campos de quantidade de itens que permitem frações (ex: produtos vendidos por quilo ou litro, como panificação e hortifrúti).
 
-### 12.5 Chaves Estrangeiras (FK) do Tipo INT
+### 13.5 Chaves Estrangeiras (FK) do Tipo INT
 Definidas nativamente como inteiros para garantir alta performance nas operações de `JOIN`. A tipagem estrita assegura a **integridade referencial** por meio de restrições (`FOREIGN KEY`), impedindo a criação de registros órfãos e garantindo a consistência dos dados em cascata.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 13. Coerência DER vs. Modelo Lógico:
+## 14. Coerência DER vs. Modelo Lógico:
 **O mapeamento das tabelas funcionou?**
 Sim! Nos relacionamentos "refere-se" e "possui", o mapeamento funcionou perfeitamente. O relacionamento "refere-se" serve para ligar as tabelas `Produto`, `Item_Entrada` e `Item_Venda` através de chaves estrangeiras (`FK`), identificando pelo ID qual mercadoria está sendo movimentada. Já o relacionamento "possui" liga a tabela `Venda` com a tabela `Item_Venda`, identificando exatamente em qual cupom fiscal aquela compra foi registrada, não deixando nenhuma informação solta no sistema do mercado.
 
@@ -681,7 +867,7 @@ No código, a tabela produto se liga à entidade pai por meio da coluna id_categ
  Na transposição do modelo conceitual para o lógico, foram criadas corretamente as tabelas intermediárias item_venda e item_entrada. Elas funcionam unindo as chaves estrangeiras (id_produto com id_venda ou id_entrada) para registrar os dados de cada movimentação, como no caso do cupom ou nota fiscal, mapeando atributos específicos como quantidade, preco_unitario e subtotal.
  
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 14. Decisões de Engenharia de Dados: 
+## 15. Decisões de Engenharia de Dados: 
  **1. Escolha da Tipagem para Valores Monetários (DECIMAL vs FLOAT):**
 Utilizamos o tipo **`FLOAT`** em campos como `preco_venda` e `valor_total` em vez do tipo `DECIMAL`. Não usamos ambos porque o progrma ´BRMODELO´ não disponilibiza essa função, então optamos por usar o FLOAT. Essa decisão garante que atributos como `custo_unitario`, `preco_unitario` e os resultados de valores totais como `subtotal` fiquem com os valores exatos, sem erros de arredondamento no fechamento do caixa do mercado.
 
@@ -699,7 +885,7 @@ A estrutura das tabelas Item_Entrada e Item_Venda permite estabelecer relacionam
 Essa restrição impede que seja registrado um item de venda com um id_produto inexistente na tabela Produto, garantindo a integridade referencial. Além disso, o mecanismo de armazenamento ENGINE=InnoDB, em conjunto com as chaves estrangeiras, ajuda a preservar a consistência dos dados e a integridade do histórico de vendas e das notas fiscais de entrada.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 15. Seção de BI & IA: 
+## 16. Seção de BI & IA: 
 **Informações comparativas entre a pesquisa de campo e a massa sintética de teste**
 
 | Informação | Pesquisa de campo | Massa sintética de teste |
@@ -776,7 +962,7 @@ WHERE quantidade_estoque<=estoque_minimo
 ORDER BY quantidade_estoque ASC, nome;
 ```
 
-## 16. Uso de Inteligência Artificial
+## 17. Uso de Inteligência Artificial
 ### Registro 1 — Pesquisa de campo, levantamento de requisitos e implementação SQL
 
 | Item | Registro |
@@ -848,15 +1034,15 @@ Durante o desenvolvimento do trabalho, foi utilizado o  **ChatGPT como ferrament
 
 ---
 
-###  Uso 4 — Modelagem Lógica 
+## Uso 4 — Conversão do Modelo Conceitual para o Modelo Lógico e Documentação do Modelo Lógico
 
-| Item | Registro |
+| Etapa | Descrição |
 | :--- | :--- |
-| **Ferramenta e etapa** | ChatGPT — Etapa de elaboração e documentação do modelo lógico do banco de dados. |
-| **Motivação** | Auxiliar na organização das tabelas, descrição dos atributos, identificação das chaves primárias (PK), chaves estrangeiras (FK) e relacionamentos entre as entidades. |
-| **Prompt(s) utilizados** | "Com base no modelo lógico enviado em PDF e na estrutura do modelo conceitual, organize a documentação do modelo lógico, apresentando as tabelas, seus atributos, tipos de dados, chaves primárias, chaves estrangeiras e relacionamentos." |
-| **Resposta recebida** | A IA organizou a documentação das oito entidades do banco de dados: Categoria, Produto, Fornecedor, Entrada, Item_Entrada, Venda, Item_Venda e Movimentacao_Estoque, descrevendo seus atributos, tipos de dados e relacionamentos. |
-| **Fontes consultadas e verificadas** | Arquivo Modelo Lógico – BRMW.pdf e documentação do modelo conceitual do Mercado Santana. |
-| **Trechos rejeitados/corrigidos** | Foram revisadas as descrições dos atributos e dos relacionamentos para manter correspondência com o diagrama lógico elaborado no brModelo. |
-| **Justificativa da escolha final** | A documentação foi organizada com base no diagrama desenvolvido pelo grupo, facilitando a compreensão da estrutura do banco de dados e de suas relações. |
-| **Reflexão crítica** | A Inteligência Artificial foi utilizada como ferramenta de apoio à organização e documentação técnica. As informações geradas foram conferidas com o diagrama original, cabendo ao grupo validar os atributos, tipos de dados e relacionamentos apresentados. |
+| **Ferramenta e etapa** | ChatGPT — Etapa de conversão do modelo conceitual para o modelo lógico e elaboração da documentação técnica do banco de dados. |
+| **Motivação** | Auxiliar na conversão das entidades em tabelas, dos atributos em colunas e dos relacionamentos em chaves estrangeiras, além da organização das chaves primárias (PK), chaves estrangeiras (FK), cardinalidades, normalização e justificativas técnicas. |
+| **Prompt(s) utilizados** | "Com base no modelo conceitual e no modelo lógico do Sistema de Estoque e Vendas do Mercado Santana, organize a documentação da conversão entre os modelos, apresentando as tabelas, os atributos, os relacionamentos, as cardinalidades, as chaves primárias e estrangeiras, o processo de normalização (1FN, 2FN e 3FN) e as justificativas técnicas das decisões adotadas." |
+| **Resposta recebida** | A IA auxiliou na organização da documentação das oito tabelas do banco de dados: CATEGORIA, PRODUTO, FORNECEDOR, ENTRADA, ITEM_ENTRADA, VENDA, ITEM_VENDA e MOVIMENTACAO_ESTOQUE. Também foram descritas a conversão das entidades e dos atributos, os relacionamentos, as cardinalidades, as chaves primárias e estrangeiras, o processo de normalização e as justificativas técnicas das decisões adotadas. |
+| **Fontes consultadas e verificadas** | Modelo Conceitual do Mercado Santana, arquivo Modelo Lógico – BRMW.pdf e documentação do banco de dados desenvolvida pelo grupo. |
+| **Trechos rejeitados/corrigidos** | Foram revisadas as descrições das entidades, atributos, relacionamentos e chaves para manter correspondência com os diagramas desenvolvidos pelo grupo. Também foram ajustadas a organização e a numeração das seções da documentação. |
+| **Justificativa da escolha final** | A documentação foi organizada com base nos modelos desenvolvidos pelo grupo, reunindo as informações necessárias para compreender a conversão do modelo conceitual, a estrutura do modelo lógico e as decisões adotadas na construção do banco de dados. |
+| **Reflexão crítica** | A Inteligência Artificial foi utilizada como ferramenta de apoio à organização e documentação técnica. As informações geradas foram conferidas com os modelos do projeto, cabendo ao grupo validar as tabelas, os atributos, os tipos de dados, as chaves e os relacionamentos apresentados. |
