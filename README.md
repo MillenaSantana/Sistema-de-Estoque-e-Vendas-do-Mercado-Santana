@@ -777,18 +777,19 @@ ORDER BY quantidade_estoque ASC, nome;
 ```
 
 ## 16. Uso de Inteligência Artificial
-### Uso —  Caracterização da Organização
+### Registro 1 — Pesquisa de campo, levantamento de requisitos e implementação SQL
 
 | Item | Registro |
 |---|---|
-| **Ferramenta e etapa** | **Gemini/Chatpgt** — Apoio à análise técnica e à documentação de BI & IA do Mercado Santana. |
-|  **Motivação** | Compreender a lógica dos códigos desenvolvidos, analisar a estrutura do banco de dados e verificar a coerência entre a implementação e as propostas de BI & IA. |
-| **Prompt(s) utilizados** | "Quero entender melhor a lógica e os detalhes da sua parte, pois vou analisar os códigos. A parte de BI & IA não significa apenas que está tudo concluído. É necessário que os seus códigos estejam de acordo com a proposta de BI & IA e que essa integração seja demonstrada na documentação do meu README." |
-| **Resposta recebida** | A IA sugeriu indicadores gerenciais, como Ticket Médio, Giro de Estoque e Margem de Lucro. Entretanto, apresentou uma estrutura baseada na utilização de ferramentas comerciais específicas de visualização e análise de dados.|
-| **Fontes consultadas e verificadas** | README do projeto, documentação uso_de_ia.md, códigos SQL e informações levantadas na pesquisa de campo. |
-| **Trechos rejeitados ou corrigidos** | Foram retiradas referências a ferramentas comerciais que não faziam parte do desenvolvimento. Também foram ajustadas propostas que não correspondiam às funcionalidades efetivamente implementadas. |
-| **Justificativa da escolha final** | A documentação foi adaptada à realidade do projeto, priorizando os recursos utilizados, as consultas SQL, os indicadores gerenciais e as possibilidades futuras de aplicação de BI e IA.|
-| **Reflexão crítica** | A Inteligência Artificial foi utilizada como recurso complementar ao desenvolvimento. As análises, verificações, correções e decisões técnicas foram realizadas mediante avaliação humana, com responsabilidade sobre o conteúdo final apresentado. |
+| **Ferramenta e etapa** | **ChatGPT (OpenAI)** — Apoio à organização da pesquisa de campo, levantamento de requisitos, estruturação do script SQL e elaboração das operações `UPDATE` e `DELETE` do Mercado Santana. |
+| **Motivação** | Organizar as informações levantadas sobre o funcionamento do estabelecimento, compreender os problemas relacionados ao controle de estoque e vendas e relacioná-los aos requisitos do sistema. Além disso, aprofundar meus conhecimentos sobre SQL e desenvolver operações de atualização e exclusão de registros de maneira segura. |
+| **Prompt(s) utilizados** | "Como relacionar os problemas identificados no Mercado Santana com os requisitos e regras de negócio?" / "Como organizar o script SQL conforme as exigências do professor?" / "Como utilizar UPDATE e DELETE nas tabelas do Mercado Santana?" / "Como utilizar transações e ROLLBACK para demonstrar alterações sem modificar permanentemente os dados?" |
+| **Resposta recebida** | A IA auxiliou na organização dos problemas identificados na pesquisa de campo, na relação entre requisitos e regras de negócio e na estruturação das etapas do script SQL. Também apresentou explicações e exemplos sobre os comandos `UPDATE`, `DELETE`, `START TRANSACTION` e `ROLLBACK`, contribuindo para compreender suas aplicações no banco de dados. |
+| **Fontes consultadas e verificadas** | Pesquisa de campo, relato de entrevista, orientações do professor, regras de negócio RN01 a RN13, modelos do banco de dados e arquivos SQL desenvolvidos pelo grupo. |
+| **Trechos rejeitados ou corrigidos** | Foram revisadas sugestões genéricas que não correspondiam à realidade do estabelecimento ou à estrutura implementada. Os exemplos SQL também foram adaptados aos nomes das tabelas, aos relacionamentos existentes e à necessidade de preservar a integridade dos dados. |
+| **Justificativa da escolha final** | As informações da pesquisa foram organizadas com base nas necessidades reais do Mercado Santana. Na implementação SQL, foram priorizados comandos compatíveis com o modelo lógico e operações controladas por transações, permitindo demonstrar atualizações e exclusões sem manter alterações permanentes nos dados de teste. |
+| **Reflexão crítica** | A utilização da inteligência artificial contribuiu para minha compreensão dos problemas do estabelecimento e de como transformá-los em requisitos para um sistema. Também facilitou o aprendizado dos comandos SQL, especialmente `UPDATE` e `DELETE`. Entretanto, compreendi que as respostas geradas precisam ser analisadas e adaptadas à realidade do projeto, mantendo a responsabilidade humana sobre as decisões e o resultado final. |
+
 ### Uso 2 — Processo de Negócio
 
 | Item | O que registrar |
