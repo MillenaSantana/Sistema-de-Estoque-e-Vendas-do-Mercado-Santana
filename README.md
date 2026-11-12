@@ -131,7 +131,7 @@ Antes de vender um item, o responsável verifica se o produto já está cadastra
 
 Quando um produto vencido ou danificado é identificado, o funcionário o separa e o retira da área de venda para impedir sua comercialização. O motivo da perda é classificado como vencimento ou dano, e são registrados o produto, a quantidade, a data e a justificativa. Se houver possibilidade de devolução, o responsável solicita a devolução ao fornecedor e guarda o comprovante; caso contrário, o item é descartado de forma adequada. Ao final, o sistema registra a saída por perda, atualiza o estoque e mantém o histórico para acompanhamento do responsável.
 
-### 3.9 Fechamento de Caixa**
+### 3.9 Fechamento de Caixa
 
 Ao encerrar o expediente, o funcionário interrompe novas vendas e consulta as vendas registradas e as respectivas formas de pagamento. Em seguida, conta o dinheiro e confere os comprovantes de cartões e pagamentos via Pix. Os valores são comparados com o total apresentado pelo sistema. Se houver diferença, as vendas, os comprovantes e a contagem são revisados; persistindo a divergência, o valor e a justificativa são registrados. Se os valores estiverem corretos, o fechamento é confirmado. Em ambos os casos, o relatório e o registro do caixa são armazenados para consulta posterior.
 
