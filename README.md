@@ -9,11 +9,11 @@
 | Yasmin Helena Marinho Pinda | 47740981 | [@yasminpinda](https://github.com/yasminpinda) |
 
 
-## 🎬 Apresentação do Projeto
+## Apresentação do Projeto
 
 Confira o vídeo de apresentação do **Sistema de Estoque e Vendas do Mercado Santana (SEVMS)**, demonstrando os objetivos, a estrutura e o funcionamento do projeto.
 
-[![Assistir à apresentação](https://img.shields.io/badge/▶_Assistir_Apresentação-YouTube-red?style=for-the-badge&logo=youtube)](https://youtu.be/HaMnXhAc7Zw)
+[Assistir à apresentação](https://youtu.be/HaMnXhAc7Zw)
 
 ## 1. Caracterização da Organização
 
